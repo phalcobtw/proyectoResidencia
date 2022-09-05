@@ -1,0 +1,25 @@
+
+.logosep{
+    height: 85px;
+    width: 150px;
+    margin-bottom: 2px;
+}
+.divlogo{
+    padding-left: 140px;
+}
+.divheader{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+.titulo{
+    padding-left: 15%;
+    font-size: 45px;
+}
+.spantitulo{
+    margin-top: 10px;
+}
+

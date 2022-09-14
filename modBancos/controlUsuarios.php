@@ -75,15 +75,18 @@ include "../bd_conn.php";
         </li>
         <li><a href="../seleccionModulos.html" class="menulinks">Salir</a></li>
     </ul>
-    <nav class="navbar navbar-light justify-content-center fs-3 mb-2">
+    <br>
+    <br>
+    <br>
+    <nav class="nav navbar-light justify-content-center fs-3">
         Control de Usuarios
     </nav>
     <div class="container">
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">NOMBRE</th>
                     <th scope="col">USUARIO</th>
+                    <th scope="col">NOMBRE</th>
                 </tr>
             </thead>
             <tbody>
@@ -94,8 +97,8 @@ include "../bd_conn.php";
                 while ($row = mysqli_fetch_array($result)) {
                     echo '
                     <tr>
-                        <td>'. $row["nombre"] .'</td>
                         <td>'. $row["nombreusuario"] .'</td>
+                        <td>'. $row["nombre"] .'</td>
                     </tr>
                     ';   
                 }

@@ -8,10 +8,10 @@ if (isset($_POST['submit'])) {
 
     $sqlins = "INSERT INTO `usuarios`
     (`id`, `nombre`, `nombreusuario`, `password`) VALUES (NULL,'$nombre','$nombreusuario','$contra')";
-    $result = mysqli_query($conn,$sqlins);
+    $result = mysqli_query($conn, $sqlins);
 
     if ($result) {
-        header("location: controlUsuarios.php");
+        header("location: controlUsuarios.php?msg=Usuario Registrado con éxito.");
     }
 }
 ?>
@@ -93,11 +93,22 @@ if (isset($_POST['submit'])) {
         Control de Usuarios
     </nav>
     <div class="container">
+        <?php
+        if (isset($_GET['msg'])) {
+            $msg = $_GET['msg'];
+            echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            '.$msg.'
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+        }
+        ?>
         <table class="table">
             <thead>
                 <tr>
+                    <th scope="col">ID</th>
                     <th scope="col">USUARIO</th>
                     <th scope="col">NOMBRE</th>
+                    <th scope="col">ACCIONES</th>
                 </tr>
             </thead>
             <tbody>
@@ -108,8 +119,11 @@ if (isset($_POST['submit'])) {
                 while ($row = mysqli_fetch_array($result)) {
                     echo '
                     <tr>
+                        <td>' . $row["id"] . '</td>
                         <td>' . $row["nombreusuario"] . '</td>
                         <td>' . $row["nombre"] . '</td>
+                        <td><a href="editarUsuario.php?id=' . $row["id"] . '" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
+                        <td><a href="eliminarUsuario.php?id=' . $row["id"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
                     </tr>
                     ';
                 }
@@ -123,20 +137,20 @@ if (isset($_POST['submit'])) {
         <div class="text-center mb-4 fs-4">Agregar Nuevo Usuario</div>
         <div class="container d-flex justify-content-center">
             <form action="" method="post" style="width:50vw; min-width:300px;">
-            <div class="col">
-                <label class="form-label">Nombre:</label>
-                <input type="text" class="form-control" name="nombre">
-            </div>
-            <div class="col">
-                <label class="form-label">Nombre de Usuario:</label>
-                <input type="text" class="form-control" name="nombreusuario">
-            </div>
-            <div class="col">
-                <label class="form-label">Contraseña:</label>
-                <input type="password" class="form-control" name="password">
-            </div>
-            <br>
-            <button type="submit" class="btn btn-success" name="submit">Guardar</button>
+                <div class="col">
+                    <label class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" name="nombre">
+                </div>
+                <div class="col">
+                    <label class="form-label">Nombre de Usuario:</label>
+                    <input type="text" class="form-control" name="nombreusuario">
+                </div>
+                <div class="col">
+                    <label class="form-label">Contraseña:</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-success" name="submit">Guardar</button>
             </form>
         </div>
     </div>

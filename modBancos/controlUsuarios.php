@@ -28,6 +28,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="../css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -86,10 +87,7 @@ if (isset($_POST['submit'])) {
         </li>
         <li><a href="../seleccionModulos.html" class="menulinks">Salir</a></li>
     </ul>
-    <br>
-    <br>
-    <br>
-    <nav class="nav navbar-light justify-content-center fs-3">
+    <nav class="navbar navbar-light justify-content-center fs-3 mb-5">
         Control de Usuarios
     </nav>
     <div class="container">
@@ -108,7 +106,8 @@ if (isset($_POST['submit'])) {
                     <th scope="col">ID</th>
                     <th scope="col">USUARIO</th>
                     <th scope="col">NOMBRE</th>
-                    <th scope="col">ACCIONES</th>
+                    <th scope="col">EDITAR</th>
+                    <th scope="col">ELIMINAR</th>
                 </tr>
             </thead>
             <tbody>
@@ -131,9 +130,7 @@ if (isset($_POST['submit'])) {
             </tbody>
         </table>
     </div>
-    <div class="container">
-        <br>
-        <br>
+    <div class="container" style="margin-bottom: 35px;">
         <div class="text-center mb-4 fs-4">Agregar Nuevo Usuario</div>
         <div class="container d-flex justify-content-center">
             <form action="" method="post" style="width:50vw; min-width:300px;">
@@ -150,7 +147,7 @@ if (isset($_POST['submit'])) {
                     <input type="password" class="form-control" name="password">
                 </div>
                 <br>
-                <button type="submit" class="btn btn-success" name="submit">Guardar</button>
+                <button type="submit" class="btn btn-success" name="submit" style="margin-bottom: 30px;">Guardar</button>
             </form>
         </div>
     </div>

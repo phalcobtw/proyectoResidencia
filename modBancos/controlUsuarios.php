@@ -1,6 +1,19 @@
 <?php
 include "../bd_conn.php";
 
+if (isset($_POST['submit'])) {
+    $nombre = $_POST['nombre'];
+    $nombreusuario = $_POST['nombreusuario'];
+    $contra = $_POST['password'];
+
+    $sqlins = "INSERT INTO `usuarios`
+    (`id`, `nombre`, `nombreusuario`, `password`) VALUES (NULL,'$nombre','$nombreusuario','$contra')";
+    $result = mysqli_query($conn,$sqlins);
+
+    if ($result) {
+        header("location: controlUsuarios.php");
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,10 +26,8 @@ include "../bd_conn.php";
     <title>CONTRED- SIATEC</title>
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon.png">
     <link rel="stylesheet" href="../css/styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
-    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -91,21 +102,43 @@ include "../bd_conn.php";
             </thead>
             <tbody>
                 <?php
-                
+
                 $sql = "SELECT * FROM usuarios";
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_array($result)) {
                     echo '
                     <tr>
-                        <td>'. $row["nombreusuario"] .'</td>
-                        <td>'. $row["nombre"] .'</td>
+                        <td>' . $row["nombreusuario"] . '</td>
+                        <td>' . $row["nombre"] . '</td>
                     </tr>
-                    ';   
+                    ';
                 }
                 ?>
             </tbody>
         </table>
-        <a href=""></a>
+    </div>
+    <div class="container">
+        <br>
+        <br>
+        <div class="text-center mb-4 fs-4">Agregar Nuevo Usuario</div>
+        <div class="container d-flex justify-content-center">
+            <form action="" method="post" style="width:50vw; min-width:300px;">
+            <div class="col">
+                <label class="form-label">Nombre:</label>
+                <input type="text" class="form-control" name="nombre">
+            </div>
+            <div class="col">
+                <label class="form-label">Nombre de Usuario:</label>
+                <input type="text" class="form-control" name="nombreusuario">
+            </div>
+            <div class="col">
+                <label class="form-label">Contraseña:</label>
+                <input type="password" class="form-control" name="password">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success" name="submit">Guardar</button>
+            </form>
+        </div>
     </div>
 </body>
 

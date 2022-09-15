@@ -37,6 +37,7 @@ font-weight: 500;
 padding: 10px 5%;
 display: grid;
 position: relative;
+z-index: 1;
 }
 .menu{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -44,6 +45,7 @@ position: relative;
     display: flex;
     background-color: rgb(50, 88, 145);
     justify-content: center;
+    z-index: 1;
 }
 .menu li:hover{
     background-color: rgb(235, 235, 235);
@@ -51,12 +53,13 @@ position: relative;
 .menu > li{
     float: left;
     justify-content: space-around;
-    
+    z-index: 1;
 }
 .menu li ul{
     display: none;
     position: absolute;
     min-width: 140px;
+    z-index: 1;
 }
 .menu li:hover > ul {
     display: block;
@@ -75,6 +78,7 @@ position: relative;
     background-color: rgb(50, 88, 145);
     padding-left: 0;
     display: flex;
+    z-index: 1;
 }
 body{
     margin: 0px;

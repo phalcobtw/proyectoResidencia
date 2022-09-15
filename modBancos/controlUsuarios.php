@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
         </li>
         <li>Depositos
             <ul class="dropdownmenu">
-                <li><a href="" class="menulinks">Dep&oacute;sitos Bancarios </a></li>
+                <li><a href="depositos.php" class="menulinks">Dep&oacute;sitos Bancarios </a></li>
             </ul>
         </li>
         <li>Traspasos

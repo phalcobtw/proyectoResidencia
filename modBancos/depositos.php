@@ -1,21 +1,3 @@
-<?php
-include "../bd_conn.php";
-$id = $_GET['id'];
-if (isset($_POST['submit'])) {
-    $nombre = $_POST['nombre'];
-    $nombreusuario = $_POST['nombreusuario'];
-    $contra = $_POST['password'];
-
-    $sqlins = "UPDATE `usuarios` 
-    SET `id`='$id',`nombre`='$nombre',`nombreusuario`='$nombreusuario',`password`='$contra' WHERE id=$id";
-    $result = mysqli_query($conn, $sqlins);
-
-    if ($result) {
-        header("location: controlUsuarios.php?msg=Usuario Actualizado con éxito.");
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,12 +5,11 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONTRED- SIATEC</title>
+    <title>SISBAN- SIATEC</title>
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon.png">
     <link rel="stylesheet" href="../css/styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
@@ -39,13 +20,14 @@ if (isset($_POST['submit'])) {
                 <b class="titulo">SISBAN</b>
             </div>
         </div>
-        <!-- todo el menu -->
     </header>
+    <!-- todo el menu -->
     <ul class="menu">
         <li>Cheques
             <ul class="dropdownmenu">
                 <li><a href="" class="menulinks">Emisi&oacute;n de Cheques en Espera</a></li>
-                <li><a href="" class="menulinks"> Emisi&oacute;n de Cheques Especiales</a></li>
+                <li><a href="emisionChequesEspecial.php" class="menulinks"> Emisi&oacute;n de Cheques Especiales</a>
+                </li>
                 <li><a href="" class="menulinks"> Cancelaciones </a></li>
             </ul>
         </li>
@@ -87,33 +69,51 @@ if (isset($_POST['submit'])) {
         </li>
         <li><a href="../seleccionModulos.html" class="menulinks">Salir</a></li>
     </ul>
-    <div class="container" style="margin-bottom: 35px;">
-        <div class="text-center mb-4 fs-4">Editar Usuario</div>
-        <?php
-        $id = $_GET['id'];
-        $sql = "SELECT * FROM `usuarios` WHERE id = $id LIMIT 1";
-        $result = mysqli_query($conn,$sql);
-        $row = mysqli_fetch_assoc($result);
-        ?>
+    <!-- aqui termina -->
+    <div class="container">
+        <div class="text-center mb-4">
+            <h3>Depositos</h3>
+        </div>
         <div class="container d-flex justify-content-center">
-            <form action="" method="post" style="width:50vw; min-width:300px;">
-                <div class="col">
-                    <label class="form-label">Nombre:</label>
-                    <input type="text" class="form-control" name="nombre" value="<?php echo $row['nombre'];?>">
+            <form style="width: 50vw; min-width: 300px;">
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label">Fecha:</label>
+                        <input type="text" class="form-control" name="dependencia">
+                    </div>
+                    <div class="col">
+                        <label class="form-label">No. de Depsoito</label>
+                        <input type="text" class="form-control" name="domicilio">
+                    </div>
                 </div>
-                <div class="col">
-                    <label class="form-label">Nombre de Usuario:</label>
-                    <input type="text" class="form-control" name="nombreusuario" value="<?php echo $row['nombreusuario'];?>">
+                <div class="row ">
+                    <div class="col">
+                        <label class="form-label">Clave:</label>
+                        <input type="text" class="form-control" name="clave">
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Cuenta:</label>
+                        <input type="text" class="form-control" name="clave">
+                    </div>
                 </div>
-                <div class="col">
-                    <label class="form-label">Contraseña:</label>
-                    <input type="password" class="form-control" name="password" value="<?php echo $row['password'];?>">
+                <div class="row ">
+                    <div class="col">
+                        <label class="form-label">Abono a Cuenta:</label>
+                        <input type="text" class="form-control" name="clave">
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Importe:</label>
+                        <input type="text" class="form-control" name="clave">
+                    </div>
                 </div>
-                <br>
-                <button type="submit" class="btn btn-success" name="submit" style="margin-bottom: 30px;">Guardar</button>
-                <a href="controlUsuarios.php" class="btn btn-danger" style="margin-bottom: 30px;">Cancelar</a>
+                    <div class="col">
+                    <label class="form-label">Descripci&oacute;n:</label>
+                    <input type="text" class="form-control" name="clave">
+                    </div>
+                    <br>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-success" name="submit">Guardar</button>
+                    </div>
             </form>
         </div>
-    </div>
 </body>
-</html>

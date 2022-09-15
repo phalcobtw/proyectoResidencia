@@ -81,7 +81,7 @@ if (isset($_POST['submit'])) {
                 <li><a href="" class="menulinks">Configurar Impresora</a></li>
                 <li><a href="" class="menulinks">Par&aacute;metros Sistema</a></li>
                 <li><a href="" class="menulinks">Par&aacute;metros Poliza-Cheque</a></li>
-                <li><a href="" class="menulinks">Configurar</a></li>
+                <li><a href="configITLM.html" class="menulinks">Configurar</a></li>
             </ul>
         </li>
         <li><a href="../seleccionModulos.html" class="menulinks">Salir</a></li>

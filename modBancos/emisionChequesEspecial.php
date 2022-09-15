@@ -24,7 +24,7 @@
                             <li>Cheques        
                                 <ul class="dropdownmenu">
                                 <li><a href="" class="menulinks">Emisi&oacute;n de Cheques en Espera</a></li>
-                                <li><a href=""class="menulinks"> Emisi&oacute;n de Cheques Especiales</a></li>
+                                <li><a href="emisionChequesEspecial.php"class="menulinks"> Emisi&oacute;n de Cheques Especiales</a></li>
                                 <li><a href="" class="menulinks"> Cancelaciones </a></li>
                                </ul>
                             </li>
@@ -69,39 +69,44 @@
                         <!-- aqui termina -->
                         <div class="container">
                             <div class="text-center mb-4">
-                                <h3>Datos de la Instituci&oacute;n Tecnol&oacute;gica</h3>
+                                <h3>Emisi&oacute;n de Cheques Especiales</h3>
                             </div>
                             <div class="container d-flex justify-content-center">
                                 <form style="width: 50vw; min-width: 300px;">
-                                    <div class="col">
-                                        <label class="form-label">Dependencia:</label>
-                                    <input type="text" class="form-control" name="dependencia" value="INSTITUTO TECNOLOGICO DE LOS MOCHIS">
+                                <div class="row">    
+                                <div class="col">
+                                        <label class="form-label">Fecha:</label>
+                                    <input type="text" class="form-control" name="dependencia">
                                 </div>
                                 <div class="col">
-                                    <label class="form-label">Domicilio:</label>
-                                <input type="text" class="form-control" name="domicilio" value="BLVD. JUAN DE DIOS BATIZ Y 20 NOV.">
+                                    <label class="form-label">Clave:</label>
+                                <input type="text" class="form-control" name="domicilio">
+                            </div>
                             </div>
                             <div class="row ">
                                 <div class="col">
-                                    <label class="form-label">Clave:</label>
-                                <input type="text" class="form-control" name="clave" value="30">
+                                    <label class="form-label">Cuenta:</label>
+                                <input type="text" class="form-control" name="clave">
                             </div>
                             <div class="col">
-                                <label class="form-label">Ciudad:</label>
-                            <input type="text" class="form-control" name="clave" value="LOS MOCHIS, SIN..">
+                                <label class="form-label">Importe:</label>
+                            <input type="text" class="form-control" name="clave">
                             </div>
                             </div>
                             <div class="col">
-                                <label class="form-label">Director RFC:</label>
-                            <input type="text" class="form-control" name="clave" value="ING. LUIS EDUARDO RUELAS GARCIA RUGL-690422334">
-                            </div>
+                                <label class="form-label">No. Cheque:</label>
+                            <input type="text" class="form-control" name="clave">
                             <div class="col">
-                                <label class="form-label">Contralador RFC:</label>
-                            <input type="text" class="form-control" name="clave" value="LIC. ERIKA OJEDA TORRES OETE-781024S1">  
+                                <label class="form-label">Concepto:</label>
+                            <input type="text" class="form-control" name="clave">
                         </div>
+                        <div class="col">
+                                <label class="form-label">Expedido a:</label>
+                            <input type="text" class="form-control" name="clave">
+                        </div> <br>
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-success" name="submit">Guardar</button>
-                        </div>
+                                <button type="submit" class="btn btn-success" name="submit">Guardar</button>
+                            </div>
                         </form>
                         </div>
 </body>

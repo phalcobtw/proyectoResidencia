@@ -35,7 +35,7 @@
                             </li>
                             <li>Traspasos        
                                 <ul class="dropdownmenu">
-                                <li><a href="" class="menulinks">Traspasos entre Cuentas</a></li>
+                                <li><a href="traspasos.php" class="menulinks">Traspasos entre Cuentas</a></li>
                                </ul>
                             </li>
                             <li>Catalogos    

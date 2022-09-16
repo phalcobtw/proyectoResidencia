@@ -1,6 +1,30 @@
+<?php
+include "../bd_conn.php";
+
+if (isset($_POST['submit'])) {
+    $fecha = $_POST['fecha'];
+    $referencia = $_POST['referencia'];
+    $clave1 = $_POST['clave1'];
+    $cuenta1 = $_POST['cuenta1'];
+    $clave2 = $_POST['clave2'];
+    $cuenta2 = $_POST['cuenta2'];
+    $importe = $_POST['importe'];
+    $poliza = $_POST['poliza'];
+    $concepto = $_POST['concepto'];
+
+
+    $sqlins = "INSERT INTO `traspasos`
+    (`fecha`, `referencia`, `clave1`, `cuenta1`,`clave2`, `cuenta2`, `importe`, `poliza`, `concepto`) 
+    VALUES ('$fecha','$referencia','$clave1','$cuenta1','$clave2','$cuenta2','$importe','$poliza','$concepto')";
+    $result = mysqli_query($conn, $sqlins);
+
+    if ($result) {
+        header("location: traspasos.php?msg=Registrado con éxito.");
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -74,51 +98,60 @@
         <div class="text-center mb-4">
             <h3>Traspasos</h3>
         </div>
+        <?php
+        if (isset($_GET['msg'])) {
+            $msg = $_GET['msg'];
+            echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            '.$msg.'
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+        }
+        ?>
         <div class="container d-flex justify-content-center">
-            <form style="width: 50vw; min-width: 300px;">
+            <form action="" method="post" style="width: 50vw; min-width: 300px;">
                 <div class="row">
                     <div class="col">
                         <label class="form-label">Fecha:</label>
-                        <input type="text" class="form-control" name="dependencia">
+                        <input type="text" class="form-control" name="fecha">
                     </div>
                     <div class="col">
                         <label class="form-label">Referencia</label>
-                        <input type="text" class="form-control" name="domicilio">
+                        <input type="text" class="form-control" name="referencia">
                     </div>
                 </div>
                 <div class="row ">
                     <div class="col">
                         <label class="form-label">Clave:</label>
-                        <input type="text" class="form-control" name="clave">
+                        <input type="text" class="form-control" name="clave1">
                     </div>
                     <div class="col">
                         <label class="form-label">Cuenta:</label>
-                        <input type="text" class="form-control" name="clave">
+                        <input type="text" class="form-control" name="cuenta1">
                     </div>
                 </div>
                 <div class="row ">
                     <div class="col">
                         <label class="form-label">Clave:</label>
-                        <input type="text" class="form-control" name="clave">
+                        <input type="text" class="form-control" name="clave2">
                     </div>
                     <div class="col">
                         <label class="form-label">Cuenta:</label>
-                        <input type="text" class="form-control" name="clave">
+                        <input type="text" class="form-control" name="cuenta2">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                     <label class="form-label">Importe:</label>
-                    <input type="text" class="form-control" name="clave">
+                    <input type="text" class="form-control" name="importe">
                     </div>
                     <div class="col">
                         <label class="form-label">Polizas:</label>
-                        <input type="text" class="form-control" name="clave">
+                        <input type="text" class="form-control" name="poliza">
                     </div>
                 </div>
                     <div class="col">
                         <label class="form-label">Concepto:</label>
-                        <input type="text" class="form-control" name="clave">
+                        <input type="text" class="form-control" name="concepto">
                     </div> <br>
                     <div class="mb-3">
                         <button type="submit" class="btn btn-success" name="submit">Guardar</button>

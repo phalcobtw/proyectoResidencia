@@ -1,3 +1,26 @@
+<?php
+include "../bd_conn.php";
+
+if (isset($_POST['submit'])) {
+    $fecha = $_POST['fecha'];
+    $clave = $_POST['clave'];
+    $cuenta = $_POST['cuenta'];
+    $importe = $_POST['importe'];
+    $nocheque = $_POST['nocheque'];
+    $concepto = $_POST['concepto'];
+    $expedido = $_POST['expedido'];
+
+
+    $sqlins = "INSERT INTO `chequesespec`
+    (`fecha`, `clave`, `cuenta`, `importe`, `nocheque`, `concepto`, `expedido`) 
+    VALUES ('$fecha','$clave','$cuenta','$importe','$nocheque','$concepto','$expedido')";
+    $result = mysqli_query($conn, $sqlins);
+
+    if ($result) {
+        header("location: emisionChequesEspecial.php?msg=Registrado con éxito.");
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,38 +94,47 @@
                             <div class="text-center mb-4">
                                 <h3>Emisi&oacute;n de Cheques Especiales</h3>
                             </div>
+                            <?php
+        if (isset($_GET['msg'])) {
+            $msg = $_GET['msg'];
+            echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            '.$msg.'
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+        }
+        ?>
                             <div class="container d-flex justify-content-center">
-                                <form style="width: 50vw; min-width: 300px;">
+                                <form action="" method="post" style="width: 50vw; min-width: 300px;">
                                 <div class="row">    
                                 <div class="col">
                                         <label class="form-label">Fecha:</label>
-                                    <input type="text" class="form-control" name="dependencia">
+                                    <input type="text" class="form-control" name="fecha">
                                 </div>
                                 <div class="col">
                                     <label class="form-label">Clave:</label>
-                                <input type="text" class="form-control" name="domicilio">
+                                <input type="text" class="form-control" name="clave">
                             </div>
                             </div>
                             <div class="row ">
                                 <div class="col">
                                     <label class="form-label">Cuenta:</label>
-                                <input type="text" class="form-control" name="clave">
+                                <input type="text" class="form-control" name="cuenta">
                             </div>
                             <div class="col">
                                 <label class="form-label">Importe:</label>
-                            <input type="text" class="form-control" name="clave">
+                            <input type="text" class="form-control" name="importe">
                             </div>
                             </div>
                             <div class="col">
                                 <label class="form-label">No. Cheque:</label>
-                            <input type="text" class="form-control" name="clave">
+                            <input type="text" class="form-control" name="nocheque">
                             <div class="col">
                                 <label class="form-label">Concepto:</label>
-                            <input type="text" class="form-control" name="clave">
+                            <input type="text" class="form-control" name="concepto">
                         </div>
                         <div class="col">
                                 <label class="form-label">Expedido a:</label>
-                            <input type="text" class="form-control" name="clave">
+                            <input type="text" class="form-control" name="expedido">
                         </div> <br>
                         <div class="mb-3">
                                 <button type="submit" class="btn btn-success" name="submit">Guardar</button>

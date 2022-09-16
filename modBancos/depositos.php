@@ -1,3 +1,25 @@
+<?php
+include "../bd_conn.php";
+
+if (isset($_POST['submit'])) {
+    $fecha = $_POST['fecha'];
+    $nodeposito = $_POST['deposit'];
+    $clave = $_POST['clave'];
+    $cuenta = $_POST['cuenta'];
+    $abono = $_POST['abono'];
+    $importe = $_POST['importe'];
+    $descripcion = $_POST['descripcion'];
+
+
+    $sqlins = "INSERT INTO `depositos`
+    (`fecha`, `nodeposito`, `clave`, `cuenta`, `abono`, `importe`, `descripcion`) VALUES ('$fecha','$nodeposito','$clave','$cuenta','$abono','$importe','$descripcion')";
+    $result = mysqli_query($conn, $sqlins);
+
+    if ($result) {
+        header("location: depositos.php?msg=Deposito registrado con éxito.");
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,16 +96,25 @@
         <div class="text-center mb-4">
             <h3>Depositos</h3>
         </div>
+        <?php
+        if (isset($_GET['msg'])) {
+            $msg = $_GET['msg'];
+            echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            '.$msg.'
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+        }
+        ?>
         <div class="container d-flex justify-content-center">
-            <form style="width: 50vw; min-width: 300px;">
+            <form action="" method="post" style="width: 50vw; min-width: 300px;">
                 <div class="row">
                     <div class="col">
                         <label class="form-label">Fecha:</label>
-                        <input type="text" class="form-control" name="dependencia">
+                        <input type="text" class="form-control" name="fecha">
                     </div>
                     <div class="col">
-                        <label class="form-label">No. de Depsoito</label>
-                        <input type="text" class="form-control" name="domicilio">
+                        <label class="form-label">No. de Deposito</label>
+                        <input type="text" class="form-control" name="deposit">
                     </div>
                 </div>
                 <div class="row ">
@@ -93,22 +124,22 @@
                     </div>
                     <div class="col">
                         <label class="form-label">Cuenta:</label>
-                        <input type="text" class="form-control" name="clave">
+                        <input type="text" class="form-control" name="cuenta">
                     </div>
                 </div>
                 <div class="row ">
                     <div class="col">
                         <label class="form-label">Abono a Cuenta:</label>
-                        <input type="text" class="form-control" name="clave">
+                        <input type="text" class="form-control" name="abono">
                     </div>
                     <div class="col">
                         <label class="form-label">Importe:</label>
-                        <input type="text" class="form-control" name="clave">
+                        <input type="text" class="form-control" name="importe">
                     </div>
                 </div>
                     <div class="col">
                     <label class="form-label">Descripci&oacute;n:</label>
-                    <input type="text" class="form-control" name="clave">
+                    <input type="text" class="form-control" name="descripcion">
                     </div>
                     <br>
                     <div class="mb-3">

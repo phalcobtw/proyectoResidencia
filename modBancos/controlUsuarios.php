@@ -1,6 +1,6 @@
 <?php
 include "../bd_conn.php";
-session_start();
+include "../validarSesion2.php";
 
 if (isset($_POST['submit'])) {
     $nombre = $_POST['nombre'];

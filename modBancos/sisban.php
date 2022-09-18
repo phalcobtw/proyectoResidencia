@@ -1,5 +1,5 @@
 <?php
-session_start();
+include "../validarSesion2.php";
 ?>
 
 <!DOCTYPE html>

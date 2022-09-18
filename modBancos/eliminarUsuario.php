@@ -1,11 +1,15 @@
 <?php
 include '../bd_conn.php';
 session_start();
+$varsession = $_SESSION['usuario'];
 
-$id = $_GET['id'];
-$sql = "DELETE FROM `usuarios` WHERE id = $id";
-$result = mysqli_query($conn,$sql);
-if ($result) {
-    header("location:controlUsuarios.php?msg=Usuario eliminado con éxito.");
+if ($varsession == null || $varsession = '') {
+    header("location:../index.php?msg=Acceso no autorizado, por favor, inicie sesión.");
+} else {
+    $id = $_GET['id'];
+    $sql = "DELETE FROM `usuarios` WHERE id = $id";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        header("location:controlUsuarios.php?msg=Usuario eliminado con éxito.");
+    }
 }
-?>

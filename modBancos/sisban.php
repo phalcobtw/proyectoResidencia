@@ -68,7 +68,7 @@ session_start();
                                 <li><a href="configITLM.html" class="menulinks">Configurar</a></li>
                                </ul>
                             </li>
-                            <li><a href="../seleccionModulos.html" class="menulinks">Salir</a></li>
+                            <li><a href="../seleccionModulos.php" class="menulinks">Salir</a></li>
                         </ul>
                         <!-- aqui termina -->
 </body>

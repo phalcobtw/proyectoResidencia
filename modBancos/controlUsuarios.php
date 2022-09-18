@@ -86,7 +86,7 @@ if (isset($_POST['submit'])) {
                 <li><a href="configITLM.html" class="menulinks">Configurar</a></li>
             </ul>
         </li>
-        <li><a href="../seleccionModulos.html" class="menulinks">Salir</a></li>
+        <li><a href="../seleccionModulos.php" class="menulinks">Salir</a></li>
     </ul>
     <nav class="navbar navbar-light justify-content-center fs-3 mb-5">
         Control de Usuarios

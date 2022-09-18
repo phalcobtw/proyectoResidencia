@@ -12,7 +12,7 @@ $resultado = mysqli_query($conn, $consulta);
 $filas = mysqli_num_rows($resultado);
 
 if ($filas) {
-    header("Location:seleccionModulos.html");
+    header("Location:seleccionModulos.php");
 }
 else{
     header("Location:index.php?msg=Datos incorrectos");

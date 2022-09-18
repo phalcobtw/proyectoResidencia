@@ -26,7 +26,7 @@ session_start();
     <br>
         <table width="700" align="center" cellspacing="15" cellpadding="15">
             <tr>
-              <td><a href="./modBancos/sisban.html"><img src="./img/bancos.png" onclick="" id="img_bancos" height="27"></a></td>
+              <td><a href="./modBancos/sisban.php"><img src="./img/bancos.png" onclick="" id="img_bancos" height="27"></a></td>
               <td></td>
               <td></td>
               <td></td>

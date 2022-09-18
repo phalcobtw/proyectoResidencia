@@ -1,5 +1,6 @@
 <?php
 include '../bd_conn.php';
+session_start();
 
 $id = $_GET['id'];
 $sql = "DELETE FROM `usuarios` WHERE id = $id";

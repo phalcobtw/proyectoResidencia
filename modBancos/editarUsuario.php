@@ -1,5 +1,6 @@
 <?php
 include "../bd_conn.php";
+session_start();
 $id = $_GET['id'];
 if (isset($_POST['submit'])) {
     $nombre = $_POST['nombre'];

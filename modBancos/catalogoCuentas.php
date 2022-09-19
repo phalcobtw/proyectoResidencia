@@ -4,14 +4,17 @@ include "../validarSesion2.php";
 
 if (isset($_POST['submit'])) {
     $clave = $_POST['clave'];
-    $descripcion = $_POST['descripcion'];
+    $cuenta = $_POST['cuenta'];
+    $fuente = $_POST['fuente'];
+    $folio = $_POST['folio'];
+    $contable = $_POST['contable'];
 
-    $sqlins = "INSERT INTO `catalogobanco`
-    (`clave`, `descripcion`) VALUES ('$clave','$descripcion')";
+    $sqlins = "INSERT INTO `catalogocuenta`
+    (`clave`, `cuenta`, `fuente`, `folio`, `contable`) VALUES ('$clave','$cuenta','$fuente','$folio','$contable')";
     $result = mysqli_query($conn, $sqlins);
 
     if ($result) {
-        header("location: catalogobanks.php?msg=Banco registrado con éxito.");
+        header("location: catalogoCuentas.php?msg=Cuenta registrada con éxito.");
     }
 }
 ?>
@@ -89,7 +92,7 @@ if (isset($_POST['submit'])) {
         <li><a href="../seleccionModulos.php" class="menulinks">Salir</a></li>
     </ul>
     <nav class="navbar navbar-light justify-content-center fs-3 mb-5">
-        Catalogo de Bancos
+        Catalogo de Cuentas
     </nav>
     <div class="container">
         <?php
@@ -105,7 +108,10 @@ if (isset($_POST['submit'])) {
             <thead>
                 <tr>
                     <th scope="col">CLAVE</th>
-                    <th scope="col">DESCRIPCI&Oacute;N</th>
+                    <th scope="col">CUENTA</th>
+                    <th scope="col">FUENTE</th>
+                    <th scope="col">FOLIO</th>
+                    <th scope="col">CTA. CONTABLE</th>
                     <th scope="col">EDITAR</th>
                     <th scope="col">ELIMINAR</th>
                 </tr>
@@ -113,13 +119,16 @@ if (isset($_POST['submit'])) {
             <tbody>
                 <?php
 
-                $sql = "SELECT * FROM catalogobanco";
+                $sql = "SELECT * FROM catalogocuenta";
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_array($result)) {
                     echo '
                     <tr>
                         <td>' . $row["clave"] . '</td>
-                        <td>' . $row["descripcion"] . '</td>
+                        <td>' . $row["cuenta"] . '</td>
+                        <td>' . $row["fuente"] . '</td>
+                        <td>' . $row["folio"] . '</td>
+                        <td>' . $row["contable"] . '</td>
                         <td><a href="editarbanks.php?clave=' . $row["clave"] . '" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
                         <td><a href="eliminarbanks.php?clave=' . $row["clave"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
                     </tr>
@@ -131,16 +140,32 @@ if (isset($_POST['submit'])) {
     </div>
 
     <div class="container" style="margin-bottom: 35px;">
-        <div class="text-center mb-4 fs-4">Agregar Nuevo Banco</div>
+        <div class="text-center mb-4 fs-4">Agregar Nueva Cuenta</div>
         <div class="container d-flex justify-content-center">
             <form action="" method="post" style="width:50vw; min-width:300px;">
+            <div class="row">
             <div class="col">
                     <label class="form-label">Clave:</label>
                     <input type="text" class="form-control" name="clave">
                 </div>
             <div class="col">
-                    <label class="form-label">Descripci&oacute;n:</label>
-                    <input type="text" class="form-control" name="descripcion">
+                    <label class="form-label">Cuenta:</label>
+                    <input type="text" class="form-control" name="cuenta">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="form-label">Fuente:</label>
+                    <input type="text" class="form-control" name="fuente">
+                </div>
+            <div class="col">
+                    <label class="form-label">Folio:</label>
+                    <input type="text" class="form-control" name="folio">
+                </div>
+            </div>
+                <div class="col">
+                    <label class="form-label">Cta. Contable:</label>
+                    <input type="text" class="form-control" name="contable">
                 </div>
                 <br>
                 <button type="submit" class="btn btn-success" name="submit" style="margin-bottom: 30px;">Guardar</button>

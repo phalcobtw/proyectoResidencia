@@ -62,7 +62,8 @@ if (isset($_POST['submit'])) {
                                </ul>
                             </li>
                             <li>Catalogos    
-                            <ul class="dropdownmenu">      
+                            <ul class="dropdownmenu">
+                            <li><a href="" class="menulinks">Bancos</a></li>      
                                 <li><a href="" class="menulinks">Cuentas</a></li>
                              </ul>
                            </li>

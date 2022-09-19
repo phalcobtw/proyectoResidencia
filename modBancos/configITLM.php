@@ -45,7 +45,7 @@ include "../validarSesion2.php";
                             <li>Catalogos    
                             <ul class="dropdownmenu">      
                                 <li><a href="catalogobanks.php" class="menulinks">Bancos</a></li>
-                                <li><a href="" class="menulinks">Cuentas</a></li>
+                                <li><a href="catalogoCuentas.php" class="menulinks">Cuentas</a></li>
                              </ul>
                            </li>
                             <li>Reportes       

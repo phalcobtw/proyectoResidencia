@@ -65,7 +65,7 @@ if (isset($_POST['submit'])) {
         <li>Catalogos
             <ul class="dropdownmenu">
             <li><a href="catalogobanks.php" class="menulinks">Bancos</a></li>
-                <li><a href="" class="menulinks">Cuentas</a></li>
+                <li><a href="catalogoCuentas.php" class="menulinks">Cuentas</a></li>
             </ul>
         </li>
         <li>Reportes
@@ -129,8 +129,8 @@ if (isset($_POST['submit'])) {
                         <td>' . $row["fuente"] . '</td>
                         <td>' . $row["folio"] . '</td>
                         <td>' . $row["contable"] . '</td>
-                        <td><a href="editarbanks.php?clave=' . $row["clave"] . '" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
-                        <td><a href="eliminarbanks.php?clave=' . $row["clave"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
+                        <td><a href="editarbanks.php?cuenta=' . $row["cuenta"] . '" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
+                        <td><a href="eliminarCuentas.php?cuenta=' . $row["cuenta"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
                     </tr>
                     ';
                 }

@@ -28,7 +28,7 @@ include "../validarSesion2.php";
                             <li>Cheques        
                                 <ul class="dropdownmenu">
                                 <li><a href="" class="menulinks">Emisi&oacute;n de Cheques en Espera</a></li>
-                                <li><a href=""class="menulinks"> Emisi&oacute;n de Cheques Especiales</a></li>
+                                <li><a href="emisionChequesEspecial.php"class="menulinks"> Emisi&oacute;n de Cheques Especiales</a></li>
                                 <li><a href="" class="menulinks"> Cancelaciones </a></li>
                                </ul>
                             </li>
@@ -65,10 +65,10 @@ include "../validarSesion2.php";
                                 <li><a href="" class="menulinks">Configurar Impresora</a></li>
                                 <li><a href="" class="menulinks">Par&aacute;metros Sistema</a></li>
                                 <li><a href="" class="menulinks">Par&aacute;metros Poliza-Cheque</a></li>
-                                <li><a href="configITLM.html" class="menulinks">Configurar</a></li>
+                                <li><a href="configITLM.php" class="menulinks">Configurar</a></li>
                                </ul>
                             </li>
-                            <li><a href="../seleccionModulos.html" class="menulinks">Salir</a></li>
+                            <li><a href="../seleccionModulos.php" class="menulinks">Salir</a></li>
                         </ul>
                         <!-- aqui termina -->
                         <div class="container">

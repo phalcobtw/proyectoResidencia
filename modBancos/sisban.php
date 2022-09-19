@@ -65,7 +65,7 @@ include "../validarSesion2.php";
                                 <li><a href="" class="menulinks">Configurar Impresora</a></li>
                                 <li><a href="" class="menulinks">Par&aacute;metros Sistema</a></li>
                                 <li><a href="" class="menulinks">Par&aacute;metros Poliza-Cheque</a></li>
-                                <li><a href="configITLM.html" class="menulinks">Configurar</a></li>
+                                <li><a href="configITLM.php" class="menulinks">Configurar</a></li>
                                </ul>
                             </li>
                             <li><a href="../seleccionModulos.php" class="menulinks">Salir</a></li>

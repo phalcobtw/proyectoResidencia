@@ -62,7 +62,7 @@ if (isset($_POST['submit'])) {
         </li>
         <li>Catalogos
             <ul class="dropdownmenu">
-            <li><a href="" class="menulinks">Bancos</a></li>
+            <li><a href="catalogobanks.php" class="menulinks">Bancos</a></li>
                 <li><a href="" class="menulinks">Cuentas</a></li>
             </ul>
         </li>
@@ -130,6 +130,7 @@ if (isset($_POST['submit'])) {
             </tbody>
         </table>
     </div>
+    <!-- 
     <div class="container" style="margin-bottom: 35px;">
         <div class="text-center mb-4 fs-4">Agregar Nuevo Banco</div>
         <div class="container d-flex justify-content-center">
@@ -147,6 +148,7 @@ if (isset($_POST['submit'])) {
             </form>
         </div>
     </div>
+    -->
 </body>
 
 </html>

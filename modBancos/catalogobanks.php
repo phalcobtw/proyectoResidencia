@@ -3,12 +3,11 @@ include "../bd_conn.php";
 include "../validarSesion2.php";
 
 if (isset($_POST['submit'])) {
-    $clave = $_POST['nombre'];
-    $descripcion = $_POST['nombreusuario'];
-    $contra = $_POST['password'];
+    $clave = $_POST['clave'];
+    $descripcion = $_POST['descripcion'];
 
     $sqlins = "INSERT INTO `catalogobanco`
-    (`id`, `nombre`) VALUES ($clave,'$descripcion')";
+    (`clave`, `descripcion`) VALUES ('$clave','$descripcion')";
     $result = mysqli_query($conn, $sqlins);
 
     if ($result) {
@@ -106,7 +105,7 @@ if (isset($_POST['submit'])) {
             <thead>
                 <tr>
                     <th scope="col">CLAVE</th>
-                    <th scope="col">DESCRIPCION</th>
+                    <th scope="col">DESCRIPCI&Oacute;N</th>
                     <th scope="col">EDITAR</th>
                     <th scope="col">ELIMINAR</th>
                 </tr>
@@ -121,8 +120,8 @@ if (isset($_POST['submit'])) {
                     <tr>
                         <td>' . $row["clave"] . '</td>
                         <td>' . $row["descripcion"] . '</td>
-                        <td><a href="editarUsuario.php?id=' . $row["clave"] . '" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
-                        <td><a href="eliminarUsuario.php?id=' . $row["clave"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
+                        <td><a href="editarbanks.php?clave=' . $row["clave"] . '" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
+                        <td><a href="eliminarbanks.php?clave=' . $row["clave"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
                     </tr>
                     ';
                 }
@@ -130,16 +129,16 @@ if (isset($_POST['submit'])) {
             </tbody>
         </table>
     </div>
-    <!-- 
+
     <div class="container" style="margin-bottom: 35px;">
         <div class="text-center mb-4 fs-4">Agregar Nuevo Banco</div>
         <div class="container d-flex justify-content-center">
             <form action="" method="post" style="width:50vw; min-width:300px;">
-                <div class="col">
+            <div class="col">
                     <label class="form-label">Clave:</label>
                     <input type="text" class="form-control" name="clave">
                 </div>
-                <div class="col">
+            <div class="col">
                     <label class="form-label">Descripci&oacute;n:</label>
                     <input type="text" class="form-control" name="descripcion">
                 </div>
@@ -148,7 +147,6 @@ if (isset($_POST['submit'])) {
             </form>
         </div>
     </div>
-    -->
 </body>
 
 </html>

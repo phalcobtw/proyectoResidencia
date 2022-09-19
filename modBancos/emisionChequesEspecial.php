@@ -1,6 +1,6 @@
 <?php
 include "../bd_conn.php";
-
+include "../validarSesion2.php";
 if (isset($_POST['submit'])) {
     $fecha = $_POST['fecha'];
     $clave = $_POST['clave'];

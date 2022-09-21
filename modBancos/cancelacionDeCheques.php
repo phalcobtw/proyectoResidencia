@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
             <ul class="dropdownmenu">
                 <li><a href="" class="menulinks">Emisi&oacute;n de Cheques en Espera</a></li>
                 <li><a href="emisionChequesEspecial.php" class="menulinks"> Emisi&oacute;n de Cheques Especiales</a></li>
-                <li><a href="" class="menulinks"> Cancelaciones </a></li>
+                <li><a href="cancelacionDeCheques.php" class="menulinks"> Cancelaciones </a></li>
             </ul>
         </li>
         <li>Depositos
@@ -130,8 +130,8 @@ if (isset($_POST['submit'])) {
                         <td>' . $row["importe"] . '</td>
                         <td>' . $row["banco"] . '</td>
                         <td>' . $row["cuenta"] . '</td>
-                        <td><a href="editarCheque.php?id=' . $row["cheque"] . '" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
-                        <td><a href="eliminarCheque.php?id=' . $row["cheque"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
+                        <td><a href="editarCheque.php?cheque=' . $row["cheque"] . '" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
+                        <td><a href="eliminarCheque.php?cheque=' . $row["cheque"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
                     </tr>
                     ';
                 }

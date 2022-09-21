@@ -32,7 +32,7 @@ include "../validarSesion2.php";
                                 <li><a href="cancelacionDeCheques.php" class="menulinks"> Cancelaciones </a>
                                 <ul class="dropdownmenu">                                
                                 <li><a href="cancelacionDeCheques.php" class="menulinks"> Cancelacion de Cheques</a></li>
-                               <li><a href="cancelacionChequesMeses.php" class="menulinks"> Cancelacion de Cheques de Meses Anteriores </a></li>
+                               <li><a href="" class="menulinks"> Cancelacion de Cheques de Meses Anteriores </a></li>
                            </ul>
                             </li>
                                </ul>

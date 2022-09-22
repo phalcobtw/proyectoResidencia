@@ -2,15 +2,20 @@
 include "../bd_conn.php";
 include "../validarSesion2.php";
 $clave = $_GET['clave'];
+$cuenta = $_GET['cuenta'];
 if (isset($_POST['submit'])) {
-    $descripcion = $_POST['descripcion'];
+    $clave = $_POST['clave'];
+    $cuenta = $_POST['cuenta'];
+    $fuente = $_POST['fuente'];
+    $folio = $_POST['folio'];
+    $contable = $_POST['contable'];
 
-    $sqlins = "UPDATE `catalogobanco` 
-    SET `clave`='$clave',`descripcion`='$descripcion' WHERE clave=$clave";
+    $sqlins = "UPDATE `catalogocuenta` 
+    SET `clave`='$clave',`cuenta`='$cuenta',`fuente`='$fuente',`folio`='$folio',`contable`='$contable' WHERE 'clave'=$clave AND 'cuenta'=$cuenta";
     $result = mysqli_query($conn, $sqlins);
 
     if ($result) {
-        header("location: catalogobanks.php?msg=Banco actualizado con éxito.");
+        header("location: catalogoCuentas.php?msg=Cuenta actualizado con éxito.");
     }
 }
 ?>
@@ -93,26 +98,43 @@ if (isset($_POST['submit'])) {
         <li><a href="../seleccionModulos.php" class="menulinks">Salir</a></li>
     </ul>
     <div class="container" style="margin-bottom: 35px;">
-        <div class="text-center mb-4 fs-4">Editar Banco</div>
+        <div class="text-center mb-4 fs-4">Editar Cuenta</div>
         <?php
         $clave = $_GET['clave'];
-        $sql = "SELECT * FROM `catalogobanco` WHERE clave = $clave LIMIT 1";
+        $cuenta = $_GET['cuenta'];
+        $sql = "SELECT * FROM `catalogocuenta` WHERE 'clave' = $clave AND 'cuenta' = $cuenta LIMIT 1";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
         ?>
         <div class="container d-flex justify-content-center">
             <form action="" method="post" style="width:50vw; min-width:300px;">
-                <div class="col">
+            <div class="row">
+            <div class="col">
                     <label class="form-label">Clave:</label>
-                    <input type="text" class="form-control" name="clave" value="<?php echo $row['clave'];?>">
+                    <input type="text" class="form-control" name="<?php echo $row['clave'];?>">
                 </div>
+            <div class="col">
+                    <label class="form-label">Cuenta:</label>
+                    <input type="text" class="form-control" name="<?php echo $row['cuenta'];?>">
+                </div>
+            </div>
+            <div class="row">
                 <div class="col">
-                    <label class="form-label">Descripci&oacute;n:</label>
-                    <input type="text" class="form-control" name="descripcion" value="<?php echo $row['descripcion'];?>">
+                    <label class="form-label">Fuente:</label>
+                    <input type="text" class="form-control" name="<?php echo $row['fuente'];?>">
+                </div>
+            <div class="col">
+                    <label class="form-label">Folio:</label>
+                    <input type="text" class="form-control" name="<?php echo $row['folio'];?>">
+                </div>
+            </div>
+                <div class="col">
+                    <label class="form-label">Cta. Contable:</label>
+                    <input type="text" class="form-control" name="<?php echo $row['contable'];?>">
                 </div>
                 <br>
                 <button type="submit" class="btn btn-success" name="submit" style="margin-bottom: 30px;">Guardar</button>
-                <a href="catalogobanks.php" class="btn btn-danger" style="margin-bottom: 30px;">Cancelar</a>
+                <a href="catalogoCuentas.php" class="btn btn-danger" style="margin-bottom: 30px;">Cancelar</a>
             </form>
         </div>
     </div>

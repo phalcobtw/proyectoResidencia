@@ -134,8 +134,8 @@ if (isset($_POST['submit'])) {
                         <td>' . $row["fuente"] . '</td>
                         <td>' . $row["folio"] . '</td>
                         <td>' . $row["contable"] . '</td>
-                        <td><a href="editarbanks.php?cuenta=' . $row["cuenta"] . '" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
-                        <td><a href="eliminarCuentas.php?cuenta=' . $row["cuenta"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
+                        <td><a href="editarCuentas.php?clave=' . $row["clave"] . '&cuenta=' . $row["cuenta"] . '" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
+                        <td><a href="eliminarCuentas.php?clave=' . $row["clave"] . '&cuenta=' . $row["cuenta"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
                     </tr>
                     ';
                 }

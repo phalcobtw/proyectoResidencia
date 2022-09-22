@@ -103,10 +103,6 @@ if (isset($_POST['submit'])) {
         <div class="container d-flex justify-content-center">
             <form action="" method="post" style="width:50vw; min-width:300px;">
                 <div class="col">
-                    <label class="form-label">Clave:</label>
-                    <input type="text" class="form-control" name="clave" value="<?php echo $row['clave'];?>">
-                </div>
-                <div class="col">
                     <label class="form-label">Descripci&oacute;n:</label>
                     <input type="text" class="form-control" name="descripcion" value="<?php echo $row['descripcion'];?>">
                 </div>

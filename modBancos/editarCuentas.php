@@ -3,15 +3,13 @@ include "../bd_conn.php";
 include "../validarSesion2.php";
 $clave = $_GET['clave'];
 $cuenta = $_GET['cuenta'];
-if (isset($_POST['submit'])) {
-    $clave = $_POST['clave'];
-    $cuenta = $_POST['cuenta'];
+if (isset($_POST['submit'])) {    
     $fuente = $_POST['fuente'];
     $folio = $_POST['folio'];
     $contable = $_POST['contable'];
 
     $sqlins = "UPDATE `catalogocuenta` 
-    SET `clave`='$clave',`cuenta`='$cuenta',`fuente`='$fuente',`folio`='$folio',`contable`='$contable' WHERE 'clave'=$clave AND 'cuenta'=$cuenta";
+    SET `clave`='$clave',`cuenta`='$cuenta',`fuente`='$fuente',`folio`='$folio',`contable`='$contable' WHERE clave=$clave AND cuenta='$cuenta'";
     $result = mysqli_query($conn, $sqlins);
 
     if ($result) {
@@ -102,35 +100,25 @@ if (isset($_POST['submit'])) {
         <?php
         $clave = $_GET['clave'];
         $cuenta = $_GET['cuenta'];
-        $sql = "SELECT * FROM `catalogocuenta` WHERE 'clave' = $clave AND 'cuenta' = $cuenta LIMIT 1";
+        $sql = "SELECT * FROM `catalogocuenta` WHERE clave = $clave AND cuenta = '$cuenta' LIMIT 1";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
         ?>
         <div class="container d-flex justify-content-center">
             <form action="" method="post" style="width:50vw; min-width:300px;">
             <div class="row">
-            <div class="col">
-                    <label class="form-label">Clave:</label>
-                    <input type="text" class="form-control" name="<?php echo $row['clave'];?>">
-                </div>
-            <div class="col">
-                    <label class="form-label">Cuenta:</label>
-                    <input type="text" class="form-control" name="<?php echo $row['cuenta'];?>">
-                </div>
-            </div>
-            <div class="row">
                 <div class="col">
                     <label class="form-label">Fuente:</label>
-                    <input type="text" class="form-control" name="<?php echo $row['fuente'];?>">
+                    <input type="text" class="form-control" name="fuente" value="<?php echo $row['fuente'];?>">
                 </div>
             <div class="col">
                     <label class="form-label">Folio:</label>
-                    <input type="text" class="form-control" name="<?php echo $row['folio'];?>">
+                    <input type="text" class="form-control" name="folio" value="<?php echo $row['folio'];?>">
                 </div>
             </div>
                 <div class="col">
                     <label class="form-label">Cta. Contable:</label>
-                    <input type="text" class="form-control" name="<?php echo $row['contable'];?>">
+                    <input type="text" class="form-control" name="contable" value="<?php echo $row['contable'];?>">
                 </div>
                 <br>
                 <button type="submit" class="btn btn-success" name="submit" style="margin-bottom: 30px;">Guardar</button>

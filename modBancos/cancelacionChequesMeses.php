@@ -32,7 +32,7 @@ include "../validarSesion2.php";
                                 <li><a href="cancelacionDeCheques.php" class="menulinks"> Cancelaciones </a>
                                 <ul class="dropdownmenu">                                
                                 <li><a href="cancelacionDeCheques.php" class="menulinks"> Cancelacion de Cheques</a></li>
-                               <li><a href="" class="menulinks"> Cancelacion de Cheques de Meses Anteriores </a></li>
+                               <li><a href="cancelacionChequesMeses.php" class="menulinks"> Cancelacion de Cheques de Meses Anteriores </a></li>
                            </ul>
                             </li>
                                </ul>
@@ -77,5 +77,46 @@ include "../validarSesion2.php";
                             <li><a href="../seleccionModulos.php" class="menulinks">Salir</a></li>
                         </ul>
                         <!-- aqui termina -->
+        <div class="container" style="margin-bottom: 35px;">
+        <div class="text-center mb-4 fs-4">Cancelacion de Cheques de Meses Anteriores</div>
+        <div class="container d-flex justify-content-center">
+            <form action="" method="post" style="width:50vw; min-width:300px;">
+                <div class="row">
+            <div class="col">
+                    <label class="form-label">Fecha: (Ej. 2022/09)</label>
+                    <input type="text" class="form-control" name="fecha">
+                </div>
+                <div class="col">
+                    <label class="form-label">Clave:</label>
+                    <input type="text" class="form-control" name="importe">
+                </div>
+                </div>
+                <div class="row">
+                <div class="col">
+                    <label class="form-label">Cuenta:</label>
+                    <input type="text" class="form-control" name="banco">
+                </div>
+                <div class="col">
+                    <label class="form-label">Importe:</label>
+                    <input type="text" class="form-control" name="cuenta">
+                </div>
+                </div>
+                <div class="col">
+                    <label class="form-label">Abono a Cuenta:</label>
+                    <input type="text" class="form-control" name="cuenta">
+                </div>
+                <div class="col">
+                    <label class="form-label">No. Cheque:</label>
+                    <input type="text" class="form-control" name="cuenta">
+                </div>
+                <div class="col">
+                    <label class="form-label">Concepto:</label>
+                    <input type="text" class="form-control" name="cuenta" value="CANCELACION">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-success" name="submit" style="margin-bottom: 30px;">Guardar</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

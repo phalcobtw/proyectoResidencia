@@ -47,7 +47,12 @@ if (isset($_POST['submit'])) {
             <ul class="dropdownmenu">
                 <li><a href="" class="menulinks">Emisi&oacute;n de Cheques en Espera</a></li>
                 <li><a href="" class="menulinks"> Emisi&oacute;n de Cheques Especiales</a></li>
-                <li><a href="" class="menulinks"> Cancelaciones </a></li>
+                <li><a href="" class="menulinks"> Cancelaciones </a>
+                <ul class="dropdownmenu">                                
+                                <li><a href="cancelacionDeCheques.php" class="menulinks"> Cancelacion de Cheques</a></li>
+                               <li><a href="cancelacionChequesMeses.php" class="menulinks"> Cancelacion de Cheques de Meses Anteriores </a></li>
+                           </ul>
+            </li>
             </ul>
         </li>
         <li>Depositos

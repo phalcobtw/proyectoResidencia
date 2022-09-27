@@ -47,29 +47,29 @@ if (isset($_POST['submit'])) {
         <li>Cheques
             <ul class="dropdownmenu">
                 <li><a href="" class="menulinks">Emisi&oacute;n de Cheques en Espera</a></li>
-                <li><a href="" class="menulinks"> Emisi&oacute;n de Cheques Especiales</a></li>
+                <li><a href="../modBancos/emisionChequesEspecial.php" class="menulinks"> Emisi&oacute;n de Cheques Especiales</a></li>
                 <li><a href="" class="menulinks"> Cancelaciones </a>
                 <ul class="dropdownmenu">                                
-                                <li><a href="cancelacionDeCheques.php" class="menulinks"> Cancelacion de Cheques</a></li>
-                               <li><a href="cancelacionChequesMeses.php" class="menulinks"> Cancelacion de Cheques de Meses Anteriores </a></li>
+                                <li><a href="../modBancos/cancelacionDeCheques.php" class="menulinks"> Cancelacion de Cheques</a></li>
+                               <li><a href="../modBancos/cancelacionChequesMeses.php" class="menulinks"> Cancelacion de Cheques de Meses Anteriores </a></li>
                            </ul>
             </li>
             </ul>
         </li>
         <li>Depositos
             <ul class="dropdownmenu">
-                <li><a href="depositos.php" class="menulinks">Dep&oacute;sitos Bancarios </a></li>
+                <li><a href="../modBancos/depositos.php" class="menulinks">Dep&oacute;sitos Bancarios </a></li>
             </ul>
         </li>
         <li>Traspasos
             <ul class="dropdownmenu">
-                <li><a href="traspasos.php" class="menulinks">Traspasos entre Cuentas</a></li>
+                <li><a href="../modBancos/traspasos.php" class="menulinks">Traspasos entre Cuentas</a></li>
             </ul>
         </li>
         <li>Catalogos
             <ul class="dropdownmenu">
-            <li><a href="catalogobanks.php" class="menulinks">Bancos</a></li>
-                <li><a href="catalogoCuentas.php" class="menulinks">Cuentas</a></li>
+            <li><a href="../modBancos/catalogobanks.php" class="menulinks">Bancos</a></li>
+                <li><a href="../modBancos/catalogoCuentas.php" class="menulinks">Cuentas</a></li>
             </ul>
         </li>
         <li>Reportes
@@ -86,11 +86,11 @@ if (isset($_POST['submit'])) {
                 <li><a href="" class="menulinks">Cierre de Ejercicio</a></li>
                 <li><a href="" class="menulinks">Indexar Archivos</a></li>
                 <li><a href="" class="menulinks">Reconstruir Saldos</a></li>
-                <li><a href="../utilerias/controlUsuarios.php" class="menulinks">Control de Usuarios</a></li>
+                <li><a href="controlUsuarios.php" class="menulinks">Control de Usuarios</a></li>
                                 <li><a href="" class="menulinks">Configurar Impresora</a></li>
                                 <li><a href="" class="menulinks">Par&aacute;metros Sistema</a></li>
                                 <li><a href="" class="menulinks">Par&aacute;metros Poliza-Cheque</a></li>
-                                <li><a href="../utilerias/configITLM.php" class="menulinks">Configurar</a></li>
+                                <li><a href="configITLM.php" class="menulinks">Configurar</a></li>
             </ul>
         </li>
         <li><a href="../seleccionModulos.php" class="menulinks">Salir</a></li>

@@ -88,11 +88,11 @@ if (isset($_POST['submit'])) {
                 <li><a href="" class="menulinks">Cierre de Ejercicio</a></li>
                 <li><a href="" class="menulinks">Indexar Archivos</a></li>
                 <li><a href="" class="menulinks">Reconstruir Saldos</a></li>
-                <li><a href="controlUsuarios.php" class="menulinks">Control de Usuarios</a></li>
-                <li><a href="" class="menulinks">Configurar Impresora</a></li>
-                <li><a href="" class="menulinks">Par&aacute;metros Sistema</a></li>
-                <li><a href="" class="menulinks">Par&aacute;metros Poliza-Cheque</a></li>
-                <li><a href="configITLM.php" class="menulinks">Configurar</a></li>
+                <li><a href="../utilerias/controlUsuarios.php" class="menulinks">Control de Usuarios</a></li>
+                                <li><a href="" class="menulinks">Configurar Impresora</a></li>
+                                <li><a href="" class="menulinks">Par&aacute;metros Sistema</a></li>
+                                <li><a href="" class="menulinks">Par&aacute;metros Poliza-Cheque</a></li>
+                                <li><a href="../utilerias/configITLM.php" class="menulinks">Configurar</a></li>
             </ul>
         </li>
         <li><a href="../seleccionModulos.php" class="menulinks">Salir</a></li>

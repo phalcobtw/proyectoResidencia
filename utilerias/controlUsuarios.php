@@ -46,29 +46,29 @@ if (isset($_POST['submit'])) {
         <li>Cheques
             <ul class="dropdownmenu">
                 <li><a href="" class="menulinks">Emisi&oacute;n de Cheques en Espera</a></li>
-                <li><a href="emisionChequesEspecial.php" class="menulinks"> Emisi&oacute;n de Cheques Especiales</a></li>
+                <li><a href="../modBancos/emisionChequesEspecial.php" class="menulinks"> Emisi&oacute;n de Cheques Especiales</a></li>
                 <li><a href="" class="menulinks"> Cancelaciones </a>
                 <ul class="dropdownmenu">                                
-                                <li><a href="cancelacionDeCheques.php" class="menulinks"> Cancelacion de Cheques</a></li>
-                               <li><a href="cancelacionChequesMeses.php" class="menulinks"> Cancelacion de Cheques de Meses Anteriores </a></li>
+                                <li><a href="../modBancos/cancelacionDeCheques.php" class="menulinks"> Cancelacion de Cheques</a></li>
+                               <li><a href="../modBancos/cancelacionChequesMeses.php" class="menulinks"> Cancelacion de Cheques de Meses Anteriores </a></li>
                            </ul>
             </li>
             </ul>
         </li>
         <li>Depositos
             <ul class="dropdownmenu">
-                <li><a href="depositos.php" class="menulinks">Dep&oacute;sitos Bancarios </a></li>
+                <li><a href="../modBancos/depositos.php" class="menulinks">Dep&oacute;sitos Bancarios </a></li>
             </ul>
         </li>
         <li>Traspasos
             <ul class="dropdownmenu">
-                <li><a href="traspasos.php" class="menulinks">Traspasos entre Cuentas</a></li>
+                <li><a href="../modBancos/traspasos.php" class="menulinks">Traspasos entre Cuentas</a></li>
             </ul>
         </li>
         <li>Catalogos
             <ul class="dropdownmenu">
-            <li><a href="catalogobanks.php" class="menulinks">Bancos</a></li>
-                <li><a href="catalogoCuentas.php" class="menulinks">Cuentas</a></li>
+            <li><a href="../modBancos/catalogobanks.php" class="menulinks">Bancos</a></li>
+                <li><a href="../modBancos/catalogoCuentas.php" class="menulinks">Cuentas</a></li>
             </ul>
         </li>
         <li>Reportes

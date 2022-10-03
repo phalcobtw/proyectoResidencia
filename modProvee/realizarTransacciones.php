@@ -1,3 +1,6 @@
+<?php
+include "../validarSesion2.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +26,7 @@
                          <ul class="menu">
                             <li>Movimientos       
                                 <ul class="dropdownmenu">
-                                <li><a href="capturaContrarecibos.php" class="menulinks">Captura de ContraRecibos</a></li>
+                                <li><a href="" class="menulinks">Captura de ContraRecibos</a></li>
                                 <li><a href="" class="menulinks">Pago de Facturas</a></li>
                                </ul>
                             </li>
@@ -55,5 +58,35 @@
                             <li><a href="../seleccionModulos.html" class="menulinks">Salir</a></li>
                         </ul>
                         <!-- aqui termina -->
+                        <div class="container" style="margin-bottom: 35px;">
+        <div class="text-center mb-4 fs-4">Traspaso de Informaci&oacute;n</div>
+        <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">FOLIO</th>
+                    <th scope="col">FECHA</th>
+                    <th scope="col">POLIZA</th>
+                </tr>
+                <tr>
+                    <td>9022</td>
+                    <td>2022/9/19</td>
+                    <td>11DP</td>
+                </tr>
+                <tr>
+                    <td>9023</td>
+                    <td>2022/9/19</td>
+                    <td>12DP</td>
+                </tr>
+                <tr>
+                    <td>9024</td>
+                    <td>2022/9/20</td>
+                    <td>13DP</td>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

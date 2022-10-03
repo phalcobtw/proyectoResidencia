@@ -59,7 +59,7 @@ include "../validarSesion2.php";
                         </ul>
                         <!-- aqui termina -->
                         <div class="container" style="margin-bottom: 35px;">
-        <div class="text-center mb-4 fs-4">Editar Usuario</div>
+        <div class="text-center mb-4 fs-4">Traspaso de Informaci&oacute;n</div>
         <div class="container">
         <table class="table">
             <thead>

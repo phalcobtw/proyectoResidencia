@@ -40,7 +40,7 @@ include "validarSesion.php";
             <tr>
               <td></td>
               <td></td>
-              <td><a href="./modProvee/sispro.html"><img src="./img/provee.png" onclick="" id="img_provee" height="27"></a></td>
+              <td><a href="./modProvee/sispro.php"><img src="./img/provee.png" onclick="" id="img_provee" height="27"></a></td>
               <td></td>
             </tr>
             <tr>

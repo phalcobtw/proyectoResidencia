@@ -30,6 +30,7 @@ if (isset($_POST['submit'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
 </head>
 
 <body>
@@ -104,11 +105,6 @@ if (isset($_POST['submit'])) {
             </thead>
             <tbody>
                 <?php
-                /* date_default_timezone_set('America/Mazatlan');
-                $date = date('Y/m');
-                echo "$date"; */
-                ?>
-                <?php
 
                 $sql = "SELECT * FROM usuarios";
                 $result = mysqli_query($conn, $sql);
@@ -127,22 +123,44 @@ if (isset($_POST['submit'])) {
             </tbody>
         </table>
     </div>
-    <b>TODO: FORM DE CONTRARECIBOS CON SELECT/DROPDOWN LIST</b>
     <div class="container" style="margin-bottom: 35px;">
-        <div class="text-center mb-4 fs-4">Agregar Nuevo Usuario</div>
+        <div class="text-center mb-4 fs-4">Captura de Contra-Recibos</div>
         <div class="container d-flex justify-content-center">
             <form action="" method="post" style="width:50vw; min-width:300px;">
                 <div class="col">
                     <label class="form-label">Folio:</label>
-                    <input type="text" class="form-control" name="nombre">
+                    <input type="text" class="form-control" name="folio">
                 </div>
                 <div class="col">
                     <label class="form-label">Fecha:</label>
-                    <input type="text" class="form-control" name="nombreusuario">
+                    <input type="text" class="form-control" name="fecha" readonly value="<?php echo $fulldate; ?>">
+                </div>
+                <div class="col">
+                    <label class="form-label">Descripción:</label>
+                    <select class="form-select" aria-label="Default select example" id="selector" >
+                        <option selected value="CUENTA">Seleccione una opcion</option>
+                        <option value="2102-000-000-000">PROVEEDORES</option>
+                        <option value="2102-200-000-000">INGRESOS PROPIOS</option>
+                        <option value="2102-200-216-000">2016</option>
+                        <option value="2102-200-217-000">2017</option>
+                        <option value="2102-200-218-000">2018</option>
+                        <option value="2102-200-218-001">EQUIPOS NIETOS DE SINALOA, S.A</option>
+                        <option value="2102-200-218-002">PROVEEDORA EPSILON DEL NOROESTE</option>
+                        <option value="2102-200-218-003">OSCAR ENRIQUE PRECIADO MARES</option>
+                        <option value="2102-200-218-004">TELEFONOS DE MEXICO, S.A.B. DE C.V</option>
+                    </select>
                 </div>
                 <div class="col">
                     <label class="form-label">Clave del Proveedor:</label>
-                    <input type="password" class="form-control" name="password">
+                    <input type="text" class="form-control" name="cuenta" id="txtCuenta" readonly>
+                </div>
+                <div class="col">
+                    <label class="form-label">Fuente de Ingresos:</label>
+                    <input type="text" class="form-control" name="fuenteing">
+                </div>
+                <div class="col">
+                    <label class="form-label">Poliza:</label>
+                    <input type="text" class="form-control" name="poliza" value="Pendiente" readonly>
                 </div>
                 <br>
                 <button type="submit" class="btn btn-success" name="submit" style="margin-bottom: 30px;">Guardar</button>
@@ -150,5 +168,6 @@ if (isset($_POST['submit'])) {
         </div>
     </div>
 </body>
+<script src="../js/capContrarecibos.js"></script>
 
 </html>

@@ -3,16 +3,18 @@ include "../bd_conn.php";
 include "../validarSesion2.php";
 
 if (isset($_POST['submit'])) {
-    $nombre = $_POST['nombre'];
-    $nombreusuario = $_POST['nombreusuario'];
-    $contra = $_POST['password'];
+    $foliorec = $_POST['folio'];
+    $fecharec = $_POST['fecha'];
+    $claveprovee = $_POST['cuenta'];
+    $fuenteing = $_POST['fuenteing'];
+    $estpoliza = $_POST['poliza'];
 
-    $sqlins = "INSERT INTO `usuarios`
-    (`id`, `nombre`, `nombreusuario`, `password`) VALUES (NULL,'$nombre','$nombreusuario','$contra')";
+    $sqlins = "INSERT INTO `cheques`(`id`, `folio`, `fecha`, `claveproveedor`, `fuenteingresos`, `estadopoliza`) 
+    VALUES ('[value-1]','$foliorec','$fecharec','$claveprovee','$fuenteing','$estpoliza')";
     $result = mysqli_query($conn, $sqlins);
 
     if ($result) {
-        header("location: controlUsuarios.php?msg=Usuario Registrado con éxito.");
+        header("location: capturaContrarecibos.php?msg=Registro con exito.");
     }
 }
 ?>
@@ -97,8 +99,9 @@ if (isset($_POST['submit'])) {
                 <tr>
                     <th scope="col">FOLIO</th>
                     <th scope="col">FECHA</th>
-                    <th scope="col">CUENTA</th>
-                    <th scope="col">PROVEEDOR</th>
+                    <th scope="col">CLAVE PROVEEDOR</th>
+                    <th scope="col">FUENTE DE INGRESOS</th>
+                    <th scope="col">ESTADO DE POLIZA</th>
                     <th scope="col">EDITAR</th>
                     <th scope="col">ELIMINAR</th>
                 </tr>
@@ -106,16 +109,18 @@ if (isset($_POST['submit'])) {
             <tbody>
                 <?php
 
-                $sql = "SELECT * FROM usuarios";
+                $sql = "SELECT * FROM cheques";
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_array($result)) {
                     echo '
                     <tr>
-                        <td>' . $row["id"] . '</td>
-                        <td>' . $row["nombreusuario"] . '</td>
-                        <td>' . $row["nombre"] . '</td>
-                        <td><a href="editarUsuario.php?id=' . $row["id"] . '" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
-                        <td><a href="eliminarUsuario.php?id=' . $row["id"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
+                        <td>' . $row["folio"] . '</td>
+                        <td>' . $row["fecha"] . '</td>  
+                        <td>' . $row["claveproveedor"] . '</td>
+                        <td>' . $row["fuenteingresos"] . '</td>
+                        <td>' . $row["estadopoliza"] . '</td>
+                        <td><a href=".php?id=' . $row["id"] . '" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
+                        <td><a href=".php?id=' . $row["id"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
                     </tr>
                     ';
                 }
@@ -138,7 +143,7 @@ if (isset($_POST['submit'])) {
                 <div class="col">
                     <label class="form-label">Descripción:</label>
                     <select class="form-select" aria-label="Default select example" id="selector" >
-                        <option selected value="CUENTA">Seleccione una opcion</option>
+                        <option selected >Seleccione una opcion</option>
                         <option value="2102-000-000-000">PROVEEDORES</option>
                         <option value="2102-200-000-000">INGRESOS PROPIOS</option>
                         <option value="2102-200-216-000">2016</option>

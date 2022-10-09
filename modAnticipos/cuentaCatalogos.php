@@ -113,10 +113,10 @@ if (isset($_POST['submit'])) {
             <thead>
                 <tr>
                     <th scope="col">CLAVE</th>
-                    <th scope="col">CUENTA</th>
-                    <th scope="col">FUENTE</th>
-                    <th scope="col">FOLIO</th>
-                    <th scope="col">CTA. CONTABLE</th>
+                    <th scope="col">DESCRIPCI&Oacute;N</th>
+                    <th scope="col">TIPO</th>
+                    <th scope="col">NATURALEZA</th>
+                    <th scope="col">ACUM/DE</th>
                     <th scope="col">EDITAR</th>
                     <th scope="col">ELIMINAR</th>
                 </tr>
@@ -150,27 +150,38 @@ if (isset($_POST['submit'])) {
             <form action="" method="post" style="width:50vw; min-width:300px;">
             <div class="row">
             <div class="col">
-                    <label class="form-label">Clave:</label>
+                    <label class="form-label">Cuenta:</label>
                     <input type="text" class="form-control" name="clave">
                 </div>
             <div class="col">
-                    <label class="form-label">Cuenta:</label>
+                    <label class="form-label">Tipo de Cuenta:</label>
                     <input type="text" class="form-control" name="cuenta">
                 </div>
             </div>
-            <div class="row">
+            
                 <div class="col">
-                    <label class="form-label">Fuente:</label>
+                    <label class="form-label">Descripcion:</label>
                     <input type="text" class="form-control" name="fuente">
                 </div>
+                <div class="row">
             <div class="col">
-                    <label class="form-label">Folio:</label>
+                    <label class="form-label">Naturaleza del Saldo:</label>
                     <input type="text" class="form-control" name="folio">
                 </div>
-            </div>
                 <div class="col">
-                    <label class="form-label">Cta. Contable:</label>
+                    <label class="form-label">Fecha de Alta:</label>
                     <input type="text" class="form-control" name="contable">
+                </div>
+                </div>
+                <div class="row">
+            <div class="col">
+                    <label class="form-label">Tipo (A)cumulativa (D)etalle:</label>
+                    <input type="text" class="form-control" name="folio">
+                </div>
+                <div class="col">
+                    <label class="form-label">Tipo Retenci&oacute;n:</label>
+                    <input type="text" class="form-control" name="contable">
+                </div>
                 </div>
                 <br>
                 <button type="submit" class="btn btn-success" name="submit" style="margin-bottom: 30px;">Guardar</button>

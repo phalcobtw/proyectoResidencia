@@ -33,7 +33,7 @@ include "validarSesion.php";
             </tr>
             <tr>
               <td></td>
-              <td><a href="./modAnticipos/sisant.html"><img src="./img/anticipos.png" onclick="" id="img_anticipos" height="27"></a></td>
+              <td><a href="./modAnticipos/sisant.php"><img src="./img/anticipos.png" onclick="" id="img_anticipos" height="27"></a></td>
               <td></td>
               <td></td>
             </tr>
@@ -47,7 +47,7 @@ include "validarSesion.php";
                 <td></td>
                 <td></td>
                 <td></td>
-                <td><a href="./modConta/siscon.html"><img src="./img/conta.png" onclick="" id="img_conta" height="27"></a></td>
+                <td><a href="./modConta/siscon.php"><img src="./img/conta.png" onclick="" id="img_conta" height="27"></a></td>
               </tr>
           </table>
        

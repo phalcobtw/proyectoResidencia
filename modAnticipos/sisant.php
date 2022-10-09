@@ -42,7 +42,7 @@ include "../validarSesion2.php";
                             </li>
                             <li>Catalogos       
                                 <ul class="dropdownmenu">
-                                <li><a href="" class="menulinks">Cuentas</a></li>
+                                <li><a href="cuentaCatalogos.php" class="menulinks">Cuentas</a></li>
                                 <li><a href="" class="menulinks">Programas</a></li>
                                 <li><a href="" class="menulinks">Actividades</a></li>
                                 <li><a href="" class="menulinks">Partidas</a></li>

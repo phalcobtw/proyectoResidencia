@@ -3,18 +3,20 @@ include "../bd_conn.php";
 include "../validarSesion2.php";
 
 if (isset($_POST['submit'])) {
-    $clave = $_POST['clave'];
     $cuenta = $_POST['cuenta'];
-    $fuente = $_POST['fuente'];
-    $folio = $_POST['folio'];
-    $contable = $_POST['contable'];
+    $tipocuenta = $_POST['tipocuenta'];
+    $descripcion = $_POST['descripcion'];
+    $naturalezasaldo = $_POST['naturalezasaldo'];
+    $fecha = $_POST['fecha'];
+    $tipoad = $_POST['tipoad'];
+    $tiporet = $_POST['tiporet'];
 
-    $sqlins = "INSERT INTO `catalogocuenta`
-    (`clave`, `cuenta`, `fuente`, `folio`, `contable`) VALUES ('$clave','$cuenta','$fuente','$folio','$contable')";
+    $sqlins = "INSERT INTO `cuentacatalogo`
+    (`cuenta`, `tipocuenta`, `descripcion`, `naturalezasaldo`, `fecha`, `tipoad`, `tiporet`) VALUES ('$cuenta','$tipocuenta','$descripcion','$naturalezasaldo','$fecha','$tipoad','$tiporet')";
     $result = mysqli_query($conn, $sqlins);
 
     if ($result) {
-        header("location: catalogoCuentas.php?msg=Cuenta registrada con éxito.");
+        header("location: cuentaCatalogos.php?msg=Cuenta registrada con éxito.");
     }
 }
 ?>
@@ -45,57 +47,55 @@ if (isset($_POST['submit'])) {
         <!-- todo el menu -->
     </header>
     <ul class="menu">
-        <li>Cheques
-            <ul class="dropdownmenu">
-                <li><a href="" class="menulinks">Emisi&oacute;n de Cheques en Espera</a></li>
-                <li><a href="emisionChequesEspecial.php" class="menulinks"> Emisi&oacute;n de Cheques Especiales</a></li>
-                <li><a href="" class="menulinks"> Cancelaciones </a>
-                <ul class="dropdownmenu">                                
-                                <li><a href="cancelacionDeCheques.php" class="menulinks"> Cancelacion de Cheques</a></li>
-                               <li><a href="cancelacionChequesMeses.php" class="menulinks"> Cancelacion de Cheques de Meses Anteriores </a></li>
-                           </ul>
-            </li>
-            </ul>
-        </li>
-        <li>Depositos
-            <ul class="dropdownmenu">
-                <li><a href="depositos.php" class="menulinks">Dep&oacute;sitos Bancarios </a></li>
-            </ul>
-        </li>
-        <li>Traspasos
-            <ul class="dropdownmenu">
-                <li><a href="traspasos.php" class="menulinks">Traspasos entre Cuentas</a></li>
-            </ul>
-        </li>
-        <li>Catalogos
-            <ul class="dropdownmenu">
-            <li><a href="catalogobanks.php" class="menulinks">Bancos</a></li>
-                <li><a href="catalogoCuentas.php" class="menulinks">Cuentas</a></li>
-            </ul>
-        </li>
-        <li>Reportes
-            <ul class="dropdownmenu">
-                <li><a href="" class="menulinks">Depositos</a></li>
-                <li><a href="" class="menulinks">Cheques</a></li>
-                <li><a href="" class="menulinks">Saldos</a></li>
-                <li><a href="" class="menulinks">Prueba de Impresor</a></li>
-            </ul>
-        </li>
-        <li>Utilerias
-            <ul class="dropdownmenu">
-                <li><a href="" class="menulinks">Cambio de Mes</a></li>
-                <li><a href="" class="menulinks">Cierre de Ejercicio</a></li>
-                <li><a href="" class="menulinks">Indexar Archivos</a></li>
-                <li><a href="" class="menulinks">Reconstruir Saldos</a></li>
-                <li><a href="../utilerias/controlUsuarios.php" class="menulinks">Control de Usuarios</a></li>
+                            <li>Movimientos       
+                                <ul class="dropdownmenu">
+                                <li><a href="" class="menulinks">Polizas</a></li>
+                                <li><a href="" class="menulinks">Imprimir Polizas</a></li>
+                               </ul>
+                            </li>
+                            <li>Reportes       
+                                <ul class="dropdownmenu">
+                                <li><a href="" class="menulinks">Catalogos</a></li>
+                                <li><a href="" class="menulinks">Tradicionales</a></li>
+                                <li><a href="" class="menulinks">Gastos</a></li>
+                                <li><a href="" class="menulinks">Analisis</a></li>
+                                <li><a href="" class="menulinks">Informes Reales</a></li>
+                                <li><a href="" class="menulinks">Diario General</a></li>
+                               </ul>
+                            </li>
+                            <li>Catalogos       
+                                <ul class="dropdownmenu">
+                                <li><a href="cuentaCatalogos.php" class="menulinks">Cuentas</a></li>
+                                <li><a href="" class="menulinks">Programas</a></li>
+                                <li><a href="" class="menulinks">Actividades</a></li>
+                                <li><a href="" class="menulinks">Partidas</a></li>
+                                <li><a href="" class="menulinks">Departamentos</a></li>
+                               </ul>
+                            </li>
+                            <li>Presupuestos      
+                                <ul class="dropdownmenu">
+                                <li><a href="" class="menulinks">Cuentas</a></li>
+                                <li><a href="" class="menulinks">Gastos</a></li>
+                                <li><a href="" class="menulinks">Calendarizado</a></li>
+                               </ul>
+                            </li>
+                            <li>Utilerias        
+                                <ul class="dropdownmenu">
+                                <li><a href="" class="menulinks">Cambio de Mes</a></li>
+                                <li><a href="" class="menulinks">Fecha del Sistema</a></li>
+                                <li><a href="" class="menulinks">Cierre de Ejercicio</a></li>
+                                <li><a href="" class="menulinks">Reconstruir Saldos</a></li>
+                                <li><a href="" class="menulinks">Revisi&oacute;n de Informaci&oacute;n</a></li>
+                                <li><a href="" class="menulinks">Indexar Archivos</a></li>
+                                <li><a href="" class="menulinks">Vincular Cuentas</a></li>
+                                <li><a href="" class="menulinks">Control de Usuarios</a></li>
                                 <li><a href="" class="menulinks">Configurar Impresora</a></li>
-                                <li><a href="" class="menulinks">Par&aacute;metros Sistema</a></li>
-                                <li><a href="" class="menulinks">Par&aacute;metros Poliza-Cheque</a></li>
-                                <li><a href="../utilerias/configITLM.php" class="menulinks">Configurar</a></li>
-            </ul>
-        </li>
-        <li><a href="../seleccionModulos.php" class="menulinks">Salir</a></li>
-    </ul>
+                                <li><a href="" class="menulinks">Configurar Sistema</a></li>
+                                <li><a href="" class="menulinks">Opciones de Respaldo</a></li>
+                               </ul>
+                            </li>
+                            <li><a href="../seleccionModulos.html" class="menulinks">Salir</a></li>
+                        </ul>
     <nav class="navbar navbar-light justify-content-center fs-3 mb-5">
         Catalogo de Cuentas
     </nav>
@@ -112,7 +112,7 @@ if (isset($_POST['submit'])) {
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">CLAVE</th>
+                    <th scope="col">CUENTAS</th>
                     <th scope="col">DESCRIPCI&Oacute;N</th>
                     <th scope="col">TIPO</th>
                     <th scope="col">NATURALEZA</th>
@@ -124,18 +124,18 @@ if (isset($_POST['submit'])) {
             <tbody>
                 <?php
 
-                $sql = "SELECT * FROM catalogocuenta";
+                $sql = "SELECT * FROM cuentacatalogo";
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_array($result)) {
                     echo '
                     <tr>
-                        <td>' . $row["clave"] . '</td>
                         <td>' . $row["cuenta"] . '</td>
-                        <td>' . $row["fuente"] . '</td>
-                        <td>' . $row["folio"] . '</td>
-                        <td>' . $row["contable"] . '</td>
-                        <td><a href="editarCuentas.php?clave=' . $row["clave"] . '&cuenta=' . $row["cuenta"] . '" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
-                        <td><a href="eliminarCuentas.php?clave=' . $row["clave"] . '&cuenta=' . $row["cuenta"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
+                        <td>' . $row["descripcion"] . '</td>
+                        <td>' . $row["tipocuenta"] . '</td>
+                        <td>' . $row["naturalezasaldo"] . '</td>
+                        <td>' . $row["tipoad"] . '</td>
+                        <td><a href="editarCuentas.php?cuenta=' . $row["cuenta"] .'" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
+                        <td><a href="eliminarCuentas.php?cuenta=' . $row["cuenta"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
                     </tr>
                     ';
                 }
@@ -151,36 +151,36 @@ if (isset($_POST['submit'])) {
             <div class="row">
             <div class="col">
                     <label class="form-label">Cuenta:</label>
-                    <input type="text" class="form-control" name="clave">
+                    <input type="text" class="form-control" name="cuenta">
                 </div>
             <div class="col">
                     <label class="form-label">Tipo de Cuenta:</label>
-                    <input type="text" class="form-control" name="cuenta">
+                    <input type="text" class="form-control" name="tipocuenta">
                 </div>
             </div>
             
                 <div class="col">
                     <label class="form-label">Descripcion:</label>
-                    <input type="text" class="form-control" name="fuente">
+                    <input type="text" class="form-control" name="descripcion">
                 </div>
                 <div class="row">
             <div class="col">
                     <label class="form-label">Naturaleza del Saldo:</label>
-                    <input type="text" class="form-control" name="folio">
+                    <input type="text" class="form-control" name="naturalezasaldo">
                 </div>
                 <div class="col">
                     <label class="form-label">Fecha de Alta:</label>
-                    <input type="text" class="form-control" name="contable">
+                    <input type="text" class="form-control" name="fecha">
                 </div>
                 </div>
                 <div class="row">
             <div class="col">
                     <label class="form-label">Tipo (A)cumulativa (D)etalle:</label>
-                    <input type="text" class="form-control" name="folio">
+                    <input type="text" class="form-control" name="tipoad">
                 </div>
                 <div class="col">
                     <label class="form-label">Tipo Retenci&oacute;n:</label>
-                    <input type="text" class="form-control" name="contable">
+                    <input type="text" class="form-control" name="tiporet">
                 </div>
                 </div>
                 <br>

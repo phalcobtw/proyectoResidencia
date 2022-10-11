@@ -151,7 +151,7 @@ if (isset($_POST['submit'])) {
             <div class="row">
             <div class="col">
                     <label class="form-label">Cuenta:</label>
-                    <input type="text" class="form-control" name="cuenta">
+                    <input type="text" class="form-control" name="cuenta" id="cuenta">
                 </div>
             <div class="col">
                     <label class="form-label">Tipo de Cuenta:</label>
@@ -166,7 +166,7 @@ if (isset($_POST['submit'])) {
                 <div class="row">
             <div class="col">
                     <label class="form-label">Naturaleza del Saldo:</label>
-                    <input type="text" class="form-control" name="naturalezasaldo">
+                    <input type="text" class="form-control" name="naturalezasaldo" id="natsaldo" readonly>
                 </div>
                 <div class="col">
                     <label class="form-label">Fecha de Alta:</label>
@@ -189,5 +189,6 @@ if (isset($_POST['submit'])) {
         </div>
     </div>
 </body>
+<script src="../js/scCuentaCatalogos.js"></script>
 
 </html>

@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     $tiporet = $_POST['tiporet'];
 
     $sqlins = "INSERT INTO `cuentacatalogo`
-    (`cuenta`, `tipocuenta`, `descripcion`, `naturalezasaldo`, `fecha`, `tipoad`, `tiporet`) VALUES ('$cuenta','$tipocuenta','$descripcion','$naturalezasaldo','$fecha','$tipoad','$tiporet')";
+    (`id`, `cuenta`, `tipocuenta`, `descripcion`, `naturalezasaldo`, `fecha`, `tipoad`, `tiporet`) VALUES (NULL, '$cuenta','$tipocuenta','$descripcion','$naturalezasaldo','$fecha','$tipoad','$tiporet')";
     $result = mysqli_query($conn, $sqlins);
 
     if ($result) {

@@ -1,8 +1,9 @@
 <?php
 include "../bd_conn.php";
 include "../validarSesion2.php";
-$cuenta = $_GET['cuenta'];
+$id = $_GET['id'];
 if (isset($_POST['submit'])) {
+    $cuenta = $_POST['cuenta'];
     $tipocuenta = $_POST['tipocuenta'];
     $descripcion = $_POST['descripcion'];
     $naturalezasaldo = $_POST['naturalezasaldo'];
@@ -11,7 +12,7 @@ if (isset($_POST['submit'])) {
     $tiporet = $_POST['tiporet'];
 
     $sqlins = "UPDATE `cuentacatalogo` 
-    SET `tipocuenta`='$tipocuenta',`descripcion`='$descripcion',`naturalezasaldo`='$naturalezasaldo',`fecha`='$fecha' , `tipoad`='$tipoad', `tiporet`='$tiporet' WHERE cuenta='$cuenta'";
+    SET `cuenta`='$cuenta', `tipocuenta`='$tipocuenta',`descripcion`='$descripcion',`naturalezasaldo`='$naturalezasaldo',`fecha`='$fecha' , `tipoad`='$tipoad', `tiporet`='$tiporet' WHERE id='$id'";
     $result = mysqli_query($conn, $sqlins);
 
     if ($result) {
@@ -98,13 +99,17 @@ if (isset($_POST['submit'])) {
     <div class="container" style="margin-bottom: 35px;">
         <div class="text-center mb-4 fs-4">Editar Cuenta</div>
         <?php
-        $cuenta = $_GET['cuenta'];
-        $sql = "SELECT * FROM `cuentacatalogo` WHERE cuenta = '$cuenta' LIMIT 1";
+        $id = $_GET['id'];
+        $sql = "SELECT * FROM `cuentacatalogo` WHERE id = '$id' LIMIT 1";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
         ?>
         <div class="container d-flex justify-content-center">
             <form action="" method="post" style="width:50vw; min-width:300px;">
+            <div class="col">
+                    <label class="form-label">Cuenta:</label>
+                    <input type="text" class="form-control" name="cuenta" value="<?php echo $row['cuenta'];?>">
+                </div> 
             <div class="col">
                     <label class="form-label">Tipo de Cuenta:</label>
                     <input type="text" class="form-control" name="tipocuenta" value="<?php echo $row['tipocuenta'];?>">

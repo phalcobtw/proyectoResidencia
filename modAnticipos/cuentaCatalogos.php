@@ -112,6 +112,7 @@ if (isset($_POST['submit'])) {
         <table class="table">
             <thead>
                 <tr>
+                    
                     <th scope="col">CUENTAS</th>
                     <th scope="col">DESCRIPCI&Oacute;N</th>
                     <th scope="col">TIPO</th>
@@ -129,13 +130,14 @@ if (isset($_POST['submit'])) {
                 while ($row = mysqli_fetch_array($result)) {
                     echo '
                     <tr>
+                        
                         <td>' . $row["cuenta"] . '</td>
                         <td>' . $row["descripcion"] . '</td>
                         <td>' . $row["tipocuenta"] . '</td>
                         <td>' . $row["naturalezasaldo"] . '</td>
                         <td>' . $row["tipoad"] . '</td>
-                        <td><a href="editarCuentas.php?cuenta=' . $row["cuenta"] .'" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
-                        <td><a href="eliminarCuentas.php?cuenta=' . $row["cuenta"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
+                        <td><a href="editarCuentas.php?id=' . $row["id"] .'" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
+                        <td><a href="eliminarCuentas.php?id=' . $row["id"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
                     </tr>
                     ';
                 }

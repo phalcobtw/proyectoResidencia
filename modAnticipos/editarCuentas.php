@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
                                 <li><a href="" class="menulinks">Opciones de Respaldo</a></li>
                                </ul>
                             </li>
-                            <li><a href="../seleccionModulos.html" class="menulinks">Salir</a></li>
+                            <li><a href="../seleccionModulos.php" class="menulinks">Salir</a></li>
                         </ul>
     <div class="container" style="margin-bottom: 35px;">
         <div class="text-center mb-4 fs-4">Editar Cuenta</div>

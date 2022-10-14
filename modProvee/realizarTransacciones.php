@@ -55,7 +55,7 @@ include "../validarSesion2.php";
                                 <li><a href="" class="menulinks">Configurar Datos Generales</a></li>
                                </ul>
                             </li>
-                            <li><a href="../seleccionModulos.html" class="menulinks">Salir</a></li>
+                            <li><a href="../seleccionModulos.php" class="menulinks">Salir</a></li>
                         </ul>
                         <!-- aqui termina -->
                         <div class="container" style="margin-bottom: 35px;">

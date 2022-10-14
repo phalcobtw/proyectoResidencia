@@ -71,7 +71,7 @@ include "../validarSesion2.php";
                                 <li><a href="" class="menulinks">Opciones de Respaldo</a></li>
                                </ul>
                             </li>
-                            <li><a href="../seleccionModulos.html" class="menulinks">Salir</a></li>
+                            <li><a href="../seleccionModulos.php" class="menulinks">Salir</a></li>
                         </ul>
                         <!-- aqui termina -->
 </body>

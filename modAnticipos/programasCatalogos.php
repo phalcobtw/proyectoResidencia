@@ -3,20 +3,15 @@ include "../bd_conn.php";
 include "../validarSesion2.php";
 
 if (isset($_POST['submit'])) {
-    $cuenta = $_POST['cuenta'];
-    $tipocuenta = $_POST['tipocuenta'];
+    $programa = $_POST['programa'];
     $descripcion = $_POST['descripcion'];
-    $naturalezasaldo = $_POST['naturalezasaldo'];
-    $fecha = $_POST['fecha'];
-    $tipoad = $_POST['tipoad'];
-    $tiporet = $_POST['tiporet'];
 
-    $sqlins = "INSERT INTO `cuentacatalogo`
-    (`id`, `cuenta`, `tipocuenta`, `descripcion`, `naturalezasaldo`, `fecha`, `tipoad`, `tiporet`) VALUES (NULL, '$cuenta','$tipocuenta','$descripcion','$naturalezasaldo','$fecha','$tipoad','$tiporet')";
+    $sqlins = "INSERT INTO `programacatalogo`
+    (`id`, `programa`, `descripcion`) VALUES (NULL, '$programa','$descripcion')";
     $result = mysqli_query($conn, $sqlins);
 
     if ($result) {
-        header("location: cuentaCatalogos.php?msg=Cuenta registrada con éxito.");
+        header("location: programasCatalogos.php?msg=Programa registrada con éxito.");
     }
 }
 ?>
@@ -97,7 +92,7 @@ if (isset($_POST['submit'])) {
                             <li><a href="../seleccionModulos.php" class="menulinks">Salir</a></li>
                         </ul>
     <nav class="navbar navbar-light justify-content-center fs-3 mb-5">
-        Catalogo de Cuentas
+        Catalogo de Programas
     </nav>
     <div class="container">
         <?php
@@ -113,31 +108,23 @@ if (isset($_POST['submit'])) {
             <thead>
                 <tr>
                     
-                    <th scope="col">CUENTAS</th>
+                    <th scope="col">PROGRAMA</th>
                     <th scope="col">DESCRIPCI&Oacute;N</th>
-                    <th scope="col">TIPO</th>
-                    <th scope="col">NATURALEZA</th>
-                    <th scope="col">ACUM/DE</th>
-                    <th scope="col">EDITAR</th>
-                    <th scope="col">ELIMINAR</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
 
-                $sql = "SELECT * FROM cuentacatalogo";
+                $sql = "SELECT * FROM programacatalogo";
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_array($result)) {
                     echo '
                     <tr>
                         
-                        <td>' . $row["cuenta"] . '</td>
+                        <td>' . $row["programa"] . '</td>
                         <td>' . $row["descripcion"] . '</td>
-                        <td>' . $row["tipocuenta"] . '</td>
-                        <td>' . $row["naturalezasaldo"] . '</td>
-                        <td>' . $row["tipoad"] . '</td>
-                        <td><a href="editarCuentas.php?id=' . $row["id"] .'" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
-                        <td><a href="eliminarCuentas.php?id=' . $row["id"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
+                        <td><a href="editarProgramas.php?id=' . $row["id"] .'" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
+                        <td><a href="eliminarProgramas.php?id=' . $row["id"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
                     </tr>
                     ';
                 }
@@ -147,43 +134,16 @@ if (isset($_POST['submit'])) {
     </div>
 
     <div class="container" style="margin-bottom: 35px;">
-        <div class="text-center mb-4 fs-4">Agregar Nueva Cuenta</div>
+        <div class="text-center mb-4 fs-4">Agregar Nuevo Programa</div>
         <div class="container d-flex justify-content-center">
             <form action="" method="post" style="width:50vw; min-width:300px;">
-            <div class="row">
             <div class="col">
-                    <label class="form-label">Cuenta:</label>
-                    <input type="text" class="form-control" name="cuenta" id="cuenta">
+                    <label class="form-label">Programa:</label>
+                    <input type="text" class="form-control" name="programa">
                 </div>
             <div class="col">
-                    <label class="form-label">Tipo de Cuenta:</label>
-                    <input type="text" class="form-control" name="tipocuenta">
-                </div>
-            </div>
-            
-                <div class="col">
-                    <label class="form-label">Descripcion:</label>
+                    <label class="form-label">Descripci&oacute;n:</label>
                     <input type="text" class="form-control" name="descripcion">
-                </div>
-                <div class="row">
-            <div class="col">
-                    <label class="form-label">Naturaleza del Saldo:</label>
-                    <input type="text" class="form-control" name="naturalezasaldo" id="natsaldo" readonly>
-                </div>
-                <div class="col">
-                    <label class="form-label">Fecha de Alta:</label>
-                    <input type="text" class="form-control" name="fecha" readonly value="<?php echo $fulldate; ?>">
-                </div>
-                </div>
-                <div class="row">
-            <div class="col">
-                    <label class="form-label">Tipo (A)cumulativa (D)etalle:</label>
-                    <input type="text" class="form-control" name="tipoad">
-                </div>
-                <div class="col">
-                    <label class="form-label">Tipo Retenci&oacute;n:</label>
-                    <input type="text" class="form-control" name="tiporet">
-                </div>
                 </div>
                 <br>
                 <button type="submit" class="btn btn-success" name="submit" style="margin-bottom: 30px;">Guardar</button>

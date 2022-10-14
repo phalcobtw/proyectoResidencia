@@ -144,15 +144,26 @@ if (isset($_POST['submit'])) {
                     <label class="form-label">Descripción:</label>
                     <select class="form-select" aria-label="Default select example" id="selector" >
                         <option selected >Seleccione una opcion</option>
-                        <option value="2102-000-000-000">PROVEEDORES</option>
-                        <option value="2102-200-000-000">INGRESOS PROPIOS</option>
-                        <option value="2102-200-216-000">2016</option>
-                        <option value="2102-200-217-000">2017</option>
-                        <option value="2102-200-218-000">2018</option>
-                        <option value="2102-200-218-001">EQUIPOS NIETOS DE SINALOA, S.A</option>
-                        <option value="2102-200-218-002">PROVEEDORA EPSILON DEL NOROESTE</option>
-                        <option value="2102-200-218-003">OSCAR ENRIQUE PRECIADO MARES</option>
-                        <option value="2102-200-218-004">TELEFONOS DE MEXICO, S.A.B. DE C.V</option>
+                        <!-- <option value="2102000000000">PROVEEDORES</option>
+                        <option value="2102200000000">INGRESOS PROPIOS</option>
+                        <option value="2102200216000">2016</option>
+                        <option value="2102200217000">2017</option>
+                        <option value="2102200218000">2018</option>
+                        <option value="2102200218001">EQUIPOS NIETOS DE SINALOA, S.A</option>
+                        <option value="2102200218002">PROVEEDORA EPSILON DEL NOROESTE</option>
+                        <option value="2102200218003">OSCAR ENRIQUE PRECIADO MARES</option>
+                        <option value="2102200218004">TELEFONOS DE MEXICO, S.A.B. DE C.V</option> -->
+                        <?php 
+                        $sqlant = "SELECT * from `cuentacatalogo`";
+                        $resultant = mysqli_query($conn,$sqlant);
+                        while ($rowant = mysqli_fetch_array($resultant)) {
+                            echo '
+                            <option value="'.$rowant["cuenta"].'">'.$rowant["descripcion"].'</option>
+                            ';
+                            
+                        }
+                        
+                        ?>
                     </select>
                 </div>
                 <div class="col">

@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
     $descripcion = $_POST['descripcion'];
 
     $sqlins = "UPDATE `partidacatalogo` 
-    SET `partida`='$partida',`descripcion`='$descripcion' WHERE id='$id'";
+    SET `partida`=$partida,`descripcion`='$descripcion' WHERE id='$id'";
     $result = mysqli_query($conn, $sqlins);
 
     if ($result) {
@@ -61,10 +61,10 @@ if (isset($_POST['submit'])) {
                             <li>Catalogos       
                                 <ul class="dropdownmenu">
                                 <li><a href="cuentaCatalogos.php" class="menulinks">Cuentas</a></li>
-                                <li><a href="" class="menulinks">Programas</a></li>
+                                <li><a href="programasCatalogos.php" class="menulinks">Programas</a></li>
                                 <li><a href="" class="menulinks">Actividades</a></li>
-                                <li><a href="" class="menulinks">Partidas</a></li>
-                                <li><a href="" class="menulinks">Departamentos</a></li>
+                                <li><a href="partidasCatalogos.php" class="menulinks">Partidas</a></li>
+                                <li><a href="departamentoCatalogos.php" class="menulinks">Departamentos</a></li>
                                </ul>
                             </li>
                             <li>Presupuestos      
@@ -111,7 +111,7 @@ if (isset($_POST['submit'])) {
                 </div>    
                 <br>
                 <button type="submit" class="btn btn-success" name="submit" style="margin-bottom: 30px;">Guardar</button>
-                <a href="cuentaCatalogos.php" class="btn btn-danger" style="margin-bottom: 30px;">Cancelar</a>
+                <a href="partidasCatalogos.php" class="btn btn-danger" style="margin-bottom: 30px;">Cancelar</a>
             </form>
         </div>
     </div>

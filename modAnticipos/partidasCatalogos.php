@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
     $descripcion = $_POST['descripcion'];
 
     $sqlins = "INSERT INTO `partidacatalogo`
-    (`id`, `partida`, `descripcion`) VALUES (NULL, '$partida','$descripcion')";
+    (`id`, `partida`, `descripcion`) VALUES (NULL, $partida,'$descripcion')";
     $result = mysqli_query($conn, $sqlins);
 
     if ($result) {
@@ -61,10 +61,10 @@ if (isset($_POST['submit'])) {
                             <li>Catalogos       
                                 <ul class="dropdownmenu">
                                 <li><a href="cuentaCatalogos.php" class="menulinks">Cuentas</a></li>
-                                <li><a href="" class="menulinks">Programas</a></li>
+                                <li><a href="programasCatalogos.php" class="menulinks">Programas</a></li>
                                 <li><a href="" class="menulinks">Actividades</a></li>
-                                <li><a href="" class="menulinks">Partidas</a></li>
-                                <li><a href="" class="menulinks">Departamentos</a></li>
+                                <li><a href="partidasCatalogos.php" class="menulinks">Partidas</a></li>
+                                <li><a href="departamentoCatalogos.php" class="menulinks">Departamentos</a></li>
                                </ul>
                             </li>
                             <li>Presupuestos      
@@ -123,8 +123,8 @@ if (isset($_POST['submit'])) {
                         
                         <td>' . $row["partida"] . '</td>
                         <td>' . $row["descripcion"] . '</td>
-                        <td><a href="editarProgramas.php?id=' . $row["id"] .'" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
-                        <td><a href="eliminarProgramas.php?id=' . $row["id"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
+                        <td><a href="editarPartidas.php?id=' . $row["id"] .'" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
+                        <td><a href="eliminarPartidas.php?id=' . $row["id"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
                     </tr>
                     ';
                 }
@@ -151,6 +151,6 @@ if (isset($_POST['submit'])) {
         </div>
     </div>
 </body>
-<script src="../js/scCuentaCatalogos.js"></script>
+
 
 </html>

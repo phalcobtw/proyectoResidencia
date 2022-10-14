@@ -170,7 +170,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="col">
                     <label class="form-label">Fecha de Alta:</label>
-                    <input type="text" class="form-control" name="fecha">
+                    <input type="text" class="form-control" name="fecha" readonly value="<?php echo $fulldate; ?>">
                 </div>
                 </div>
                 <div class="row">

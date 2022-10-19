@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    
+
 </head>
 
 <body>
@@ -130,59 +130,156 @@ if (isset($_POST['submit'])) {
     </div>
     <div class="container" style="margin-bottom: 35px;">
         <div class="text-center mb-4 fs-4">Captura de Contra-Recibos</div>
-        <div class="container d-flex justify-content-center">
+        <div class="container d-flex justify-content-center fw-bold">
             <form action="" method="post" style="width:50vw; min-width:300px;">
-                <div class="col">
-                    <label class="form-label">Folio:</label>
-                    <input type="text" class="form-control" name="folio">
+                <div class="row">
+                    <div class="col-10">
+                        <label class="form-label">Folio:</label>
+                        <input type="text" class="form-control" name="folio">
+                    </div>
+                    <div class="col-2">
+                        <label class="form-label">Fecha:</label>
+                        <input type="text" class="form-control" name="fecha" readonly value="<?php echo $fulldate; ?>">
+                    </div>
                 </div>
-                <div class="col">
-                    <label class="form-label">Fecha:</label>
-                    <input type="text" class="form-control" name="fecha" readonly value="<?php echo $fulldate; ?>">
+                <div class="row">
+                    <div class="col-8">
+                        <label class="form-label">Descripción:</label>
+                        <select class="form-select" aria-label="Default select example" id="selector">
+                            <option selected>Seleccione una opcion</option>
+                            <!-- <option value="2102000000000">PROVEEDORES</option>
+                            <option value="2102200000000">INGRESOS PROPIOS</option>
+                            <option value="2102200216000">2016</option>
+                            <option value="2102200217000">2017</option>
+                            <option value="2102200218000">2018</option>
+                            <option value="2102200218001">EQUIPOS NIETOS DE SINALOA, S.A</option>
+                            <option value="2102200218002">PROVEEDORA EPSILON DEL NOROESTE</option>
+                            <option value="2102200218003">OSCAR ENRIQUE PRECIADO MARES</option>
+                            <option value="2102200218004">TELEFONOS DE MEXICO, S.A.B. DE C.V</option> -->
+                            <?php
+                            $sqlant = "SELECT * from `cuentacatalogo`";
+                            $resultant = mysqli_query($conn, $sqlant);
+                            while ($rowant = mysqli_fetch_array($resultant)) {
+                                echo '
+                                <option value="' . $rowant["cuenta"] . '">' . $rowant["descripcion"] . '</option>
+                                ';
+                            }
+
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label">Clave del Proveedor:</label>
+                        <input type="text" class="form-control" name="cuenta" id="txtCuenta" readonly>
+                    </div>
                 </div>
-                <div class="col">
-                    <label class="form-label">Descripción:</label>
-                    <select class="form-select" aria-label="Default select example" id="selector" >
-                        <option selected >Seleccione una opcion</option>
-                        <!-- <option value="2102000000000">PROVEEDORES</option>
-                        <option value="2102200000000">INGRESOS PROPIOS</option>
-                        <option value="2102200216000">2016</option>
-                        <option value="2102200217000">2017</option>
-                        <option value="2102200218000">2018</option>
-                        <option value="2102200218001">EQUIPOS NIETOS DE SINALOA, S.A</option>
-                        <option value="2102200218002">PROVEEDORA EPSILON DEL NOROESTE</option>
-                        <option value="2102200218003">OSCAR ENRIQUE PRECIADO MARES</option>
-                        <option value="2102200218004">TELEFONOS DE MEXICO, S.A.B. DE C.V</option> -->
-                        <?php 
-                        $sqlant = "SELECT * from `cuentacatalogo`";
-                        $resultant = mysqli_query($conn,$sqlant);
-                        while ($rowant = mysqli_fetch_array($resultant)) {
-                            echo '
-                            <option value="'.$rowant["cuenta"].'">'.$rowant["descripcion"].'</option>
-                            ';
-                            
-                        }
-                        
-                        ?>
-                    </select>
+                <div class="row">
+                    <div class="col-6">
+                        <label class="form-label">Fuente de Ingresos:</label>
+                        <input type="text" class="form-control" name="fuenteing">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label">Poliza:</label>
+                        <input type="text" class="form-control" name="poliza" value="Pendiente" readonly>
+                    </div>
                 </div>
-                <div class="col">
-                    <label class="form-label">Clave del Proveedor:</label>
-                    <input type="text" class="form-control" name="cuenta" id="txtCuenta" readonly>
+                <div class="row">
+                    <div class="col-4">
+                        <label class="form-label">Factura:</label>
+                        <input type="text" class="form-control" name="factura">
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label">Importe:</label>
+                        <input type="text" name="importe" class="form-control">
+                    </div>
+                    <div class="col-4">
+                        <label for="" class="form-label">Vencimiento:</label>
+                        <input type="text" class="form-control" name="vencimiento">
+                    </div>
                 </div>
-                <div class="col">
-                    <label class="form-label">Fuente de Ingresos:</label>
-                    <input type="text" class="form-control" name="fuenteing">
+                <!-- TO DO: DESCRIPCION AVERIGUAR DE DONDE SALE Y DONDE SE DA DE ALTA -->
+                <div class="row">
+                    <div class="col">
+                        <label for="" class="form-label">Descripcion:</label>
+                        <select name="descripciondos" id="selector2" class="form-select">
+                            <option selected>Seleccione una opcion:</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col">
-                    <label class="form-label">Poliza:</label>
-                    <input type="text" class="form-control" name="poliza" value="Pendiente" readonly>
+                <!-- TO DO: PREGUNTAR SI AGREGO TEXT FIELD INDICANDO CLAVE O NOMBRE DE LA ACTIVIDAD A LA DERECHA DE CADA SELECT LIST -->
+                <!-- TO DO: LLENAR BASE DE DATOS DE CADA SELECT LIST DE ABAJO -->
+                <div class="row">
+                    <div class="col">
+                        <label for="" class="form-label">Programa:</label>
+                        <select class="form-select" name="programaselect" id="programaselect">
+                            <option selected>Seleccione una opcion:</option>
+                        </select>
+                    </div>
                 </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="" class="form-label">Actividad:</label>
+                        <select class="form-select" name="actividadselect" id="actividadselect">
+                            <option selected>Seleccione una opcion:</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="" class="form-label">Partida:</label>
+                        <select class="form-select" name="partidaselect" id="partidaselect">
+                            <option selected>Seleccione una opcion:</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="" class="form-label">Departamento:</label>
+                        <select class="form-select" name="departamentoselect" id="departamentoselect">
+                            <option selected>Seleccione una opcion:</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- TO DO: GASTO, IVA, ISR Y ACTIVO VA EN CUENTAS, METER TODO A UNA FUNCION PHP PARA IMPRIMIR SU SELECT LIST DESDE UN QUERY -->
+                <div class="row">
+                    <div class="col">
+                        <label for="" class="form-label">Gasto:</label>
+                        <select class="form-select" name="gastoselect" id="gastoselect">
+                            <option selected>Seleccione una opcion:</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="" class="form-label">IVA:</label>
+                        <select class="form-select" name="ivaselect" id="ivaselect">
+                            <option selected>Seleccione una opcion:</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="" class="form-label">ISR:</label>
+                        <select class="form-select" name="isrselect" id="isrselect">
+                            <option selected>Seleccione una opcion:</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="" class="form-label">Activo:</label>
+                        <select class="form-select" name="activoselect" id="activoselect">
+                            <option selected>Seleccione una opcion:</option>
+                        </select>
+                    </div>
+                </div>
+
                 <br>
                 <button type="submit" class="btn btn-success" name="submit" style="margin-bottom: 30px;">Guardar</button>
             </form>
         </div>
     </div>
+
 </body>
 <script src="../js/capContrarecibos.js"></script>
 

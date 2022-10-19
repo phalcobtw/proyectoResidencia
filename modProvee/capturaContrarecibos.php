@@ -133,17 +133,17 @@ if (isset($_POST['submit'])) {
         <div class="container d-flex justify-content-center fw-bold">
             <form action="" method="post" style="width:50vw; min-width:300px;">
                 <div class="row">
-                    <div class="col-10">
+                    <div class="col-10 mt-2">
                         <label class="form-label">Folio:</label>
                         <input type="text" class="form-control" name="folio">
                     </div>
-                    <div class="col-2">
+                    <div class="col-2 mt-2">
                         <label class="form-label">Fecha:</label>
                         <input type="text" class="form-control" name="fecha" readonly value="<?php echo $fulldate; ?>">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-8 mt-2">
                         <label class="form-label">Descripción:</label>
                         <select class="form-select" aria-label="Default select example" id="selector">
                             <option selected>Seleccione una opcion</option>
@@ -168,31 +168,31 @@ if (isset($_POST['submit'])) {
                             ?>
                         </select>
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 mt-2">
                         <label class="form-label">Clave del Proveedor:</label>
                         <input type="text" class="form-control" name="cuenta" id="txtCuenta" readonly>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-6 mt-2">
                         <label class="form-label">Fuente de Ingresos:</label>
                         <input type="text" class="form-control" name="fuenteing">
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 mt-2">
                         <label class="form-label">Poliza:</label>
                         <input type="text" class="form-control" name="poliza" value="Pendiente" readonly>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-4 mt-2">
                         <label class="form-label">Factura:</label>
                         <input type="text" class="form-control" name="factura">
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 mt-2">
                         <label class="form-label">Importe:</label>
                         <input type="text" name="importe" class="form-control">
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 mt-2">
                         <label for="" class="form-label">Vencimiento:</label>
                         <input type="text" class="form-control" name="vencimiento">
                     </div>
@@ -209,7 +209,7 @@ if (isset($_POST['submit'])) {
                 <!-- TO DO: PREGUNTAR SI AGREGO TEXT FIELD INDICANDO CLAVE O NOMBRE DE LA ACTIVIDAD A LA DERECHA DE CADA SELECT LIST -->
                 <!-- TO DO: LLENAR BASE DE DATOS DE CADA SELECT LIST DE ABAJO -->
                 <div class="row">
-                    <div class="col">
+                    <div class="col mt-2">
                         <label for="" class="form-label">Programa:</label>
                         <select class="form-select" name="programaselect" id="programaselect">
                             <option selected>Seleccione una opcion:</option>
@@ -217,7 +217,7 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col mt-2">
                         <label for="" class="form-label">Actividad:</label>
                         <select class="form-select" name="actividadselect" id="actividadselect">
                             <option selected>Seleccione una opcion:</option>
@@ -225,7 +225,7 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col mt-2">
                         <label for="" class="form-label">Partida:</label>
                         <select class="form-select" name="partidaselect" id="partidaselect">
                             <option selected>Seleccione una opcion:</option>
@@ -233,7 +233,7 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col mt-2">
                         <label for="" class="form-label">Departamento:</label>
                         <select class="form-select" name="departamentoselect" id="departamentoselect">
                             <option selected>Seleccione una opcion:</option>
@@ -242,7 +242,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <!-- TO DO: GASTO, IVA, ISR Y ACTIVO VA EN CUENTAS, METER TODO A UNA FUNCION PHP PARA IMPRIMIR SU SELECT LIST DESDE UN QUERY -->
                 <div class="row">
-                    <div class="col">
+                    <div class="col mt-2">
                         <label for="" class="form-label">Gasto:</label>
                         <select class="form-select" name="gastoselect" id="gastoselect">
                             <option selected>Seleccione una opcion:</option>
@@ -250,7 +250,7 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col mt-2">
                         <label for="" class="form-label">IVA:</label>
                         <select class="form-select" name="ivaselect" id="ivaselect">
                             <option selected>Seleccione una opcion:</option>
@@ -258,7 +258,7 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col mt-2">
                         <label for="" class="form-label">ISR:</label>
                         <select class="form-select" name="isrselect" id="isrselect">
                             <option selected>Seleccione una opcion:</option>
@@ -266,7 +266,7 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col mt-2">
                         <label for="" class="form-label">Activo:</label>
                         <select class="form-select" name="activoselect" id="activoselect">
                             <option selected>Seleccione una opcion:</option>

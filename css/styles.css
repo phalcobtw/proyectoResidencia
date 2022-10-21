@@ -84,4 +84,12 @@ body{
     margin: 0px;
 }
 
+.table-wrapper{
+    max-height: 200px;
+    overflow-y: scroll;
+    display:inline-block;
+    width: 100%;
+}
+
+
 

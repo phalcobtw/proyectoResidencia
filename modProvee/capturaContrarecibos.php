@@ -139,7 +139,7 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div class="col-2 mt-2">
                         <label class="form-label">Fecha:</label>
-                        <input type="text" class="form-control" name="fecha" readonly value="<?php echo $fulldate; ?>">
+                        <input type="text" class="form-control" name="fecha" value="<?php echo $fulldate; ?>">
                     </div>
                 </div>
                 <div class="row">
@@ -197,31 +197,114 @@ if (isset($_POST['submit'])) {
                         <input type="text" class="form-control" name="vencimiento">
                     </div>
                 </div>
-                <!-- TO DO: DESCRIPCION AVERIGUAR DE DONDE SALE Y DONDE SE DA DE ALTA -->
                 <div class="row">
                     <div class="col">
                         <label for="" class="form-label">Descripcion:</label>
-                        <select name="descripciondos" id="selector2" class="form-select">
-                            <option selected>Seleccione una opcion:</option>
-                        </select>
+                        <input type="text" class="form-control">
                     </div>
                 </div>
                 <!-- TO DO: PREGUNTAR SI AGREGO TEXT FIELD INDICANDO CLAVE O NOMBRE DE LA ACTIVIDAD A LA DERECHA DE CADA SELECT LIST -->
                 <!-- TO DO: LLENAR BASE DE DATOS DE CADA SELECT LIST DE ABAJO -->
-                <div class="row">
+                <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label">Programa:</label>
-                        <select class="form-select" name="programaselect" id="programaselect">
-                            <option selected>Seleccione una opcion:</option>
-                        </select>
+                        <label for="" class="form-label label-txt">PROGRAMA:</label>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <strong>Mostrar/Ocultar Tabla:</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="table-wrapper">
+                                            <table class="table table-sm table-hover table-striped palco-table">
+                                                <thead class="table-dark">
+                                                    <th>
+                                                        Clave
+                                                    </th>
+                                                    <th>
+                                                        Descripcion
+                                                    </th>
+                                                    <th>
+                                                        Seleccionar
+                                                    </th>
+                                                </thead>
+                                                <tbody class="palco-tbody">
+                                                    <?php
+                                                    $sqlprog = "SELECT * from `programacatalogo`";
+                                                    $resultprog = mysqli_query($conn, $sqlprog);
+                                                    while ($rowprog = mysqli_fetch_array($resultprog)) {
+                                                        echo '
+                                <tr>
+                                    <td>' . $rowprog["programa"] . '</td>
+                                    <td>' . $rowprog["descripcion"] . '</td>
+                                    <td><button type="button" class="btn btn-outline-dark">Agregar</button></td> 
+                                </tr>
+                                ';
+                                                    }
+                                                    echo '
+                            
+                            '
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label">Actividad:</label>
-                        <select class="form-select" name="actividadselect" id="actividadselect">
-                            <option selected>Seleccione una opcion:</option>
-                        </select>
+                        <label for="" class="form-label label-txt">ACTIVIDAD:</label>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        <strong>Mostrar/Ocultar Tabla:</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="table-wrapper">
+                                            <table class="table table-sm table-hover table-striped palco-table">
+                                                <thead class="table-dark">
+                                                    <th>
+                                                        Clave
+                                                    </th>
+                                                    <th>
+                                                        Descripcion
+                                                    </th>
+                                                    <th>
+                                                        Seleccionar
+                                                    </th>
+                                                </thead>
+                                                <tbody class="palco-tbody">
+                                                    <?php
+                                                    $sqlact = "SELECT * from `actividadcatalogo`";
+                                                    $resultact = mysqli_query($conn, $sqlact);
+                                                    while ($rowact = mysqli_fetch_array($resultact)) {
+                                                        echo '
+                                <tr>
+                                    <td>' . $rowact["actividad"] . '</td>
+                                    <td>' . $rowact["descripcion"] . '</td>
+                                    <td><button type="button" class="btn btn-outline-dark">Agregar</button></td> 
+                                </tr>
+                                ';
+                                                    }
+                                                    echo '
+                            
+                            '
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -282,5 +365,6 @@ if (isset($_POST['submit'])) {
 
 </body>
 <script src="../js/capContrarecibos.js"></script>
+<script src="../js/collapse.js"></script>
 
 </html>

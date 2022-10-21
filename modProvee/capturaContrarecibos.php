@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONTRED- SIATEC</title>
+    <title>CONTRED - SIATEC</title>
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon.png">
     <link rel="stylesheet" href="../css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -211,7 +211,7 @@ if (isset($_POST['submit'])) {
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                         <strong>Mostrar/Ocultar Tabla:</strong>
                                     </button>
                                 </h2>
@@ -261,8 +261,8 @@ if (isset($_POST['submit'])) {
                         <label for="" class="form-label label-txt">ACTIVIDAD:</label>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                         <strong>Mostrar/Ocultar Tabla:</strong>
                                     </button>
                                 </h2>
@@ -307,20 +307,106 @@ if (isset($_POST['submit'])) {
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label">Partida:</label>
-                        <select class="form-select" name="partidaselect" id="partidaselect">
-                            <option selected>Seleccione una opcion:</option>
-                        </select>
+                        <label for="" class="form-label">PARTIDA:</label>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <strong>Mostrar/Ocultar Tabla:</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="table-wrapper">
+                                            <table class="table table-sm table-hover table-striped palco-table">
+                                                <thead class="table-dark">
+                                                    <th>
+                                                        Clave
+                                                    </th>
+                                                    <th>
+                                                        Descripcion
+                                                    </th>
+                                                    <th>
+                                                        Seleccionar
+                                                    </th>
+                                                </thead>
+                                                <tbody class="palco-tbody">
+                                                    <?php
+                                                    $sqlpar = "SELECT * from `partidacatalogo`";
+                                                    $resultpar = mysqli_query($conn, $sqlpar);
+                                                    while ($rowpar = mysqli_fetch_array($resultpar)) {
+                                                        echo '
+                                <tr>
+                                    <td>' . $rowpar["partida"] . '</td>
+                                    <td>' . $rowpar["descripcion"] . '</td>
+                                    <td><button type="button" class="btn btn-outline-dark">Agregar</button></td> 
+                                </tr>
+                                ';
+                                                    }
+                                                    echo '
+                            
+                            '
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label">Departamento:</label>
-                        <select class="form-select" name="departamentoselect" id="departamentoselect">
-                            <option selected>Seleccione una opcion:</option>
-                        </select>
+                        <label for="" class="form-label">DEPARTAMENTO:</label>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        <strong>Mostrar/Ocultar Tabla:</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="table-wrapper">
+                                            <table class="table table-sm table-hover table-striped palco-table">
+                                                <thead class="table-dark">
+                                                    <th>
+                                                        Clave
+                                                    </th>
+                                                    <th>
+                                                        Descripcion
+                                                    </th>
+                                                    <th>
+                                                        Seleccionar
+                                                    </th>
+                                                </thead>
+                                                <tbody class="palco-tbody">
+                                                    <?php
+                                                    $sqldep = "SELECT * from `departamentocatalogo`";
+                                                    $resultdep = mysqli_query($conn, $sqldep);
+                                                    while ($rowdep = mysqli_fetch_array($resultdep)) {
+                                                        echo '
+                                <tr>
+                                    <td>' . $rowdep["departamento"] . '</td>
+                                    <td>' . $rowdep["descripcion"] . '</td>
+                                    <td><button type="button" class="btn btn-outline-dark">Agregar</button></td> 
+                                </tr>
+                                ';
+                                                    }
+                                                    echo '
+                            
+                            '
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- TO DO: GASTO, IVA, ISR Y ACTIVO VA EN CUENTAS, METER TODO A UNA FUNCION PHP PARA IMPRIMIR SU SELECT LIST DESDE UN QUERY -->

@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
         <div class="divheader">
             <div class="divlogo">
                 <img src="../img/logosep.png" alt="logosep" class="logosep">
-                <b class="titulo">CONTRED- SIATEC</b>
+                <b class="titulo">CONTRED - SIATEC</b>
             </div>
         </div>
         <!-- todo el menu -->

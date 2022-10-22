@@ -29,6 +29,7 @@ if (isset($_POST['submit'])) {
     <title>CONTRED - SIATEC</title>
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon.png">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/navbar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -43,44 +44,61 @@ if (isset($_POST['submit'])) {
                 <b class="titulo">SISPRO</b>
             </div>
         </div>
-        <!-- todo el menu -->
     </header>
-    <!-- todo el menu -->
-    <ul class="menu">
-        <li>Movimientos
-            <ul class="dropdownmenu">
-                <li><a href="" class="menulinks">Captura de ContraRecibos</a></li>
-                <li><a href="" class="menulinks">Pago de Facturas</a></li>
-            </ul>
-        </li>
-        <li>Traspaso
-            <ul class="dropdownmenu">
-                <li><a href="" class="menulinks">Verificar Informaci&oacute;n</a></li>
-                <li><a href="" class="menulinks">Realizar las Transacciones</a></li>
-            </ul>
-        </li>
-        <li>Reportes
-            <ul class="dropdownmenu">
-                <li><a href="" class="menulinks">Facturas Pendientes</a></li>
-                <li><a href="" class="menulinks">Facturas Pagadas</a></li>
-                <li><a href="" class="menulinks">Facturas por Depto.</a></li>
-            </ul>
-        </li>
-        <li>Utilerias
-            <ul class="dropdownmenu">
-                <li><a href="" class="menulinks">Cambio de Mes</a></li>
-                <li><a href="" class="menulinks">Indexar Archivos</a></li>
-                <li><a href="" class="menulinks">Control de Usuarios</a></li>
-                <li><a href="" class="menulinks">Configurar Impresora</a></li>
-                <li><a href="" class="menulinks">Par&aacute;metros de Conexi&oacute;n CONTRED</a></li>
-                <li><a href="" class="menulinks">Par&aacute;metros Retenci&oacute;n a Prov.</a></li>
-                <li><a href="" class="menulinks">Cierre de Ejercicio</a></li>
-                <li><a href="" class="menulinks">Configurar Datos Generales</a></li>
-            </ul>
-        </li>
-        <li><a href="../seleccionModulos.php" class="menulinks">Salir</a></li>
-    </ul>
-    <!-- aqui termina -->
+     <!-- todo el menu -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                          <div class="container-fluid">
+                          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <div class="collapse navbar-collapse justify-content-md-center" id="main_nav">
+                            <ul class="navbar-nav">
+                              <li class="nav-item dropdown" id="dropdown"> 
+                                <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Movimientos</a>
+                                <ul class="dropdown-menu">
+                                  <li> <a class="dropdown-item" href="capturaContrarecibos.php">Captura de ContraRecibos</a></li>
+                                  <li> <a class="dropdown-item" href="#">Pago de Facturas</a></li>
+                                </ul>
+                              </li>
+                              <li class="nav-item dropdown" id="dropdown">
+                                <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Traspaso</a>
+                                <ul class="dropdown-menu">
+                                  <li> <a class="dropdown-item" href="">Verificar Informaci&oacute;n</a></li>
+                                  <li> <a class="dropdown-item" href="realizarTransacciones.php">Realizar las Transacciones</a></li>
+                                </ul>
+                              </li>
+                              <li class="nav-item dropdown" id="myDropdown">
+                                <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Reportes</a>
+                                <ul class="dropdown-menu">
+                                  <li> <a class="dropdown-item" href="">Facturas Pendientes</a></li>
+                                  <li> <a class="dropdown-item" href="">Facturas Pagadas</a></li>
+                                  <li> <a class="dropdown-item" href="">Facturas por Depto.</a></li>
+                                </ul>
+                              </li>
+                                <li class="nav-item dropdown" id="dropdown">
+                                      <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown" id="mr-1">Utilerias</a>
+                                      <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Cambio de Mes</a></li>
+                                        <li><a class="dropdown-item" href="#">Indexar Archivos</a></li>
+                                        <li><a class="dropdown-item" href="#">Control de Usuarios</a></li>
+                                        <li><a class="dropdown-item" href="#">Configurar Impresora</a></li>
+                                        <li><a class="dropdown-item" href="">Par&aacute;metros de Conexi&oacute;n CONTRED</a></li>
+                                        <li><a class="dropdown-item" href="#">Par&aacute;metros Retenci&oacute;n a Prov.</a></li>
+                                        <li><a class="dropdown-item" href="#">Cierrre de Ejercicio</a></li>
+                                        <li><a class="dropdown-item" href="#">Configurar Datos Generales</a></li>
+                                                                        
+                                </ul>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link active" href="../seleccionModulos.php" >Salir</a>
+                              </li>
+                            </ul>
+                          </div>
+                          <!-- navbar-collapse.// -->
+                          </div>
+                          <!-- container-fluid.// -->
+                          </nav>
+                        <!-- aqui termina -->
     <nav class="navbar navbar-light justify-content-center fs-3 mb-5">
         Mantenimiento de Contra-Recibos
     </nav>
@@ -452,5 +470,5 @@ if (isset($_POST['submit'])) {
 </body>
 <script src="../js/capContrarecibos.js"></script>
 <script src="../js/collapse.js"></script>
-
+<script src="../js/navbar.js"></script>
 </html>

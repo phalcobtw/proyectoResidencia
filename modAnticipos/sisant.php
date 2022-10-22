@@ -53,7 +53,7 @@ include "../validarSesion2.php";
                                 <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Catalogos</a>
                                 <ul class="dropdown-menu">
                                   <li> <a class="dropdown-item" href="cuentaCatalogos.php">Cuentas</a></li>
-                                  <li> <a class="dropdown-item" href="programasCatalogos.ph">Programas</a></li>
+                                  <li> <a class="dropdown-item" href="programasCatalogos.php">Programas</a></li>
                                   <li> <a class="dropdown-item" href="actividadesCatalogos.php">Actividades</a></li>
                                   <li> <a class="dropdown-item" href="partidasCatalogos.php">Partidas</a></li>
                                   <li> <a class="dropdown-item" href="departamentoCatalogos.php">Departamentos</a></li>

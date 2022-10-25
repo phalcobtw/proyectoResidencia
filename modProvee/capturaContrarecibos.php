@@ -427,39 +427,210 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <!-- TO DO: GASTO, IVA, ISR Y ACTIVO VA EN CUENTAS, METER TODO A UNA FUNCION PHP PARA IMPRIMIR SU SELECT LIST DESDE UN QUERY -->
-                <div class="row">
+               <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label">Gasto:</label>
-                        <select class="form-select" name="gastoselect" id="gastoselect">
-                            <option selected>Seleccione una opcion:</option>
-                        </select>
+                        <label for="" class="form-label label-txt">GASTO:</label>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        <strong>Mostrar/Ocultar Tabla:</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="table-wrapper">
+                                            <table class="table table-sm table-hover table-striped palco-table">
+                                                <thead class="table-dark">
+                                                    <th>
+                                                        Clave
+                                                    </th>
+                                                    <th>
+                                                        Descripcion
+                                                    </th>
+                                                    <th>
+                                                        Seleccionar
+                                                    </th>
+                                                </thead>
+                                                <tbody class="palco-tbody">
+                                                    <?php
+                                                    $sqlprog = "SELECT * from `programacatalogo`";
+                                                    $resultprog = mysqli_query($conn, $sqlprog);
+                                                    while ($rowprog = mysqli_fetch_array($resultprog)) {
+                                                        echo '
+                                <tr>
+                                    <td>' . $rowprog["programa"] . '</td>
+                                    <td>' . $rowprog["descripcion"] . '</td>
+                                    <td><button type="button" class="btn btn-outline-dark progbutton">Agregar</button></td> 
+                                </tr>
+                                ';
+                                                    }
+                                                    echo '
+                            
+                            '
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label">IVA:</label>
-                        <select class="form-select" name="ivaselect" id="ivaselect">
-                            <option selected>Seleccione una opcion:</option>
-                        </select>
+                        <label for="" class="form-label label-txt">IVA:</label>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingSix">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        <strong>Mostrar/Ocultar Tabla:</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="table-wrapper">
+                                            <table class="table table-sm table-hover table-striped palco-table">
+                                                <thead class="table-dark">
+                                                    <th>
+                                                        Clave
+                                                    </th>
+                                                    <th>
+                                                        Descripcion
+                                                    </th>
+                                                    <th>
+                                                        Seleccionar
+                                                    </th>
+                                                </thead>
+                                                <tbody class="palco-tbody">
+                                                    <?php
+                                                    $sqlprog = "SELECT * from `programacatalogo`";
+                                                    $resultprog = mysqli_query($conn, $sqlprog);
+                                                    while ($rowprog = mysqli_fetch_array($resultprog)) {
+                                                        echo '
+                                <tr>
+                                    <td>' . $rowprog["programa"] . '</td>
+                                    <td>' . $rowprog["descripcion"] . '</td>
+                                    <td><button type="button" class="btn btn-outline-dark progbutton">Agregar</button></td> 
+                                </tr>
+                                ';
+                                                    }
+                                                    echo '
+                            
+                            '
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label">ISR:</label>
-                        <select class="form-select" name="isrselect" id="isrselect">
-                            <option selected>Seleccione una opcion:</option>
-                        </select>
+                        <label for="" class="form-label label-txt">ISR:</label>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingSeven">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                        <strong>Mostrar/Ocultar Tabla:</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="table-wrapper">
+                                            <table class="table table-sm table-hover table-striped palco-table">
+                                                <thead class="table-dark">
+                                                    <th>
+                                                        Clave
+                                                    </th>
+                                                    <th>
+                                                        Descripcion
+                                                    </th>
+                                                    <th>
+                                                        Seleccionar
+                                                    </th>
+                                                </thead>
+                                                <tbody class="palco-tbody">
+                                                    <?php
+                                                    $sqlprog = "SELECT * from `programacatalogo`";
+                                                    $resultprog = mysqli_query($conn, $sqlprog);
+                                                    while ($rowprog = mysqli_fetch_array($resultprog)) {
+                                                        echo '
+                                <tr>
+                                    <td>' . $rowprog["programa"] . '</td>
+                                    <td>' . $rowprog["descripcion"] . '</td>
+                                    <td><button type="button" class="btn btn-outline-dark progbutton">Agregar</button></td> 
+                                </tr>
+                                ';
+                                                    }
+                                                    echo '
+                            
+                            '
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label">Activo:</label>
-                        <select class="form-select" name="activoselect" id="activoselect">
-                            <option selected>Seleccione una opcion:</option>
-                        </select>
+                        <label for="" class="form-label label-txt">ACTIVO:</label>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingEight">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                        <strong>Mostrar/Ocultar Tabla:</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="table-wrapper">
+                                            <table class="table table-sm table-hover table-striped palco-table">
+                                                <thead class="table-dark">
+                                                    <th>
+                                                        Clave
+                                                    </th>
+                                                    <th>
+                                                        Descripcion
+                                                    </th>
+                                                    <th>
+                                                        Seleccionar
+                                                    </th>
+                                                </thead>
+                                                <tbody class="palco-tbody">
+                                                    <?php
+                                                    $sqlprog = "SELECT * from `programacatalogo`";
+                                                    $resultprog = mysqli_query($conn, $sqlprog);
+                                                    while ($rowprog = mysqli_fetch_array($resultprog)) {
+                                                        echo '
+                                <tr>
+                                    <td>' . $rowprog["programa"] . '</td>
+                                    <td>' . $rowprog["descripcion"] . '</td>
+                                    <td><button type="button" class="btn btn-outline-dark progbutton">Agregar</button></td> 
+                                </tr>
+                                ';
+                                                    }
+                                                    echo '
+                            
+                            '
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
                 <br>
                 <button type="submit" class="btn btn-success" name="submit" style="margin-bottom: 30px;">Guardar</button>
             </form>

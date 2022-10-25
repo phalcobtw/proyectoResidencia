@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -165,15 +165,6 @@ if (isset($_POST['submit'])) {
                         <label class="form-label">Descripción:</label>
                         <select class="form-select" aria-label="Default select example" id="selector">
                             <option selected>Seleccione una opcion</option>
-                            <!-- <option value="2102000000000">PROVEEDORES</option>
-                            <option value="2102200000000">INGRESOS PROPIOS</option>
-                            <option value="2102200216000">2016</option>
-                            <option value="2102200217000">2017</option>
-                            <option value="2102200218000">2018</option>
-                            <option value="2102200218001">EQUIPOS NIETOS DE SINALOA, S.A</option>
-                            <option value="2102200218002">PROVEEDORA EPSILON DEL NOROESTE</option>
-                            <option value="2102200218003">OSCAR ENRIQUE PRECIADO MARES</option>
-                            <option value="2102200218004">TELEFONOS DE MEXICO, S.A.B. DE C.V</option> -->
                             <?php
                             $sqlant = "SELECT * from `cuentacatalogo`";
                             $resultant = mysqli_query($conn, $sqlant);
@@ -186,7 +177,15 @@ if (isset($_POST['submit'])) {
                             ?>
                         </select>
                     </div>
-                    <div class="col-4 mt-2">
+                    <div class="col-1 mt-2">
+                        <label for="" class="form-label" id="tiporetlabel">
+                            <?php
+                            $valortiporet = 23;
+                            echo ''
+                            ?>
+                        </label>
+                    </div>
+                    <div class="col-3 mt-2">
                         <label class="form-label">Clave del Proveedor:</label>
                         <input type="text" class="form-control" name="cuenta" id="txtCuenta" readonly>
                     </div>
@@ -225,7 +224,7 @@ if (isset($_POST['submit'])) {
                 <!-- TO DO: LLENAR BASE DE DATOS DE CADA SELECT LIST DE ABAJO -->
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label label-txt">PROGRAMA:</label>
+                        <label for="" class="form-label label-txt">PROGRAMA: <span id="claveprog" style="color:red;"></span><span> </span><span id="descprog" style="color:red;"></span></label>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
@@ -255,9 +254,9 @@ if (isset($_POST['submit'])) {
                                                     while ($rowprog = mysqli_fetch_array($resultprog)) {
                                                         echo '
                                 <tr>
-                                    <td>' . $rowprog["programa"] . '</td>
-                                    <td>' . $rowprog["descripcion"] . '</td>
-                                    <td><button type="button" class="btn btn-outline-dark">Agregar</button></td> 
+                                    <td class="progtd">' . $rowprog["programa"] . '</td>
+                                    <td class="progdesctd">' . $rowprog["descripcion"] . '</td>
+                                    <td><button type="button" class="btn btn-outline-dark progbutton">Agregar</button></td> 
                                 </tr>
                                 ';
                                                     }
@@ -469,6 +468,6 @@ if (isset($_POST['submit'])) {
 
 </body>
 <script src="../js/capContrarecibos.js"></script>
-<script src="../js/collapse.js"></script>
+<!-- <script src="../js/collapse.js"></script> -->
 <script src="../js/navbar.js"></script>
 </html>

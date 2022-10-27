@@ -1,4 +1,6 @@
-
+$(document).ready (function (){
+$("#tableIVA").hide();
+$("#tableISR").hide();
 //saco valores de tabla programa al hacer click en boton agregar
 $(".progbutton").click(function() {
     var $rowprogra = $(this).closest("tr");    // Find the row
@@ -17,4 +19,15 @@ $(".cuentasbutton").click(function() {
     document.getElementById("clavecuenta").textContent = $clavecuenta;
     document.getElementById("descrcuenta").textContent = $descrcuenta;
     document.getElementById("tiporetcuenta").textContent = $tiporetcuenta;
-});
+    var valor = $clavecuenta.substring(0, 4);
+    if (valor === "2101" && $tiporetcuenta === "HON") {
+        $("#tableIVA").show();
+        $("#tableISR").show();
+        alert("work");
+    }
+else{
+    $("#tableIVA").hide();
+$("#tableISR").hide();
+}
+});});
+

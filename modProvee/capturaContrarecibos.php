@@ -516,7 +516,7 @@ if (isset($_POST['submit'])) {
                                 <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <div class="table-wrapper">
-                                            <table class="table table-sm table-hover table-striped palco-table">
+                                            <table id="tableIVA" class="table table-sm table-hover table-striped palco-table">
                                                 <thead class="table-dark">
                                                     <th>
                                                         Clave
@@ -567,7 +567,7 @@ if (isset($_POST['submit'])) {
                                 <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <div class="table-wrapper">
-                                            <table class="table table-sm table-hover table-striped palco-table">
+                                            <table id="tableISR" class="table table-sm table-hover table-striped palco-table">
                                                 <thead class="table-dark">
                                                     <th>
                                                         Clave

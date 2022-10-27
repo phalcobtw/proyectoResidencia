@@ -245,8 +245,8 @@ if (isset($_POST['submit'])) {
                         <input type="text" class="form-control">
                     </div>
                 </div>
-                <!-- TO DO: PREGUNTAR SI AGREGO TEXT FIELD INDICANDO CLAVE O NOMBRE DE LA ACTIVIDAD A LA DERECHA DE CADA SELECT LIST -->
                 <!-- TO DO: LLENAR BASE DE DATOS DE CADA SELECT LIST DE ABAJO -->
+                <!-- TO DO: AGREGAR BOTÓN DE BORRAR DATOS DE LOS SPAN EN CADA TABLE  -->
                 <div class="row text-center">
                     <div class="col mt-2">
                         <label for="" class="form-label label-txt">PROGRAMA: <span id="claveprog" style="color:red;"></span><span> </span><span id="descprog" style="color:red;"></span></label>

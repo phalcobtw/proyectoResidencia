@@ -160,34 +160,59 @@ if (isset($_POST['submit'])) {
                         <input type="text" class="form-control" name="fecha" value="<?php echo $fulldate; ?>">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-8 mt-2">
-                        <label class="form-label">Descripción:</label>
-                        <select class="form-select" aria-label="Default select example" id="selector">
-                            <option selected>Seleccione una opcion</option>
-                            <?php
-                            $sqlant = "SELECT * from `cuentacatalogo`";
-                            $resultant = mysqli_query($conn, $sqlant);
-                            while ($rowant = mysqli_fetch_array($resultant)) {
-                                echo '
-                                <option value="' . $rowant["cuenta"] . '">' . $rowant["descripcion"] . '</option>
+                <div class="row text-center">
+                    <div class="col mt-2">
+                        <label for="" class="form-label label-txt">DESCRIPCION Y CLAVE DE PROVEEDOR: <span id="clavecuenta" style="color:red;"></span><span> </span><span id="descrcuenta" style="color:red;"></span><span> </span><b><span id="tiporetcuenta" style="color:black;"></span></b></label>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading6">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                                        <strong>Mostrar/Ocultar Tabla:</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="table-wrapper">
+                                            <table class="table table-sm table-hover table-striped palco-table">
+                                                <thead class="table-dark">
+                                                    <th>
+                                                        Clave
+                                                    </th>
+                                                    <th>
+                                                        Descripcion
+                                                    </th>
+                                                    <th>
+                                                        Tipo Ret.
+                                                    </th>
+                                                    <th>
+                                                        Seleccionar
+                                                    </th>
+                                                </thead>
+                                                <tbody class="palco-tbody">
+                                                    <?php
+                                                    $sqlcuentas = "SELECT * from `cuentacatalogo`";
+                                                    $resultcuentas = mysqli_query($conn, $sqlcuentas);
+                                                    while ($rowcuentas = mysqli_fetch_array($resultcuentas)) {
+                                                        echo '
+                                <tr>
+                                    <td class="cuentatd">' . $rowcuentas["cuenta"] . '</td>
+                                    <td class="descrcuentatd">' . $rowcuentas["descripcion"] . '</td>
+                                    <td class="tiporetcuentatd">' . $rowcuentas["tiporet"] . '</td>
+                                    <td><button type="button" class="btn btn-outline-dark cuentasbutton">Agregar</button></td> 
+                                </tr>
                                 ';
-                            }
-
-                            ?>
-                        </select>
-                    </div>
-                    <div class="col-1 mt-2">
-                        <label for="" class="form-label" id="tiporetlabel">
-                            <?php
-                            $valortiporet = 23;
-                            echo ''
-                            ?>
-                        </label>
-                    </div>
-                    <div class="col-3 mt-2">
-                        <label class="form-label">Clave del Proveedor:</label>
-                        <input type="text" class="form-control" name="cuenta" id="txtCuenta" readonly>
+                                                    }
+                                                    echo '
+                            
+                            '
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">

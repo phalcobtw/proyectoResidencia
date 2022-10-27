@@ -1,12 +1,3 @@
-var listaSelect = document.getElementById('selector');
-
-listaSelect.addEventListener("change",function () {
-    var elemSeleccionado = listaSelect.value;
-    var textF = document.getElementById('txtCuenta');
-    textF.value = elemSeleccionado;
-
-});
-
 
 //saco valores de tabla programa al hacer click en boton agregar
 $(".progbutton").click(function() {
@@ -16,4 +7,14 @@ $(".progbutton").click(function() {
     document.getElementById("claveprog").textContent = $claveprog;
     document.getElementById("descprog").textContent = $descrprog;
     /* alert($claveprog); */
+});
+
+$(".cuentasbutton").click(function() {
+    var $rowcuenta = $(this).closest("tr");    // Find the row
+    var $clavecuenta = $rowcuenta.find(".cuentatd").text(); // Find the text
+    var $descrcuenta = $rowcuenta.find(".descrcuentatd").text();
+    var $tiporetcuenta = $rowcuenta.find(".tiporetcuentatd").text();
+    document.getElementById("clavecuenta").textContent = $clavecuenta;
+    document.getElementById("descrcuenta").textContent = $descrcuenta;
+    document.getElementById("tiporetcuenta").textContent = $tiporetcuenta;
 });

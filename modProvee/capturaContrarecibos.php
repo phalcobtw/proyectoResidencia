@@ -174,6 +174,7 @@ if (isset($_POST['submit'])) {
                                     <div class="accordion-body">
                                         <div class="table-wrapper">
                                             <table class="table table-sm table-hover table-striped palco-table">
+                                                
                                                 <thead class="table-dark">
                                                     <th>
                                                         Clave
@@ -206,9 +207,10 @@ if (isset($_POST['submit'])) {
                             
                             '
                                                     ?>
-                                                </tbody>
-                                            </table>
+                                                </tbody>                                                
+                                            </table>                                            
                                         </div>
+                                        <button type="button" class="btn btn-danger limpiarCuentas">Limpiar Seleccioando</button>
                                     </div>
                                 </div>
                             </div>
@@ -292,15 +294,16 @@ if (isset($_POST['submit'])) {
                                                 </tbody>
                                             </table>
                                         </div>
+                                        <button type="button" class="btn btn-danger limpiarPrograma">Limpiar Seleccioando</button>
                                     </div>
-                                </div>
+                                </div>                                
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label label-txt">ACTIVIDAD:</label>
+                        <label for="" class="form-label label-txt">ACTIVIDAD:</label> <span id="claveact" style="color:red;"></span><span> </span><span id="descact" style="color:red;"></span>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingTwo">
@@ -330,9 +333,9 @@ if (isset($_POST['submit'])) {
                                                     while ($rowact = mysqli_fetch_array($resultact)) {
                                                         echo '
                                 <tr>
-                                    <td>' . $rowact["actividad"] . '</td>
-                                    <td>' . $rowact["descripcion"] . '</td>
-                                    <td><button type="button" class="btn btn-outline-dark">Agregar</button></td> 
+                                    <td class="acttd">' . $rowact["actividad"] . '</td>
+                                    <td class="descacttd">' . $rowact["descripcion"] . '</td>
+                                    <td><button type="button" class="btn btn-outline-dark actbutton">Agregar</button></td> 
                                 </tr>
                                 ';
                                                     }
@@ -343,15 +346,16 @@ if (isset($_POST['submit'])) {
                                                 </tbody>
                                             </table>
                                         </div>
+                                        <button type="button" class="btn btn-danger limpiarActividad">Limpiar Seleccioando</button>
                                     </div>
-                                </div>
+                                </div>                        
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label">PARTIDA:</label>
+                        <label for="" class="form-label">PARTIDA:</label> <span id="clavepart" style="color:red;"></span><span> </span><span id="descpart" style="color:red;"></span>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingThree">
@@ -381,9 +385,9 @@ if (isset($_POST['submit'])) {
                                                     while ($rowpar = mysqli_fetch_array($resultpar)) {
                                                         echo '
                                 <tr>
-                                    <td>' . $rowpar["partida"] . '</td>
-                                    <td>' . $rowpar["descripcion"] . '</td>
-                                    <td><button type="button" class="btn btn-outline-dark">Agregar</button></td> 
+                                    <td class="parttd">' . $rowpar["partida"] . '</td>
+                                    <td class="descparttd">' . $rowpar["descripcion"] . '</td>
+                                    <td><button type="button" class="btn btn-outline-dark partbutton">Agregar</button></td> 
                                 </tr>
                                 ';
                                                     }
@@ -394,6 +398,7 @@ if (isset($_POST['submit'])) {
                                                 </tbody>
                                             </table>
                                         </div>
+                                        <button type="button" class="btn btn-danger limpiarPartida">Limpiar Seleccioando</button>
                                     </div>
                                 </div>
                             </div>
@@ -402,7 +407,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label">DEPARTAMENTO:</label>
+                        <label for="" class="form-label">DEPARTAMENTO:</label> <span id="clavedep" style="color:red;"></span><span> </span><span id="descdep" style="color:red;"></span>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingFour">
@@ -432,9 +437,9 @@ if (isset($_POST['submit'])) {
                                                     while ($rowdep = mysqli_fetch_array($resultdep)) {
                                                         echo '
                                 <tr>
-                                    <td>' . $rowdep["departamento"] . '</td>
-                                    <td>' . $rowdep["descripcion"] . '</td>
-                                    <td><button type="button" class="btn btn-outline-dark">Agregar</button></td> 
+                                    <td class="deptd">' . $rowdep["departamento"] . '</td>
+                                    <td class="descdeptd">' . $rowdep["descripcion"] . '</td>
+                                    <td><button type="button" class="btn btn-outline-dark depbutton">Agregar</button></td> 
                                 </tr>
                                 ';
                                                     }
@@ -445,6 +450,7 @@ if (isset($_POST['submit'])) {
                                                 </tbody>
                                             </table>
                                         </div>
+                                        <button type="button" class="btn btn-danger limpiarDepartamento">Limpiar Seleccioando</button>
                                     </div>
                                 </div>
                             </div>

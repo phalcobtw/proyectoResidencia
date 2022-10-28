@@ -460,7 +460,7 @@ if (isset($_POST['submit'])) {
                 <!-- TO DO: GASTO, IVA, ISR Y ACTIVO VA EN CUENTAS, METER TODO A UNA FUNCION PHP PARA IMPRIMIR SU SELECT LIST DESDE UN QUERY -->
                <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label label-txt">GASTO:</label>
+                        <label for="" class="form-label label-txt">GASTO:</label> <span id="clavegasto" style="color:red;"></span><span> </span><span id="descgasto" style="color:red;"></span>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingFive">
@@ -490,9 +490,9 @@ if (isset($_POST['submit'])) {
                                                     while ($rowprog = mysqli_fetch_array($resultprog)) {
                                                         echo '
                                 <tr>
-                                    <td>' . $rowprog["programa"] . '</td>
-                                    <td>' . $rowprog["descripcion"] . '</td>
-                                    <td><button type="button" class="btn btn-outline-dark progbutton">Agregar</button></td> 
+                                    <td class="gastotd">' . $rowprog["programa"] . '</td>
+                                    <td class="descgastotd">' . $rowprog["descripcion"] . '</td>
+                                    <td><button type="button" class="btn btn-outline-dark gastoButton">Agregar</button></td> 
                                 </tr>
                                 ';
                                                     }
@@ -624,7 +624,7 @@ if (isset($_POST['submit'])) {
                                 <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <div class="table-wrapper">
-                                            <table class="table table-sm table-hover table-striped palco-table">
+                                            <table id="tableACTIVO" class="table table-sm table-hover table-striped palco-table">
                                                 <thead class="table-dark">
                                                     <th>
                                                         Clave
@@ -645,7 +645,7 @@ if (isset($_POST['submit'])) {
                                 <tr>
                                     <td>' . $rowprog["programa"] . '</td>
                                     <td>' . $rowprog["descripcion"] . '</td>
-                                    <td><button type="button" class="btn btn-outline-dark progbutton">Agregar</button></td> 
+                                    <td><button type="button" class="btn btn-outline-dark activoButton">Agregar</button></td> 
                                 </tr>
                                 ';
                                                     }

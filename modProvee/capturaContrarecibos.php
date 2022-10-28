@@ -210,7 +210,7 @@ if (isset($_POST['submit'])) {
                                                 </tbody>                                                
                                             </table>                                            
                                         </div>
-                                        <button type="button" class="btn btn-danger limpiarCuentas">Limpiar Seleccioando</button>
+                                        <button type="button" class="btn btn-danger limpiarCuentas">Limpiar Seleccionado</button>
                                     </div>
                                 </div>
                             </div>
@@ -234,7 +234,7 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div class="col-4 mt-2">
                         <label class="form-label">Importe:</label>
-                        <input type="text" name="importe" class="form-control">
+                        <input type="text" name="importe" class="form-control" id="importeTxt">
                     </div>
                     <div class="col-4 mt-2">
                         <label for="" class="form-label">Vencimiento:</label>
@@ -247,8 +247,6 @@ if (isset($_POST['submit'])) {
                         <input type="text" class="form-control">
                     </div>
                 </div>
-                <!-- TO DO: LLENAR BASE DE DATOS DE CADA SELECT LIST DE ABAJO -->
-                <!-- TO DO: AGREGAR BOTÓN DE BORRAR DATOS DE LOS SPAN EN CADA TABLE  -->
                 <div class="row text-center">
                     <div class="col mt-2">
                         <label for="" class="form-label label-txt">PROGRAMA: <span id="claveprog" style="color:red;"></span><span> </span><span id="descprog" style="color:red;"></span></label>
@@ -294,7 +292,7 @@ if (isset($_POST['submit'])) {
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <button type="button" class="btn btn-danger limpiarPrograma">Limpiar Seleccioando</button>
+                                        <button type="button" class="btn btn-danger limpiarPrograma">Limpiar Seleccionado</button>
                                     </div>
                                 </div>                                
                             </div>
@@ -346,7 +344,7 @@ if (isset($_POST['submit'])) {
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <button type="button" class="btn btn-danger limpiarActividad">Limpiar Seleccioando</button>
+                                        <button type="button" class="btn btn-danger limpiarActividad">Limpiar Seleccionado</button>
                                     </div>
                                 </div>                        
                             </div>
@@ -398,7 +396,7 @@ if (isset($_POST['submit'])) {
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <button type="button" class="btn btn-danger limpiarPartida">Limpiar Seleccioando</button>
+                                        <button type="button" class="btn btn-danger limpiarPartida">Limpiar Seleccionado</button>
                                     </div>
                                 </div>
                             </div>
@@ -450,14 +448,14 @@ if (isset($_POST['submit'])) {
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <button type="button" class="btn btn-danger limpiarDepartamento">Limpiar Seleccioando</button>
+                                        <button type="button" class="btn btn-danger limpiarDepartamento">Limpiar Seleccionado</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- TO DO: GASTO, IVA, ISR Y ACTIVO VA EN CUENTAS, METER TODO A UNA FUNCION PHP PARA IMPRIMIR SU SELECT LIST DESDE UN QUERY -->
+                <!-- TO DO: IVA ISR ACTIVO PREGUNTAR CONDICION DE IMPRIMIR SUS TABLAS (QUE LLEVA EN LOS QUERY) -->
                <div class="row text-center">
                     <div class="col mt-2">
                         <label for="" class="form-label label-txt">GASTO:</label> <span id="clavegasto" style="color:red;"></span><span> </span><span id="descgasto" style="color:red;"></span>
@@ -503,6 +501,7 @@ if (isset($_POST['submit'])) {
                                                 </tbody>
                                             </table>
                                         </div>
+                                        <button type="button" class="btn btn-danger limpiarGasto">Limpiar Seleccionado</button>
                                     </div>
                                 </div>
                             </div>
@@ -511,7 +510,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label label-txt">IVA:</label>
+                        <label for="" class="form-label label-txt">IVA:</label> <span id="claveiva" style="color:red;"></span><span> </span><span id="desciva" style="color:red;"></span>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingSix">
@@ -541,9 +540,9 @@ if (isset($_POST['submit'])) {
                                                     while ($rowprog = mysqli_fetch_array($resultprog)) {
                                                         echo '
                                 <tr>
-                                    <td>' . $rowprog["programa"] . '</td>
-                                    <td>' . $rowprog["descripcion"] . '</td>
-                                    <td><button type="button" class="btn btn-outline-dark progbutton">Agregar</button></td> 
+                                    <td class="ivatd">' . $rowprog["programa"] . '</td>
+                                    <td class="descivatd">' . $rowprog["descripcion"] . '</td>
+                                    <td><button type="button" class="btn btn-outline-dark ivaButton">Agregar</button></td> 
                                 </tr>
                                 ';
                                                     }
@@ -554,15 +553,16 @@ if (isset($_POST['submit'])) {
                                                 </tbody>
                                             </table>
                                         </div>
+                                        <button type="button" class="btn btn-danger limpiarIva">Limpiar Seleccionado</button>
                                     </div>
                                 </div>
-                            </div>
+                            </div>                        
                         </div>
                     </div>
                 </div>
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label label-txt">ISR:</label>
+                        <label for="" class="form-label label-txt">ISR:</label> <span id="claveisr" style="color:red;"></span><span> </span><span id="descisr" style="color:red;"></span>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingSeven">
@@ -592,9 +592,9 @@ if (isset($_POST['submit'])) {
                                                     while ($rowprog = mysqli_fetch_array($resultprog)) {
                                                         echo '
                                 <tr>
-                                    <td>' . $rowprog["programa"] . '</td>
-                                    <td>' . $rowprog["descripcion"] . '</td>
-                                    <td><button type="button" class="btn btn-outline-dark progbutton">Agregar</button></td> 
+                                    <td class="isrtd">' . $rowprog["programa"] . '</td>
+                                    <td class="descisrtd">' . $rowprog["descripcion"] . '</td>
+                                    <td><button type="button" class="btn btn-outline-dark isrButton">Agregar</button></td> 
                                 </tr>
                                 ';
                                                     }
@@ -605,6 +605,7 @@ if (isset($_POST['submit'])) {
                                                 </tbody>
                                             </table>
                                         </div>
+                                        <button type="button" class="btn btn-danger limpiarIsr">Limpiar Seleccionado</button>
                                     </div>
                                 </div>
                             </div>
@@ -613,7 +614,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label label-txt">ACTIVO:</label>
+                        <label for="" class="form-label label-txt">ACTIVO:</label> <span id="claveactivo" style="color:red;"></span><span> </span><span id="descactivo" style="color:red;"></span>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingEight">
@@ -643,8 +644,8 @@ if (isset($_POST['submit'])) {
                                                     while ($rowprog = mysqli_fetch_array($resultprog)) {
                                                         echo '
                                 <tr>
-                                    <td>' . $rowprog["programa"] . '</td>
-                                    <td>' . $rowprog["descripcion"] . '</td>
+                                    <td class="activotd">' . $rowprog["programa"] . '</td>
+                                    <td class="descactivotd">' . $rowprog["descripcion"] . '</td>
                                     <td><button type="button" class="btn btn-outline-dark activoButton">Agregar</button></td> 
                                 </tr>
                                 ';
@@ -656,10 +657,19 @@ if (isset($_POST['submit'])) {
                                                 </tbody>
                                             </table>
                                         </div>
+                                        <button type="button" class="btn btn-danger limpiarActivo">Limpiar Seleccionado</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-2">
+                        <div class="label-form">
+                            Importe:
+                        </div>
+                        <input type="text" class="form-control" id="importeFinal">
                     </div>
                 </div>
                 <br>

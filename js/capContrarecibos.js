@@ -28,14 +28,27 @@ $(".cuentasbutton").click(function() {
     }
     else if ($tiporetcuenta === "EMP" || $tiporetcuenta === "HON") {
         $("#tableIVA").show();
-        $("#tableISR").hide();    
+        $("#tableISR").hide();
+        $("#claveisr").text("");
+        $("#descisr").text("");
         /* alert("work"); */
     }
 else{
     $("#tableIVA").hide();
+    $("#claveiva").text("");
+    $("#desciva").text("");
     $("#tableISR").hide();
+    $("#claveisr").text("");
+    $("#descisr").text("");
 }
 });});
+
+var importe = document.getElementById("importeTxt");
+importe.addEventListener("change", function () {
+    var valorImporte = importe.value;
+    var importeFinal = document.getElementById("importeFinal");
+    importeFinal.value = valorImporte;    
+});
 
 $(".gastoButton").click(function(){
     var $rowgasto = $(this).closest("tr");    // Find the row
@@ -49,6 +62,8 @@ $(".gastoButton").click(function(){
     }
     else{
         $("#tableACTIVO").hide();
+        $("#claveactivo").text("");
+        $("#descactivo").text("");
     }
 });
 
@@ -76,6 +91,30 @@ $(".depbutton").click(function () {
     document.getElementById("descdep").textContent = $descdep;
 });
 
+$(".activoButton").click(function () {
+    var $rowactivo = $(this).closest("tr");    // Find the row
+    var $claveactivo = $rowactivo.find(".activotd").text(); // Find the text
+    var $descactivo = $rowactivo.find(".descactivotd").text();    
+    document.getElementById("claveactivo").textContent = $claveactivo;
+    document.getElementById("descactivo").textContent = $descactivo;
+});
+
+$(".isrButton").click(function () {
+    var $rowisr = $(this).closest("tr");    // Find the row
+    var $claveisr = $rowisr.find(".isrtd").text(); // Find the text
+    var $descisr = $rowisr.find(".descisrtd").text();    
+    document.getElementById("claveisr").textContent = $claveisr;
+    document.getElementById("descisr").textContent = $descisr;
+});
+
+$(".ivaButton").click(function () {
+    var $rowiva = $(this).closest("tr");    // Find the row
+    var $claveiva = $rowiva.find(".ivatd").text(); // Find the text
+    var $desciva = $rowiva.find(".descivatd").text();    
+    document.getElementById("claveiva").textContent = $claveiva;
+    document.getElementById("desciva").textContent = $desciva;
+});
+
 
 $(".limpiarCuentas").click(function (){
     $("#clavecuenta").text("");
@@ -101,4 +140,24 @@ $(".limpiarPartida").click(function (){
 $(".limpiarDepartamento").click(function (){
     $("#clavedep").text("");
     $("#descdep").text("");
+});
+
+$(".limpiarGasto").click(function (){
+    $("#clavegasto").text("");
+    $("#descgasto").text("");
+});
+
+$(".limpiarIva").click(function (){
+    $("#claveiva").text("");
+    $("#desciva").text("");
+});
+
+$(".limpiarIsr").click(function (){
+    $("#claveisr").text("");
+    $("#descisr").text("");
+});
+
+$(".limpiarActivo").click(function (){
+    $("#claveactivo").text("");
+    $("#descactivo").text("");
 });

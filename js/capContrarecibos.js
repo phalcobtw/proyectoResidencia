@@ -1,6 +1,7 @@
 $(document).ready (function (){
 $("#tableIVA").hide();
 $("#tableISR").hide();
+$("#tableACTIVO").hide();
 //saco valores de tabla programa al hacer click en boton agregar
 $(".progbutton").click(function() {
     var $rowprogra = $(this).closest("tr");    // Find the row
@@ -20,16 +21,36 @@ $(".cuentasbutton").click(function() {
     document.getElementById("descrcuenta").textContent = $descrcuenta;
     document.getElementById("tiporetcuenta").textContent = $tiporetcuenta;
     var valor = $clavecuenta.substring(0, 4);
+    /* console.log(valor); */
     if (valor === "2101" && $tiporetcuenta === "HON") {
         $("#tableIVA").show();
         $("#tableISR").show();
+    }
+    else if ($tiporetcuenta === "EMP" || $tiporetcuenta === "HON") {
+        $("#tableIVA").show();
+        $("#tableISR").hide();    
         /* alert("work"); */
     }
 else{
     $("#tableIVA").hide();
-$("#tableISR").hide();
+    $("#tableISR").hide();
 }
 });});
+
+$(".gastoButton").click(function(){
+    var $rowgasto = $(this).closest("tr");    // Find the row
+    var $clavegasto = $rowgasto.find(".gastotd").text(); // Find the text
+    var $descgasto = $rowgasto.find(".descgastotd").text();
+    document.getElementById("clavegasto").textContent = $clavegasto;
+    document.getElementById("descgasto").textContent = $descgasto;
+    var valor = $clavegasto.substring(0,4);
+    if (valor === "4800") {
+        $("#tableACTIVO").show();
+    }
+    else{
+        $("#tableACTIVO").hide();
+    }
+});
 
 $(".actbutton").click(function () {
     var $rowact = $(this).closest("tr");    // Find the row

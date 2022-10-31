@@ -35,13 +35,13 @@ if (isset($_POST['submit'])) {
         <div class="divheader">
         <div class="divlogo">
             <img src="../img/logosep.png" alt="logosep" class="logosep">
-        </div>
+            <b class="titulo">SISBAN</b>
+          </div>
         </div>
     </header>
                          <!-- todo el menu -->
                          <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                           <div class="container-fluid">
-                          <a class="navbar-brand" href="#">SISBAN</a>
                           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
                           <span class="navbar-toggler-icon"></span>
                           </button>

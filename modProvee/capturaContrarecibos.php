@@ -277,8 +277,8 @@ if (isset($_POST['submit'])) {
                 </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
       </div>
     </div>
   </div>
@@ -710,7 +710,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <br>
                 <button type="submit" class="btn btn-success" name="submit" style="margin-bottom: 30px;">Guardar</button>
-                <button type="button" class="btn btn-primary" style="margin-bottom: 30px;" data-bs-toggle="modal" data-bs-target="#exampleModal">Launch demo modal</button>
+                <button type="button" class="btn btn-primary" style="margin-bottom: 30px;" data-bs-toggle="modal" data-bs-target="#exampleModal">Siguiente</button>
             </form>
         </div>
     </div>

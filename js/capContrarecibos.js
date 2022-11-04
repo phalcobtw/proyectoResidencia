@@ -2,6 +2,7 @@ $(document).ready (function (){
 $("#tableIVA").hide();
 $("#tableISR").hide();
 $("#tableACTIVO").hide();
+$('#nextpaso').hide();
 //saco valores de tabla programa al hacer click en boton agregar
 $(".progbutton").click(function() {
     var $rowprogra = $(this).closest("tr");    // Find the row
@@ -160,4 +161,7 @@ $(".limpiarIsr").click(function (){
 $(".limpiarActivo").click(function (){
     $("#claveactivo").text("");
     $("#descactivo").text("");
+});
+$(".siguiente").click(function () {
+    $('#nextpaso').show();
 });

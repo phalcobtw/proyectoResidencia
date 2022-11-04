@@ -247,6 +247,31 @@ if (isset($_POST['submit'])) {
                         <input type="text" class="form-control">
                     </div>
                 </div>
+                <div id="nextpaso" class="row text-center">
+                <div class="col mt-2">
+                <label for="" class="form-label label-txt">CUENTAS DE ORDEN:</label>
+                <div class="row">
+                    <div class="col-6 mt-2">
+                        <label class="form-label">Cuenta de Cargo:</label>
+                        <input type="text" class="form-control" name="cuentacarg">
+                    </div>
+                    <div class="col-6 mt-2">
+                    <label class="form-label">Descripción:</label>
+                        <input type="text" class="form-control" name="cuentacarg2" value="Pendiente" readonly>
+                    </div>
+                      </div>
+                    <div class="row">
+                    <div class="col-6 mt-2">
+                        <label class="form-label">Cuenta de Abono:</label>
+                        <input type="text" class="form-control" name="cuentaabon">
+                    </div>
+                    <div class="col-6 mt-2">
+                    <label class="form-label">Descripción:</label>
+                        <input type="text" class="form-control" name="cuentaabon2" value="Pendiente" readonly>
+                    </div>
+                </div>
+                </div>
+                </div>
                 <div class="row text-center">
                     <div class="col mt-2">
                         <label for="" class="form-label label-txt">PROGRAMA: <span id="claveprog" style="color:red;"></span><span> </span><span id="descprog" style="color:red;"></span></label>
@@ -674,6 +699,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <br>
                 <button type="submit" class="btn btn-success" name="submit" style="margin-bottom: 30px;">Guardar</button>
+                <a href="#nextpaso"><button type="button" class="btn btn-success siguiente" style="margin-bottom: 30px;">Siguiente</button></a>
             </form>
         </div>
     </div>

@@ -248,7 +248,7 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <br>
-                <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#exampleModal">Siguiente</button>
+            <button type="button" class="btn btn-primary" id="hidebutton" data-bs-toggle="modal" data-bs-target="#exampleModal">Siguiente</button>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

@@ -2,7 +2,7 @@ $(document).ready (function (){
 $("#tableIVA").hide();
 $("#tableISR").hide();
 $("#tableACTIVO").hide();
-$('#nextpaso').hide();
+$('#next').hide();
 //saco valores de tabla programa al hacer click en boton agregar
 $(".progbutton").click(function() {
     var $rowprogra = $(this).closest("tr");    // Find the row
@@ -162,12 +162,12 @@ $(".limpiarActivo").click(function (){
     $("#claveactivo").text("");
     $("#descactivo").text("");
 });
-/* $(".siguiente").click(function () {
-    $('#nextpaso').show();
+ $(".save").click(function () {
+    $('#next').show();
 });
-$(".atras").click(function () {
-    $('#nextpaso').hide();
-}); */
+$(".close").click(function () {
+    $('#next').hide();
+});
 var myModal = document.getElementById('myModal')
 var myInput = document.getElementById('myInput')
 myModal.addEventListener('shown.bs.modal', function () {

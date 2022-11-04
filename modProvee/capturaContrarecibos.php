@@ -247,6 +247,8 @@ if (isset($_POST['submit'])) {
                         <input type="text" class="form-control">
                     </div>
                 </div>
+                <br>
+                <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#exampleModal">Siguiente</button>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -277,12 +279,13 @@ if (isset($_POST['submit'])) {
                 </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary save" data-bs-dismiss="modal">Guardar</button>
       </div>
     </div>
   </div>
 </div>
+<div id="next">
                 <div class="row text-center">
                     <div class="col mt-2">
                         <label for="" class="form-label label-txt">PROGRAMA: <span id="claveprog" style="color:red;"></span><span> </span><span id="descprog" style="color:red;"></span></label>
@@ -710,11 +713,10 @@ if (isset($_POST['submit'])) {
                 </div>
                 <br>
                 <button type="submit" class="btn btn-success" name="submit" style="margin-bottom: 30px;">Guardar</button>
-                <button type="button" class="btn btn-primary" style="margin-bottom: 30px;" data-bs-toggle="modal" data-bs-target="#exampleModal">Siguiente</button>
             </form>
         </div>
     </div>
-
+                                                </div>
 </body>
 <script src="../js/capContrarecibos.js"></script>
 <!-- <script src="../js/collapse.js"></script> -->

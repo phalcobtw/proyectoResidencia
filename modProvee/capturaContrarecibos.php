@@ -247,32 +247,42 @@ if (isset($_POST['submit'])) {
                         <input type="text" class="form-control">
                     </div>
                 </div>
-                <div id="nextpaso" class="row text-center">
-                <div class="col mt-2">
-                <label for="" class="form-label label-txt">CUENTAS DE ORDEN:</label>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cuentas de Orden</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="row">
+                    <div class="col-6 mt-2">
+                        <label class="form-label">Cuentas de Orden:</label>
+                        <input type="text" class="form-control" name="fuenteing">
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label class="form-label">Descripción:</label>
+                        <input type="text" class="form-control" name="poliza" value="Pendiente" readonly>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-6 mt-2">
-                        <label class="form-label">Cuenta de Cargo:</label>
-                        <input type="text" class="form-control" name="cuentacarg">
+                        <label class="form-label">Cuentas de Abono:</label>
+                        <input type="text" class="form-control" name="factura">
                     </div>
                     <div class="col-6 mt-2">
-                    <label class="form-label">Descripción:</label>
-                        <input type="text" class="form-control" name="cuentacarg2" value="Pendiente" readonly>
-                    </div>
-                      </div>
-                    <div class="row">
-                    <div class="col-6 mt-2">
-                        <label class="form-label">Cuenta de Abono:</label>
-                        <input type="text" class="form-control" name="cuentaabon">
-                    </div>
-                    <div class="col-6 mt-2">
-                    <label class="form-label">Descripción:</label>
-                        <input type="text" class="form-control" name="cuentaabon2" value="Pendiente" readonly>
+                        <label class="form-label">Descripción:</label>
+                        <input type="text" class="form-control" name="poliza" value="Pendiente" readonly>
                     </div>
                 </div>
-                <button type="button" class="btn btn-success atras" style="margin-bottom: 30px;">Atras</button>
-                </div>
-                </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
                 <div class="row text-center">
                     <div class="col mt-2">
                         <label for="" class="form-label label-txt">PROGRAMA: <span id="claveprog" style="color:red;"></span><span> </span><span id="descprog" style="color:red;"></span></label>
@@ -700,7 +710,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <br>
                 <button type="submit" class="btn btn-success" name="submit" style="margin-bottom: 30px;">Guardar</button>
-                <a href="#nextpaso"><button type="button" class="btn btn-success siguiente" style="margin-bottom: 30px;">Siguiente</button></a>
+                <button type="button" class="btn btn-primary" style="margin-bottom: 30px;" data-bs-toggle="modal" data-bs-target="#exampleModal">Launch demo modal</button>
             </form>
         </div>
     </div>

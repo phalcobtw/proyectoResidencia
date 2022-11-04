@@ -162,9 +162,14 @@ $(".limpiarActivo").click(function (){
     $("#claveactivo").text("");
     $("#descactivo").text("");
 });
-$(".siguiente").click(function () {
+/* $(".siguiente").click(function () {
     $('#nextpaso').show();
 });
 $(".atras").click(function () {
     $('#nextpaso').hide();
-});
+}); */
+var myModal = document.getElementById('myModal')
+var myInput = document.getElementById('myInput')
+myModal.addEventListener('shown.bs.modal', function () {
+    myInput.focus()
+  })

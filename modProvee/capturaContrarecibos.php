@@ -270,6 +270,7 @@ if (isset($_POST['submit'])) {
                         <input type="text" class="form-control" name="cuentaabon2" value="Pendiente" readonly>
                     </div>
                 </div>
+                <button type="button" class="btn btn-success atras" style="margin-bottom: 30px;">Atras</button>
                 </div>
                 </div>
                 <div class="row text-center">

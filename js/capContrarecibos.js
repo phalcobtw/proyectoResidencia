@@ -165,3 +165,6 @@ $(".limpiarActivo").click(function (){
 $(".siguiente").click(function () {
     $('#nextpaso').show();
 });
+$(".atras").click(function () {
+    $('#nextpaso').hide();
+});

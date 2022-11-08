@@ -164,6 +164,7 @@ $(".limpiarActivo").click(function (){
 });
  $(".save").click(function () {
     $('#next').show();
+    $('#hidebutton').hide();
 });
 $(".close").click(function () {
     $('#next').hide();

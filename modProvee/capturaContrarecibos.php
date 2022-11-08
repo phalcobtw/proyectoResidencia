@@ -522,7 +522,7 @@ if (isset($_POST['submit'])) {
                                                 </thead>
                                                 <tbody class="palco-tbody">
                                                     <?php
-                                                    $sqlprog = "SELECT * from `programacatalogo`";
+                                                    $sqlprog = "SELECT * from `cuentacatalogo` WHERE LEFT(cuenta,4) >= 4100";
                                                     $resultprog = mysqli_query($conn, $sqlprog);
                                                     while ($rowprog = mysqli_fetch_array($resultprog)) {
                                                         echo '
@@ -574,7 +574,7 @@ if (isset($_POST['submit'])) {
                                                 </thead>
                                                 <tbody class="palco-tbody">
                                                     <?php
-                                                    $sqlprog = "SELECT * from `programacatalogo`";
+                                                    $sqlprog = "SELECT * from `cuentacatalogo` WHERE LEFT(cuenta,4) = 2101";
                                                     $resultprog = mysqli_query($conn, $sqlprog);
                                                     while ($rowprog = mysqli_fetch_array($resultprog)) {
                                                         echo '
@@ -626,7 +626,7 @@ if (isset($_POST['submit'])) {
                                                 </thead>
                                                 <tbody class="palco-tbody">
                                                     <?php
-                                                    $sqlprog = "SELECT * from `programacatalogo`";
+                                                    $sqlprog = "SELECT * from `cuentacatalogo` WHERE LEFT(cuenta,4) = 2101";
                                                     $resultprog = mysqli_query($conn, $sqlprog);
                                                     while ($rowprog = mysqli_fetch_array($resultprog)) {
                                                         echo '
@@ -678,7 +678,7 @@ if (isset($_POST['submit'])) {
                                                 </thead>
                                                 <tbody class="palco-tbody">
                                                     <?php
-                                                    $sqlprog = "SELECT * from `programacatalogo`";
+                                                    $sqlprog = "SELECT * from `cuentacatalogo` WHERE LEFT(cuenta,4) BETWEEN 1201 AND 1210";
                                                     $resultprog = mysqli_query($conn, $sqlprog);
                                                     while ($rowprog = mysqli_fetch_array($resultprog)) {
                                                         echo '

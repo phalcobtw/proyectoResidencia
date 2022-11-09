@@ -258,29 +258,78 @@ if (isset($_POST['submit'])) {
       </div>
       <div class="modal-body">
       <div class="row">
-                    <div class="col-6 mt-2">
-                        <label class="form-label">Cuentas de Orden:</label>
-                        <input type="text" class="form-control" name="fuenteing">
-                    </div>
-                    <div class="col-6 mt-2">
-                        <label class="form-label">Descripción:</label>
-                        <input type="text" class="form-control" name="poliza" value="Pendiente" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6 mt-2">
-                        <label class="form-label">Cuentas de Abono:</label>
-                        <input type="text" class="form-control" name="factura">
-                    </div>
-                    <div class="col-6 mt-2">
-                        <label class="form-label">Descripción:</label>
-                        <input type="text" class="form-control" name="poliza" value="Pendiente" readonly>
-                    </div>
-                </div>
+      <div class="table-wrapper">
+                                            <table class="table table-sm table-hover table-striped palco-table">
+                                                <thead class="table-dark">
+                                                    <th>
+                                                        Cuenta de Cargo
+                                                    </th>
+                                                    <th>
+                                                        Descripcion
+                                                    </th>
+                                                    <th>
+                                                        Seleccionar
+                                                    </th>
+                                                </thead>
+                                                <tbody class="palco-tbody">
+                                                    <?php
+                                                    $sqlcar = "SELECT * from `cuentacatalogo` WHERE LEFT(cuenta,4) BETWEEN 6100 AND 6900";
+                                                    $resultcar = mysqli_query($conn, $sqlcar);
+                                                    while ($rowprog = mysqli_fetch_array($resultcar)) {
+                                                        echo '
+                                <tr>
+                                    <td class="cuencartd">' . $rowprog["cuenta"] . '</td>
+                                    <td class="cuencardesctd">' . $rowprog["descripcion"] . '</td>
+                                    <td><button type="button" class="btn btn-outline-dark cuencarbutton">Agregar</button></td> 
+                                </tr>
+                                ';
+                                                    }
+                                                    echo '
+                            
+                            '
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>                                       
+                                        <div class="table-wrapper">
+                                            <table class="table table-sm table-hover table-striped palco-table">
+                                                <thead class="table-dark">
+                                                    <th>
+                                                        Cuenta de Abono
+                                                    </th>
+                                                    <th>
+                                                        Descripcion
+                                                    </th>
+                                                    <th>
+                                                        Seleccionar
+                                                    </th>
+                                                </thead>
+                                                <tbody class="palco-tbody">
+                                                    <?php
+                                                    $sqlabo = "SELECT * from `cuentacatalogo` WHERE LEFT(cuenta,4) BETWEEN 6100 AND 6900";
+                                                    $resultabo = mysqli_query($conn, $sqlabo);
+                                                    while ($rowabo = mysqli_fetch_array($resultabo)) {
+                                                        echo '
+                                                    <tr>
+                                                        <td class="cuenabotd">' . $rowabo["cuenta"] . '</td>
+                                                        <td class="cuenabodesctd">' . $rowabo["descripcion"] . '</td>
+                                                        <td><button type="button" class="btn btn-outline-dark cuenabobutton">Agregar</button></td> 
+                                                    </tr>
+                                ';
+                                                    }
+                                                    echo '
+                            
+                            '
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        
+      </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary save" data-bs-dismiss="modal">Guardar</button>
+        <button type="button" class="btn btn-primary save savebutton" data-bs-dismiss="modal">Guardar</button>
       </div>
     </div>
   </div>
@@ -288,6 +337,8 @@ if (isset($_POST['submit'])) {
 <div id="next">
                 <div class="row text-center">
                     <div class="col mt-2">
+                    <span id="cuencar" style="color:red;"></span><span> </span><span id="cuencardesc" style="color:red;"></span><br>
+                    <span id="cuenabo" style="color:blue;"></span><span> </span><span id="cuenabodesc" style="color:blue;"></span><br>
                         <label for="" class="form-label label-txt">PROGRAMA: <span id="claveprog" style="color:red;"></span><span> </span><span id="descprog" style="color:red;"></span></label>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">

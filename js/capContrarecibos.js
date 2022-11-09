@@ -115,7 +115,20 @@ $(".ivaButton").click(function () {
     document.getElementById("claveiva").textContent = $claveiva;
     document.getElementById("desciva").textContent = $desciva;
 });
-
+$(".cuencarbutton").click(function () {
+    var $rowcar = $(this).closest("tr");    // Find the row
+    var $cuencar = $rowcar.find(".cuencartd").text(); // Find the text
+    var $descar = $rowcar.find(".cuencardesctd").text();    
+    document.getElementById("cuencar").textContent = $cuencar;
+    document.getElementById("cuencardesc").textContent = $descar;
+});
+$(".cuenabobutton").click(function () {
+    var $rowabo = $(this).closest("tr");    // Find the row
+    var $cuenabo = $rowabo.find(".cuenabotd").text(); // Find the text
+    var $desabo = $rowabo.find(".cuenabodesctd").text();    
+    document.getElementById("cuenabo").textContent = $cuenabo;
+    document.getElementById("cuenabodesc").textContent = $desabo;
+});
 
 $(".limpiarCuentas").click(function (){
     $("#clavecuenta").text("");

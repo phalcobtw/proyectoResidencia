@@ -8,6 +8,31 @@ if (isset($_POST['submit'])) {
     $claveprovee = $_POST['cuenta'];
     $fuenteing = $_POST['fuenteing'];
     $estpoliza = $_POST['poliza'];
+    $factura = $_POST['factura'];
+    $importe = $_POST['importeFinal'];
+    $vencimiento = $_POST['vencimiento'];
+    $descripcioncheque = $_POST['descripcioncheque'];
+    $cuentacargo = $_POST['cuencar'];
+    $cuentaabono = $_POST['cuenabo'];
+    $claveprog = $_POST['claveprog'];
+    $descprog = $_POST['descprog'];
+    $claveact = $_POST['claveact'];
+    $descact = $_POST['descact'];
+    $clavepart = $_POST['clavepart'];
+    $descpart = $_POST['descpart'];
+    $clavedep = $_POST['clavedep'];
+    $descdep = $_POST['descdep'];
+    $clavegasto = $_POST['clavegasto'];
+    $descgasto = $_POST['descgasto'];
+    $claveiva = $_POST['claveiva'];
+    $desciva = $_POST['desciva'];
+    $claveisr = $_POST['claveisr'];
+    $descisr = $_POST['descisr'];
+    $claveactivo = $_POST['claveactivo'];
+    $descactivo = $_POST['descactivo'];
+
+
+
 
     $sqlins = "INSERT INTO `cheques`(`id`, `folio`, `fecha`, `claveproveedor`, `fuenteingresos`, `estadopoliza`) 
     VALUES ('[value-1]','$foliorec','$fecharec','$claveprovee','$fuenteing','$estpoliza')";

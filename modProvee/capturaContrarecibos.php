@@ -5,37 +5,41 @@ include "../validarSesion2.php";
 if (isset($_POST['submit'])) {
     $foliorec = $_POST['folio'];
     $fecharec = $_POST['fecha'];
-    $claveprovee = $_POST['cuenta'];
+    $claveprovee = $_POST['clavecuenta'];
+    $descprovee = $_POST['descrcuenta'];
     $fuenteing = $_POST['fuenteing'];
     $estpoliza = $_POST['poliza'];
     $factura = $_POST['factura'];
-    $importe = $_POST['importeFinal'];
+    $importe = $_POST['importeFinalN'];
     $vencimiento = $_POST['vencimiento'];
-    $descripcioncheque = $_POST['descripcioncheque'];
-    $cuentacargo = $_POST['cuencar'];
-    $cuentaabono = $_POST['cuenabo'];
-    $claveprog = $_POST['claveprog'];
-    $descprog = $_POST['descprog'];
-    $claveact = $_POST['claveact'];
-    $descact = $_POST['descact'];
-    $clavepart = $_POST['clavepart'];
-    $descpart = $_POST['descpart'];
-    $clavedep = $_POST['clavedep'];
-    $descdep = $_POST['descdep'];
-    $clavegasto = $_POST['clavegasto'];
-    $descgasto = $_POST['descgasto'];
-    $claveiva = $_POST['claveiva'];
-    $desciva = $_POST['desciva'];
-    $claveisr = $_POST['claveisr'];
-    $descisr = $_POST['descisr'];
-    $claveactivo = $_POST['claveactivo'];
-    $descactivo = $_POST['descactivo'];
+    $descripcioncheque = $_POST['descripcionchequeN'];
+    $cuentacargo = $_POST['cuencarN'];
+    $cuentaabono = $_POST['cuenaboN'];
+    $claveprog = $_POST['claveprogN'];
+    $descprog = $_POST['descprogN'];
+    $claveact = $_POST['claveactN'];
+    $descact = $_POST['descactN'];
+    $clavepart = $_POST['clavepartN'];
+    $descpart = $_POST['descpartN'];
+    $clavedep = $_POST['clavedepN'];
+    $descdep = $_POST['descdepN'];
+    $clavegasto = $_POST['clavegastoN'];
+    $descgasto = $_POST['descgastoN'];
+    $claveiva = $_POST['claveivaN'];
+    $desciva = $_POST['descivaN'];
+    $claveisr = $_POST['claveisrN'];
+    $descisr = $_POST['descisrN'];
+    $claveactivo = $_POST['claveactivoN'];
+    $descactivo = $_POST['descactivoN'];
 
 
 
 
-    $sqlins = "INSERT INTO `cheques`(`id`, `folio`, `fecha`, `claveproveedor`, `fuenteingresos`, `estadopoliza`) 
-    VALUES ('[value-1]','$foliorec','$fecharec','$claveprovee','$fuenteing','$estpoliza')";
+    $sqlins = "INSERT INTO `cheques`(`id`, `folio`, `fecha`, `claveproveedor`, `descprovee`, `fuenteingresos`, `estadopoliza`, `factura`, `importe`, `vencimiento`, 
+    `descripcioncheque`, `cuentacargo`, `cuentaabono`, `claveprog`, `descprog`, `claveact`, `descact`, `clavepart`, `descpart`, `clavedep`, `descdep`, 
+    `clavegasto`, `descgasto`, `claveiva`, `desciva`, `claveisr`, `descisr`, `claveactivo`, `descactivo`) VALUES ('[value-1]',
+    '$foliorec','$fecharec','$claveprovee','$descprovee','$fuenteing','$estpoliza','$factura','$importe','$vencimiento','$descripcioncheque','$cuentacargo','$cuentaabono','$claveprog','$descprog',
+    '$claveact','$descact','$clavepart','$descpart','$clavedep','$descdep','$clavegasto','$descgasto','$claveiva','$desciva','$claveisr','$descisr','$claveactivo','$descactivo')";
     $result = mysqli_query($conn, $sqlins);
 
     if ($result) {
@@ -269,7 +273,7 @@ if (isset($_POST['submit'])) {
                 <div class="row">
                     <div class="col">
                         <label for="" class="form-label">Descripcion:</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="descripcionchequeN">
                     </div>
                 </div>
                 <br>
@@ -300,11 +304,11 @@ if (isset($_POST['submit'])) {
                                                     <?php
                                                     $sqlcar = "SELECT * from `cuentacatalogo` WHERE LEFT(cuenta,4) BETWEEN 6100 AND 6900";
                                                     $resultcar = mysqli_query($conn, $sqlcar);
-                                                    while ($rowprog = mysqli_fetch_array($resultcar)) {
+                                                    while ($rowcargo = mysqli_fetch_array($resultcar)) {
                                                         echo '
                                 <tr>
-                                    <td class="cuencartd">' . $rowprog["cuenta"] . '</td>
-                                    <td class="cuencardesctd">' . $rowprog["descripcion"] . '</td>
+                                    <td class="cuencartd">' . $rowcargo["cuenta"] . '</td>
+                                    <td class="cuencardesctd">' . $rowcargo["descripcion"] . '</td>
                                     <td><button type="button" class="btn btn-outline-dark cuencarbutton">Agregar</button></td> 
                                 </tr>
                                 ';
@@ -362,9 +366,9 @@ if (isset($_POST['submit'])) {
 <div id="next">
                 <div class="row text-center">
                     <div class="col mt-2">
-                    <span id="cuencar" style="color:red;"></span><span> </span><span id="cuencardesc" style="color:red;"></span><br>
-                    <span id="cuenabo" style="color:blue;"></span><span> </span><span id="cuenabodesc" style="color:blue;"></span><br>
-                        <label for="" class="form-label label-txt">PROGRAMA: <span id="claveprog" style="color:red;"></span><span> </span><span id="descprog" style="color:red;"></span></label>
+                    <span id="cuencar" name="cuencarN" style="color:red;"></span><span> </span><span id="cuencardesc" style="color:red;"></span><br>
+                    <span id="cuenabo" name="cuenaboN" style="color:blue;"></span><span> </span><span id="cuenabodesc" style="color:blue;"></span><br>
+                        <label for="" class="form-label label-txt">PROGRAMA: <span id="claveprog" name="claveprogN" style="color:red;"></span><span> </span><span id="descprog" name="descprogN" style="color:red;"></span></label>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
@@ -416,7 +420,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label label-txt">ACTIVIDAD:</label> <span id="claveact" style="color:red;"></span><span> </span><span id="descact" style="color:red;"></span>
+                        <label for="" class="form-label label-txt">ACTIVIDAD:</label> <span id="claveact" name="claveactN" style="color:red;"></span><span> </span><span id="descact" name="descactN" style="color:red;"></span>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingTwo">
@@ -468,7 +472,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label">PARTIDA:</label> <span id="clavepart" style="color:red;"></span><span> </span><span id="descpart" style="color:red;"></span>
+                        <label for="" class="form-label">PARTIDA:</label> <span id="clavepart" name="clavepartN" style="color:red;"></span><span> </span><span id="descpart" name="descpartN" style="color:red;"></span>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingThree">
@@ -520,7 +524,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label">DEPARTAMENTO:</label> <span id="clavedep" style="color:red;"></span><span> </span><span id="descdep" style="color:red;"></span>
+                        <label for="" class="form-label">DEPARTAMENTO:</label> <span id="clavedep" name="clavedepN" style="color:red;"></span><span> </span><span id="descdep" name="descdepN" style="color:red;"></span>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingFour">
@@ -570,10 +574,9 @@ if (isset($_POST['submit'])) {
                         </div>
                     </div>
                 </div>
-                <!-- TO DO: IVA ISR ACTIVO PREGUNTAR CONDICION DE IMPRIMIR SUS TABLAS (QUE LLEVA EN LOS QUERY) -->
                <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label label-txt">GASTO:</label> <span id="clavegasto" style="color:red;"></span><span> </span><span id="descgasto" style="color:red;"></span>
+                        <label for="" class="form-label label-txt">GASTO:</label> <span id="clavegasto" name="clavegastoN" style="color:red;"></span><span> </span><span id="descgasto" name="descgastoN" style="color:red;"></span>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingFive">
@@ -598,13 +601,13 @@ if (isset($_POST['submit'])) {
                                                 </thead>
                                                 <tbody class="palco-tbody">
                                                     <?php
-                                                    $sqlprog = "SELECT * from `cuentacatalogo` WHERE LEFT(cuenta,4) >= 4100";
-                                                    $resultprog = mysqli_query($conn, $sqlprog);
-                                                    while ($rowprog = mysqli_fetch_array($resultprog)) {
+                                                    $sqlgasto = "SELECT * from `cuentacatalogo` WHERE LEFT(cuenta,4) >= 4100";
+                                                    $resultgasto = mysqli_query($conn, $sqlgasto);
+                                                    while ($rowgasto = mysqli_fetch_array($resultgasto)) {
                                                         echo '
                                 <tr>
-                                    <td class="gastotd">' . $rowprog["programa"] . '</td>
-                                    <td class="descgastotd">' . $rowprog["descripcion"] . '</td>
+                                    <td class="gastotd">' . $rowgasto["cuenta"] . '</td>
+                                    <td class="descgastotd">' . $rowgasto["descripcion"] . '</td>
                                     <td><button type="button" class="btn btn-outline-dark gastoButton">Agregar</button></td> 
                                 </tr>
                                 ';
@@ -625,7 +628,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label label-txt">IVA:</label> <span id="claveiva" style="color:red;"></span><span> </span><span id="desciva" style="color:red;"></span>
+                        <label for="" class="form-label label-txt">IVA:</label> <span id="claveiva" name="claveivaN" style="color:red;"></span><span> </span><span id="desciva" name="descivaN" style="color:red;"></span>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingSix">
@@ -650,13 +653,13 @@ if (isset($_POST['submit'])) {
                                                 </thead>
                                                 <tbody class="palco-tbody">
                                                     <?php
-                                                    $sqlprog = "SELECT * from `cuentacatalogo` WHERE LEFT(cuenta,4) = 2101";
-                                                    $resultprog = mysqli_query($conn, $sqlprog);
-                                                    while ($rowprog = mysqli_fetch_array($resultprog)) {
+                                                    $sqliva = "SELECT * from `cuentacatalogo` WHERE LEFT(cuenta,4) = 2101";
+                                                    $resultiva = mysqli_query($conn, $sqliva);
+                                                    while ($rowiva = mysqli_fetch_array($resultiva)) {
                                                         echo '
                                 <tr>
-                                    <td class="ivatd">' . $rowprog["programa"] . '</td>
-                                    <td class="descivatd">' . $rowprog["descripcion"] . '</td>
+                                    <td class="ivatd">' . $rowiva["cuenta"] . '</td>
+                                    <td class="descivatd">' . $rowiva["descripcion"] . '</td>
                                     <td><button type="button" class="btn btn-outline-dark ivaButton">Agregar</button></td> 
                                 </tr>
                                 ';
@@ -677,7 +680,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label label-txt">ISR:</label> <span id="claveisr" style="color:red;"></span><span> </span><span id="descisr" style="color:red;"></span>
+                        <label for="" class="form-label label-txt">ISR:</label> <span id="claveisr" name="claveisrN" style="color:red;"></span><span> </span><span id="descisr" name="descisrN" style="color:red;"></span>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingSeven">
@@ -702,13 +705,13 @@ if (isset($_POST['submit'])) {
                                                 </thead>
                                                 <tbody class="palco-tbody">
                                                     <?php
-                                                    $sqlprog = "SELECT * from `cuentacatalogo` WHERE LEFT(cuenta,4) = 2101";
-                                                    $resultprog = mysqli_query($conn, $sqlprog);
-                                                    while ($rowprog = mysqli_fetch_array($resultprog)) {
+                                                    $sqlisr = "SELECT * from `cuentacatalogo` WHERE LEFT(cuenta,4) = 2101";
+                                                    $resultisr = mysqli_query($conn, $sqlisr);
+                                                    while ($rowisr = mysqli_fetch_array($resultisr)) {
                                                         echo '
                                 <tr>
-                                    <td class="isrtd">' . $rowprog["programa"] . '</td>
-                                    <td class="descisrtd">' . $rowprog["descripcion"] . '</td>
+                                    <td class="isrtd">' . $rowisr["cuenta"] . '</td>
+                                    <td class="descisrtd">' . $rowisr["descripcion"] . '</td>
                                     <td><button type="button" class="btn btn-outline-dark isrButton">Agregar</button></td> 
                                 </tr>
                                 ';
@@ -729,7 +732,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label label-txt">ACTIVO:</label> <span id="claveactivo" style="color:red;"></span><span> </span><span id="descactivo" style="color:red;"></span>
+                        <label for="" class="form-label label-txt">ACTIVO:</label> <span id="claveactivo" name="claveactivoN" style="color:red;"></span><span> </span><span id="descactivo" name="descactivoN" style="color:red;"></span>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingEight">
@@ -754,13 +757,13 @@ if (isset($_POST['submit'])) {
                                                 </thead>
                                                 <tbody class="palco-tbody">
                                                     <?php
-                                                    $sqlprog = "SELECT * from `cuentacatalogo` WHERE LEFT(cuenta,4) BETWEEN 1201 AND 1210";
-                                                    $resultprog = mysqli_query($conn, $sqlprog);
-                                                    while ($rowprog = mysqli_fetch_array($resultprog)) {
+                                                    $sqlactivo = "SELECT * from `cuentacatalogo` WHERE LEFT(cuenta,4) BETWEEN 1201 AND 1210";
+                                                    $resultactivo = mysqli_query($conn, $sqlactivo);
+                                                    while ($rowactivo = mysqli_fetch_array($resultactivo)) {
                                                         echo '
                                 <tr>
-                                    <td class="activotd">' . $rowprog["programa"] . '</td>
-                                    <td class="descactivotd">' . $rowprog["descripcion"] . '</td>
+                                    <td class="activotd">' . $rowactivo["cuenta"] . '</td>
+                                    <td class="descactivotd">' . $rowactivo["descripcion"] . '</td>
                                     <td><button type="button" class="btn btn-outline-dark activoButton">Agregar</button></td> 
                                 </tr>
                                 ';
@@ -784,7 +787,7 @@ if (isset($_POST['submit'])) {
                         <div class="label-form">
                             Importe:
                         </div>
-                        <input type="text" class="form-control" id="importeFinal">
+                        <input type="text" class="form-control" id="importeFinal" name="importeFinalN">
                     </div>
                 </div>
                 <br>

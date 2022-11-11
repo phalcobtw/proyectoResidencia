@@ -19,8 +19,8 @@ $(".cuentasbutton").click(function() {
     var $descrcuenta = $rowcuenta.find(".descrcuentatd").text();
     var $tiporetcuenta = $rowcuenta.find(".tiporetcuentatd").text();
     document.getElementById("clavecuenta").value = $clavecuenta;
-    document.getElementById("descrcuenta").textContent = $descrcuenta;
-    document.getElementById("tiporetcuenta").textContent = $tiporetcuenta;
+    document.getElementById("descrcuenta").value = $descrcuenta;
+    document.getElementById("tiporetcuenta").value = $tiporetcuenta;
     var valor = $clavecuenta.substring(0, 4);
     /* console.log(valor); */
     if (valor === "2101" && $tiporetcuenta === "HON") {

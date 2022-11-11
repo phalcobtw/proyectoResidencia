@@ -192,10 +192,10 @@ if (isset($_POST['submit'])) {
                 <div class="row text-center">
                     <div class="col mt-2">
                         <div class="row text-center">
-                            <div class="col-2 mt-2">
+                            <div class="col-4 mt-2">
                             <label for="" class="form-label label-txt">DESCRIPCION Y CLAVE DE PROVEEDOR: </label>
                             </div>
-                            <div class="col-4 mt-2">
+                            <div class="col-2 mt-2">
                             <input type="text" class="form-control" id="clavecuenta" name="clavecuentan" style="color:red;" readonly>
                             </div>
                             <div class="col-4 mt-2">
@@ -205,7 +205,7 @@ if (isset($_POST['submit'])) {
                             <input type="text" class="form-control" id="tiporetcuenta" name="tiporetcuentan" style="color:black; font-weight:bold;" readonly>
                             </div>
                         </div>
-                        <div class="accordion" id="accordionExample">
+                        <div class="accordion mt-4" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="heading6">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">

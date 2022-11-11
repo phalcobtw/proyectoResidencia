@@ -5,8 +5,8 @@ include "../validarSesion2.php";
 if (isset($_POST['submit'])) {
     $foliorec = $_POST['folio'];
     $fecharec = $_POST['fecha'];
-    $claveprovee = $_POST['clavecuenta'];
-    $descprovee = $_POST['descrcuenta'];
+    $claveprovee = $_POST['clavecuentan'];
+    $descprovee = $_POST['descrcuentan'];
     $fuenteing = $_POST['fuenteing'];
     $estpoliza = $_POST['poliza'];
     $factura = $_POST['factura'];
@@ -191,7 +191,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label label-txt">DESCRIPCION Y CLAVE DE PROVEEDOR: <span id="clavecuenta" style="color:red;"></span><span> </span><span id="descrcuenta" style="color:red;"></span><span> </span><b><span id="tiporetcuenta" style="color:black;"></span></b></label>
+                        <label for="" class="form-label label-txt">DESCRIPCION Y CLAVE DE PROVEEDOR: <span id="clavecuenta" name="clavecuentan" style="color:red;"></span><span> </span><span id="descrcuenta" style="color:red;" name="descrcuentan"></span><span> </span><b><span id="tiporetcuenta" style="color:black;"></span></b></label>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="heading6">

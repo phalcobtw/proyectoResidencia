@@ -18,7 +18,7 @@ $(".cuentasbutton").click(function() {
     var $clavecuenta = $rowcuenta.find(".cuentatd").text(); // Find the text
     var $descrcuenta = $rowcuenta.find(".descrcuentatd").text();
     var $tiporetcuenta = $rowcuenta.find(".tiporetcuentatd").text();
-    document.getElementById("clavecuenta").textContent = $clavecuenta;
+    document.getElementById("clavecuenta").value = $clavecuenta;
     document.getElementById("descrcuenta").textContent = $descrcuenta;
     document.getElementById("tiporetcuenta").textContent = $tiporetcuenta;
     var valor = $clavecuenta.substring(0, 4);

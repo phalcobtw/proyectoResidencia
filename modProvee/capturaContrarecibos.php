@@ -191,7 +191,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label label-txt">DESCRIPCION Y CLAVE DE PROVEEDOR: <span id="clavecuenta" name="clavecuentan" style="color:red;"></span><span> </span><span id="descrcuenta" style="color:red;" name="descrcuentan"></span><span> </span><b><span id="tiporetcuenta" style="color:black;"></span></b></label>
+                        <label for="" class="form-label label-txt">DESCRIPCION Y CLAVE DE PROVEEDOR: <input type="text" class="form-control" id="clavecuenta" name="clavecuentan" disabled><span> </span><input type="text" class="form-control" id="descrcuenta" name="descrcuentan" disabled><span> </span><b><span id="tiporetcuenta" style="color:black;"></span></b></label>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="heading6">

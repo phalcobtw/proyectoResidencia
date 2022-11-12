@@ -30,17 +30,17 @@ $(".cuentasbutton").click(function() {
     else if ($tiporetcuenta === "EMP" || $tiporetcuenta === "HON") {
         $("#tableIVA").show();
         $("#tableISR").hide();
-        $("#claveisr").text("");
-        $("#descisr").text("");
+        $("#claveisr").val("");
+        $("#descisr").val("");
         /* alert("work"); */
     }
 else{
     $("#tableIVA").hide();
-    $("#claveiva").text("");
-    $("#desciva").text("");
+    $("#claveiva").val("");
+    $("#desciva").val("");
     $("#tableISR").hide();
-    $("#claveisr").text("");
-    $("#descisr").text("");
+    $("#claveisr").val("");
+    $("#descisr").val("");
 }
 });});
 
@@ -55,16 +55,16 @@ $(".gastoButton").click(function(){
     var $rowgasto = $(this).closest("tr");    // Find the row
     var $clavegasto = $rowgasto.find(".gastotd").text(); // Find the text
     var $descgasto = $rowgasto.find(".descgastotd").text();
-    document.getElementById("clavegasto").textContent = $clavegasto;
-    document.getElementById("descgasto").textContent = $descgasto;
+    document.getElementById("clavegasto").value = $clavegasto;
+    document.getElementById("descgasto").value = $descgasto;
     var valor = $clavegasto.substring(0,4);
     if (valor === "4800") {
         $("#tableACTIVO").show();
     }
     else{
         $("#tableACTIVO").hide();
-        $("#claveactivo").text("");
-        $("#descactivo").text("");
+        $("#claveactivo").val("");
+        $("#descactivo").val("");
     }
 });
 
@@ -96,24 +96,24 @@ $(".activoButton").click(function () {
     var $rowactivo = $(this).closest("tr");    // Find the row
     var $claveactivo = $rowactivo.find(".activotd").text(); // Find the text
     var $descactivo = $rowactivo.find(".descactivotd").text();    
-    document.getElementById("claveactivo").textContent = $claveactivo;
-    document.getElementById("descactivo").textContent = $descactivo;
+    document.getElementById("claveactivo").value = $claveactivo;
+    document.getElementById("descactivo").value = $descactivo;
 });
 
 $(".isrButton").click(function () {
     var $rowisr = $(this).closest("tr");    // Find the row
     var $claveisr = $rowisr.find(".isrtd").text(); // Find the text
     var $descisr = $rowisr.find(".descisrtd").text();    
-    document.getElementById("claveisr").textContent = $claveisr;
-    document.getElementById("descisr").textContent = $descisr;
+    document.getElementById("claveisr").value = $claveisr;
+    document.getElementById("descisr").value = $descisr;
 });
 
 $(".ivaButton").click(function () {
     var $rowiva = $(this).closest("tr");    // Find the row
     var $claveiva = $rowiva.find(".ivatd").text(); // Find the text
     var $desciva = $rowiva.find(".descivatd").text();    
-    document.getElementById("claveiva").textContent = $claveiva;
-    document.getElementById("desciva").textContent = $desciva;
+    document.getElementById("claveiva").value = $claveiva;
+    document.getElementById("desciva").value = $desciva;
 });
 $(".cuencarbutton").click(function () {
     var $rowcar = $(this).closest("tr");    // Find the row
@@ -157,23 +157,23 @@ $(".limpiarDepartamento").click(function (){
 });
 
 $(".limpiarGasto").click(function (){
-    $("#clavegasto").text("");
-    $("#descgasto").text("");
+    document.getElementById("clavegasto").value = "";
+    document.getElementById("descgasto").value = "";
 });
 
 $(".limpiarIva").click(function (){
-    $("#claveiva").text("");
-    $("#desciva").text("");
+    document.getElementById("claveiva").value = "";
+    document.getElementById("desciva").value = "";
 });
 
 $(".limpiarIsr").click(function (){
-    $("#claveisr").text("");
-    $("#descisr").text("");
+    document.getElementById("claveisr").value = "";
+    document.getElementById("descisr").value = "";
 });
 
 $(".limpiarActivo").click(function (){
-    $("#claveactivo").text("");
-    $("#descactivo").text("");
+    document.getElementById("claveactivo").value = "";
+    document.getElementById("descactivo").value = "";
 });
  $(".save").click(function () {
     $('#next').show();

@@ -8,8 +8,8 @@ $(".progbutton").click(function() {
     var $rowprogra = $(this).closest("tr");    // Find the row
     var $claveprog = $rowprogra.find(".progtd").text(); // Find the text
     var $descrprog = $rowprogra.find(".progdesctd").text();
-    document.getElementById("claveprog").textContent = $claveprog;
-    document.getElementById("descprog").textContent = $descrprog;
+    document.getElementById("claveprog").value = $claveprog;
+    document.getElementById("descprog").value = $descrprog;
     /* alert($claveprog); */
 });
 
@@ -72,24 +72,24 @@ $(".actbutton").click(function () {
     var $rowact = $(this).closest("tr");    // Find the row
     var $claveact = $rowact.find(".acttd").text(); // Find the text
     var $descact = $rowact.find(".descacttd").text();    
-    document.getElementById("claveact").textContent = $claveact;
-    document.getElementById("descact").textContent = $descact;
+    document.getElementById("claveact").value = $claveact;
+    document.getElementById("descact").value = $descact;
 });
 
 $(".partbutton").click(function () {
     var $rowpart = $(this).closest("tr");    // Find the row
     var $clavepart = $rowpart.find(".parttd").text(); // Find the text
     var $descpart = $rowpart.find(".descparttd").text();    
-    document.getElementById("clavepart").textContent = $clavepart;
-    document.getElementById("descpart").textContent = $descpart;
+    document.getElementById("clavepart").value = $clavepart;
+    document.getElementById("descpart").value = $descpart;
 });
 
 $(".depbutton").click(function () {
     var $rowdep = $(this).closest("tr");    // Find the row
     var $clavedep = $rowdep.find(".deptd").text(); // Find the text
     var $descdep = $rowdep.find(".descdeptd").text();    
-    document.getElementById("clavedep").textContent = $clavedep;
-    document.getElementById("descdep").textContent = $descdep;
+    document.getElementById("clavedep").value = $clavedep;
+    document.getElementById("descdep").value = $descdep;
 });
 
 $(".activoButton").click(function () {
@@ -119,15 +119,15 @@ $(".cuencarbutton").click(function () {
     var $rowcar = $(this).closest("tr");    // Find the row
     var $cuencar = $rowcar.find(".cuencartd").text(); // Find the text
     var $descar = $rowcar.find(".cuencardesctd").text();    
-    document.getElementById("cuencar").textContent = $cuencar;
-    document.getElementById("cuencardesc").textContent = $descar;
+    document.getElementById("cuencar").value = $cuencar;
+    document.getElementById("cuencardesc").value = $descar;
 });
 $(".cuenabobutton").click(function () {
     var $rowabo = $(this).closest("tr");    // Find the row
     var $cuenabo = $rowabo.find(".cuenabotd").text(); // Find the text
     var $desabo = $rowabo.find(".cuenabodesctd").text();    
-    document.getElementById("cuenabo").textContent = $cuenabo;
-    document.getElementById("cuenabodesc").textContent = $desabo;
+    document.getElementById("cuenabo").value = $cuenabo;
+    document.getElementById("cuenabodesc").value = $desabo;
 });
 
 $(".limpiarCuentas").click(function (){

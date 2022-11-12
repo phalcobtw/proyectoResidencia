@@ -13,16 +13,16 @@ if (isset($_POST['submit'])) {
     $importe = $_POST['importeFinalN'];
     $vencimiento = $_POST['vencimiento'];
     $descripcioncheque = $_POST['descripcionchequeN'];
-    $cuentacargo = $_POST['cuencarN'];
-    $cuentaabono = $_POST['cuenaboN'];
-    $claveprog = $_POST['claveprogN'];
-    $descprog = $_POST['descprogN'];
-    $claveact = $_POST['claveactN'];
-    $descact = $_POST['descactN'];
-    $clavepart = $_POST['clavepartN'];
-    $descpart = $_POST['descpartN'];
-    $clavedep = $_POST['clavedepN'];
-    $descdep = $_POST['descdepN'];
+    $cuentacargo = $_POST['cuencarn'];
+    $cuentaabono = $_POST['cuenabon'];
+    $claveprog = $_POST['claveprogn'];
+    $descprog = $_POST['descprogn'];
+    $claveact = $_POST['claveactn'];
+    $descact = $_POST['descactn'];
+    $clavepart = $_POST['clavepartn'];
+    $descpart = $_POST['descpartn'];
+    $clavedep = $_POST['clavedepn'];
+    $descdep = $_POST['descdepn'];
     $clavegasto = $_POST['clavegastoN'];
     $descgasto = $_POST['descgastoN'];
     $claveiva = $_POST['claveivaN'];
@@ -379,9 +379,36 @@ if (isset($_POST['submit'])) {
 <div id="next">
                 <div class="row text-center">
                     <div class="col mt-2">
-                    <span id="cuencar" name="cuencarN" style="color:red;"></span><span> </span><span id="cuencardesc" style="color:red;"></span><br>
-                    <span id="cuenabo" name="cuenaboN" style="color:blue;"></span><span> </span><span id="cuenabodesc" style="color:blue;"></span><br>
-                        <label for="" class="form-label label-txt">PROGRAMA: <span id="claveprog" name="claveprogN" style="color:red;"></span><span> </span><span id="descprog" name="descprogN" style="color:red;"></span></label>
+                        <div class="row text-center">
+                            <div class="col-4 mt-2">
+                            <label for="" class="form-label label-txt">CUENTA DE CARGO: </label>
+                            </div>
+                            <div class="col mt-2">
+                            <input type="text" class="form-control" id="cuencar" name="cuencarn" style="color:red;" readonly>
+                            </div>
+                            <div class="col-4 mt-2">
+                            <input type="text" class="form-control" id="cuencardesc" name="cuencardescn" style="color:red;" readonly>
+                            </div>
+                            <div class="col-4 mt-2">
+                            <label for="" class="form-label label-txt">CUENTA DE ABONO: </label>
+                            </div>
+                            <div class="col mt-2">
+                            <input type="text" class="form-control" id="cuenabo" name="cuenabon" style="color:red;" readonly>
+                            </div>
+                            <div class="col-4 mt-2">
+                            <input type="text" class="form-control" id="cuenabodesc" name="cuenabodescn" style="color:red;" readonly>
+                            </div>
+                            
+                        <label for="" class="form-label label-txt">PROGRAMA: 
+                            <div class="row text-center">
+                            <div class="col mt-2">
+                            <input type="text" class="form-control" id="claveprog" name="claveprogn" style="color:red;" readonly>
+                            </div>
+                            <div class="col mt-2">
+                            <input type="text" class="form-control" id="descprog" name="descprogn" style="color:red;" readonly>
+                            </div>
+                            </div>
+                            <br>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
@@ -433,7 +460,16 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label label-txt">ACTIVIDAD:</label> <span id="claveact" name="claveactN" style="color:red;"></span><span> </span><span id="descact" name="descactN" style="color:red;"></span>
+                        <label for="" class="form-label label-txt">ACTIVIDAD:</label>                             
+                        <div class="row text-center">
+                            <div class="col mt-2">
+                            <input type="text" class="form-control" id="claveact" name="claveactn" style="color:red;" readonly>
+                            </div>
+                            <div class="col mt-2">
+                            <input type="text" class="form-control" id="descact" name="descactn" style="color:red;" readonly>
+                            </div>
+                            </div>
+                            <br>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingTwo">
@@ -485,8 +521,17 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label">PARTIDA:</label> <span id="clavepart" name="clavepartN" style="color:red;"></span><span> </span><span id="descpart" name="descpartN" style="color:red;"></span>
-                        <div class="accordion" id="accordionExample">
+                        <label for="" class="form-label">PARTIDA:</label>                     
+                        <div class="row text-center">
+                            <div class="col mt-2">
+                            <input type="text" class="form-control" id="clavepart" name="clavepartn" style="color:red;" readonly>
+                            </div>
+                            <div class="col mt-2">
+                            <input type="text" class="form-control" id="descpart" name="descpartn" style="color:red;" readonly>
+                            </div>
+                            </div>
+                            <br>
+                            <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingThree">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -537,8 +582,17 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="row text-center">
                     <div class="col mt-2">
-                        <label for="" class="form-label">DEPARTAMENTO:</label> <span id="clavedep" name="clavedepN" style="color:red;"></span><span> </span><span id="descdep" name="descdepN" style="color:red;"></span>
-                        <div class="accordion" id="accordionExample">
+                        <label for="" class="form-label">DEPARTAMENTO:<div class="row text-center">
+                            <div class="col mt-2">
+                            <input type="text" class="form-control" id="clavedep" name="clavedepn" style="color:red;" readonly>
+                            </div>
+                            <div class="col mt-2">
+                            <input type="text" class="form-control" id="descdep" name="descdepn" style="color:red;" readonly>
+                            </div>
+                            </div>
+                            </div>
+                            <br>
+                            <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingFour">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">

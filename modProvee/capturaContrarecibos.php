@@ -377,7 +377,7 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <div id="next">
-                    <div class="row text-center">
+                    <!-- <div class="row text-center"> -->
                         <div class="col mt-2">
                             <div class="row text-center">
                                 <div class="col-4 mt-2">
@@ -582,65 +582,65 @@ if (isset($_POST['submit'])) {
                         </div>
                         <div class="row text-center">
                             <div class="col mt-2">
-                                <label for="" class="form-label">DEPARTAMENTO:
-                            </div>
-                            <div class="row text-center">
-                                <div class="col-6 mt-2">
-                                    <input type="text" class="form-control" id="clavedep" name="clavedepn" style="color:red;" readonly>
+                                <label for="" class="form-label">DEPARTAMENTO:</label>
+                                <div class="row text-center">
+                                    <div class="col-6 mt-2">
+                                        <input type="text" class="form-control" id="clavedep" name="clavedepn" style="color:red;" readonly>
+                                    </div>
+                                    <div class="col-6 mt-2">
+                                        <input type="text" class="form-control" id="descdep" name="descdepn" style="color:red;" readonly>
+                                    </div>
                                 </div>
-                                <div class="col-6 mt-2">
-                                    <input type="text" class="form-control" id="descdep" name="descdepn" style="color:red;" readonly>
-                                </div>
-                            </div>
-                            <div class="accordion mt-2" id="accordionExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingFour">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                            <strong>Mostrar/Ocultar Tabla:</strong>
-                                        </button>
-                                    </h2>
-                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <div class="table-wrapper">
-                                                <table class="table table-sm table-hover table-striped palco-table">
-                                                    <thead class="table-dark">
-                                                        <th>
-                                                            Clave
-                                                        </th>
-                                                        <th>
-                                                            Descripcion
-                                                        </th>
-                                                        <th>
-                                                            Seleccionar
-                                                        </th>
-                                                    </thead>
-                                                    <tbody class="palco-tbody">
-                                                        <?php
-                                                        $sqldep = "SELECT * from `departamentocatalogo`";
-                                                        $resultdep = mysqli_query($conn, $sqldep);
-                                                        while ($rowdep = mysqli_fetch_array($resultdep)) {
+                                <div class="accordion mt-2" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingFour">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                <strong>Mostrar/Ocultar Tabla:</strong>
+                                            </button>
+                                        </h2>
+                                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <div class="table-wrapper">
+                                                    <table class="table table-sm table-hover table-striped palco-table">
+                                                        <thead class="table-dark">
+                                                            <th>
+                                                                Clave
+                                                            </th>
+                                                            <th>
+                                                                Descripcion
+                                                            </th>
+                                                            <th>
+                                                                Seleccionar
+                                                            </th>
+                                                        </thead>
+                                                        <tbody class="palco-tbody">
+                                                            <?php
+                                                            $sqldep = "SELECT * from `departamentocatalogo`";
+                                                            $resultdep = mysqli_query($conn, $sqldep);
+                                                            while ($rowdep = mysqli_fetch_array($resultdep)) {
+                                                                echo '
+                                    <tr>
+                                        <td class="deptd">' . $rowdep["departamento"] . '</td>
+                                        <td class="descdeptd">' . $rowdep["descripcion"] . '</td>
+                                        <td><button type="button" class="btn btn-outline-dark depbutton">Agregar</button></td> 
+                                    </tr>
+                                    ';
+                                                            }
                                                             echo '
-                                <tr>
-                                    <td class="deptd">' . $rowdep["departamento"] . '</td>
-                                    <td class="descdeptd">' . $rowdep["descripcion"] . '</td>
-                                    <td><button type="button" class="btn btn-outline-dark depbutton">Agregar</button></td> 
-                                </tr>
-                                ';
-                                                        }
-                                                        echo '
-                            
-                            '
-                                                        ?>
-                                                    </tbody>
-                                                </table>
+                                
+                                '
+                                                            ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <button type="button" class="btn btn-danger limpiarDepartamento">Limpiar Seleccionado</button>
                                             </div>
-                                            <button type="button" class="btn btn-danger limpiarDepartamento">Limpiar Seleccionado</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <!-- </div> -->
                     <div class="row text-center">
                         <div class="col mt-2">
                             <label for="" class="form-label label-txt">GASTO:</label>
@@ -891,6 +891,7 @@ if (isset($_POST['submit'])) {
                     </div>
                     <br>
                     <button type="submit" class="btn btn-success" name="submit" style="margin-bottom: 30px;">Guardar</button>
+                </div>
             </form>
         </div>
     </div>

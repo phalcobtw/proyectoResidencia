@@ -131,29 +131,29 @@ $(".cuenabobutton").click(function () {
 });
 
 $(".limpiarCuentas").click(function (){
-    $("#clavecuenta").text("");
-    $("#descrcuenta").text("");
-    $("#tiporetcuenta").text("");
+     document.getElementById("clavecuenta").value = "";
+     document.getElementById("descrcuenta").value = "";
+     document.getElementById("tiporetcuenta").value = "";
 });
 
 $(".limpiarPrograma").click(function (){
-    $("#claveprog").text("");
-    $("#descprog").text("");
+    document.getElementById("claveprog").value = "";
+    document.getElementById("descprog").value = "";
 });
 
 $(".limpiarActividad").click(function (){
-    $("#claveact").text("");
-    $("#descact").text("");
+    document.getElementById("claveact").value = "";
+    document.getElementById("descact").value = "";
 });
 
 $(".limpiarPartida").click(function (){
-    $("#clavepart").text("");
-    $("#descpart").text("");
+    document.getElementById("clavepart").value = "";
+    document.getElementById("descpart").value = "";
 });
 
 $(".limpiarDepartamento").click(function (){
-    $("#clavedep").text("");
-    $("#descdep").text("");
+    document.getElementById("clavedep").value = "";
+    document.getElementById("descdep").value = "";
 });
 
 $(".limpiarGasto").click(function (){

@@ -167,7 +167,7 @@ if (isset($_POST['submit'])) {
                         <td>' . $row["fuenteingresos"] . '</td>
                         <td>' . $row["estadopoliza"] . '</td>
                         <td><a href=".php?id=' . $row["id"] . '" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></td>
-                        <td><a href=".php?id=' . $row["id"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
+                        <td><a href="eliminarContarecibos.php?id=' . $row["id"] . '" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>  
                     </tr>
                     ';
                 }

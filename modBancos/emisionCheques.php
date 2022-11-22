@@ -118,6 +118,7 @@ include "../bd_conn.php";
       <thead>
         <tr>
           <th scope="col">SOLICITANTE</th>
+          <th scope="col">PROVEEDOR</th>
           <th scope="col">CUENTA</th>
           <th scope="col">IMPORTE</th>
           <th scope="col">FUENTE</th>
@@ -134,12 +135,13 @@ include "../bd_conn.php";
         while ($row = mysqli_fetch_array($result)) {
           echo '
                     <tr>
-                        <td>' . $row["folio"] . '</td>
+                        <td class="numfoliocheque">' . $row["folio"] . '</td>
+                        <td class="proveecheque">' . $row["descprovee"] . '</td> 
                         <td>' . $row["claveproveedor"] . '</td>  
                         <td>$' . $row["importe"] . '</td>
                         <td>' . $row["fuenteingresos"] . '</td>
                         <td>' . $row["estadopoliza"] . '</td>
-                        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <td><button type="button" class="btn btn-primary editarButton" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <i class="fa-solid fa-pen-to-square fs-5 me-3"></i>
                         </button></td>                        
                     </tr>
@@ -192,32 +194,31 @@ include "../bd_conn.php";
                 </tbody>
               </table>
             </div>
-            <!-- <div class="row text-center"> -->
-              <!-- TO DO: CAMBIAR NAME DE TODOS LOS INPUT ANTES DE NO.CHEQUE  -->
+            <!-- <div class="row text-center"> -->    
               <label for="" class="form-label label-txt fw-bold fs-5">Datos Bancarios</label>
               <div class="col-6 mt-2">
                 <label class="form-label">Clave:</label>
-                <input type="text" class="form-control" name="fuenteing" id="claveInput" readonly>
+                <input type="text" class="form-control" name="clavebanco" id="claveInput">
               </div>
               <div class="col-6 mt-2">
                 <label class="form-label">Cuenta:</label>
-                <input type="text" class="form-control" name="poliza" id="cuentaInput" readonly>
+                <input type="text" class="form-control" name="cuentabanco" id="cuentaInput" readonly>
               </div>
               <div class="col-6 mt-2">
                 <label class="form-label">Banco:</label>
-                <input type="text" class="form-control" name="fuenteing" id="bancoInput" readonly>
+                <input type="text" class="form-control" name="nombrebanco" id="bancoInput" readonly>
               </div>
               <div class="col-6 mt-2">
                 <label class="form-label">Saldo:</label>
-                <input type="text" class="form-control" name="poliza" id="saldoInput" readonly>
+                <input type="text" class="form-control" name="saldobanco" id="saldoInput" readonly>
               </div>
               <div class="col-6 mt-2">
                 <label for="" class="form-label">No. Cheque:</label>
-                <input type="text" class="form-control" name="nocheque">
+                <input type="text" class="form-control" name="nocheque" id="nochequeInput">
               </div>
               <div class="col-6 mt-2">
                 <label for="" class="form-label">Expedido A:</label>
-                <input type="text" class="form-control" name="expedidoa">
+                <input type="text" class="form-control" name="expedidoa" id="proveedorInput" readonly>
               </div>
             <!-- </div> -->
           </div>

@@ -11,9 +11,16 @@ $(".emicheqButton").click(function () {
 });
 
 
+$(".editarButton").click(function () {  
+  var $rowchtable = $(this).closest("tr");
+  var $proveedor = $rowchtable.find(".proveecheque").text();
+  var $numfolio = $rowchtable.find(".numfoliocheque").text();
+  document.getElementById("nochequeInput").value = $numfolio;
+  document.getElementById("proveedorInput").value = $proveedor;
+});
 
-var myModal = document.getElementById('myModal')
-var myInput = document.getElementById('myInput')
+var myModal = document.getElementById('myModal');
+var myInput = document.getElementById('myInput');
 myModal.addEventListener('shown.bs.modal', function () {
     myInput.focus()
   })

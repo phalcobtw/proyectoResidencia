@@ -1,12 +1,13 @@
 <?php
 include "../bd_conn.php";
 include "../validarSesion2.php";
-$clave = $_GET['clave'];
+$id = $_GET['id'];
 if (isset($_POST['submit'])) {
+    $clave = $_POST['clave'];
     $descripcion = $_POST['descripcion'];
 
     $sqlins = "UPDATE `catalogobanco` 
-    SET `clave`='$clave',`descripcion`='$descripcion' WHERE clave=$clave";
+    SET `clave`='$clave',`descripcion`='$descripcion' WHERE id=$id";
     $result = mysqli_query($conn, $sqlins);
 
     if ($result) {
@@ -114,14 +115,18 @@ if (isset($_POST['submit'])) {
     <div class="container" style="margin-bottom: 35px;">
         <div class="text-center mb-4 fs-4">Editar Banco</div>
         <?php
-        $clave = $_GET['clave'];
-        $sql = "SELECT * FROM `catalogobanco` WHERE clave = $clave LIMIT 1";
+        $id = $_GET['id'];
+        $sql = "SELECT * FROM `catalogobanco` WHERE id = $id LIMIT 1";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
         ?>
         <div class="container d-flex justify-content-center">
             <form action="" method="post" style="width:50vw; min-width:300px;">
-                <div class="col">
+            <div class="col">
+                    <label class="form-label">Clave:</label>
+                    <input type="text" class="form-control" name="clave" value="<?php echo $row['clave'];?>">
+                </div>
+            <div class="col">
                     <label class="form-label">Descripci&oacute;n:</label>
                     <input type="text" class="form-control" name="descripcion" value="<?php echo $row['descripcion'];?>">
                 </div>

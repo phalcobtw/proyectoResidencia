@@ -34,7 +34,7 @@ include "../validarSesion2.php";
                               <li class="nav-item dropdown" id="dropdown"> 
                                 <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Cheques</a>
                                 <ul class="dropdown-menu">
-                                  <li> <a class="dropdown-item" href="#">Emisi&oacute;n de Cheques en Espera</a></li>
+                                  <li> <a class="dropdown-item" href="emisionCheques.php">Emisi&oacute;n de Cheques en Espera</a></li>
                                   <li> <a class="dropdown-item" href="emisionChequesEspecial.php">Emisi&oacute;n de Cheques Especiales</a></li>
                                   <li> <a class="dropdown-item" href="#">Cancelaciones &raquo; </a>
                                     <ul class="submenu dropdown-menu">

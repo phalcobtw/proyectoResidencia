@@ -16,7 +16,7 @@ include "../bd_conn.php";
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -103,122 +103,134 @@ include "../bd_conn.php";
   <!-- aqui termina -->
   <div class="container">
     <nav class="navbar navbar-light justify-content-center fs-3 mb-5">
-    Emisi&oacute;n de Cheques en Espera
+      Emisi&oacute;n de Cheques en Espera
     </nav>
     <?php
-        if (isset($_GET['msg'])) {
-            $msg = $_GET['msg'];
-            echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    if (isset($_GET['msg'])) {
+      $msg = $_GET['msg'];
+      echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
             ' . $msg . '
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>';
-        }
-        ?>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">SOLICITANTE</th>
-                    <th scope="col">CUENTA</th>
-                    <th scope="col">IMPORTE</th>
-                    <th scope="col">FUENTE</th>
-                    <th scope="col">ESTADO</th>
-                    <th scope="col">EDITAR</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
+    }
+    ?>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">SOLICITANTE</th>
+          <th scope="col">PROVEEDOR</th>
+          <th scope="col">CUENTA</th>
+          <th scope="col">IMPORTE</th>
+          <th scope="col">FUENTE</th>
+          <th scope="col">ESTADO</th>
+          <th scope="col">EDITAR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
 
-                $sql = "SELECT * FROM cheques WHERE estadopoliza = 'Pendiente'";
-                $result = mysqli_query($conn, $sql);
-                //ESTADO Y SOLICITANTE DEJAR PENDIENTE AUN NO SE SABE DE DONDE SALEN SUS DATOS
-                while ($row = mysqli_fetch_array($result)) {
-                    echo '
+        $sql = "SELECT * FROM cheques WHERE estadopoliza = 'Pendiente'";
+        $result = mysqli_query($conn, $sql);
+        //ESTADO Y SOLICITANTE DEJAR PENDIENTE AUN NO SE SABE DE DONDE SALEN SUS DATOS
+        while ($row = mysqli_fetch_array($result)) {
+          echo '
                     <tr>
-                        <td>' . $row["folio"] . '</td>
+                        <td class="numfoliocheque">' . $row["folio"] . '</td>
+                        <td class="proveecheque">' . $row["descprovee"] . '</td> 
                         <td>' . $row["claveproveedor"] . '</td>  
                         <td>$' . $row["importe"] . '</td>
                         <td>' . $row["fuenteingresos"] . '</td>
                         <td>' . $row["estadopoliza"] . '</td>
-                        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <td><button type="button" class="btn btn-primary editarButton" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <i class="fa-solid fa-pen-to-square fs-5 me-3"></i>
                         </button></td>                        
                     </tr>
                     ';
-                }
-                ?>
-            </tbody>
-        </table>
+        }
+        ?>
+      </tbody>
+    </table>
   </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <div class="row">
-                                    <div class="table-wrapper">
-                                        <table class="table table-sm table-hover table-striped palco-table">
-                                            <thead class="table-dark">
-                                                <th>
-                                                    Cuenta de Cargo
-                                                </th>
-                                                <th>
-                                                    Descripcion
-                                                </th>
-                                                <th>
-                                                    Seleccionar
-                                                </th>
-                                            </thead>
-                                            <tbody class="palco-tbody">
-                                                <?php
-                                                $sqlcar = "SELECT * from `cuentacatalogo` WHERE LEFT(cuenta,4) BETWEEN 6100 AND 6900";
-                                                $resultcar = mysqli_query($conn, $sqlcar);
-                                                while ($rowcargo = mysqli_fetch_array($resultcar)) {
-                                                    echo '
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="exampleModalLabel">Actualizar Cheque en Espera</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row text-center">
+          <label for="" class="form-label label-txt fst-italic fw-light">Al clickear el boton "Agregar" se colocaran automaticamente los datos seleccionados en los campos de "Datos Bancarios"</label>
+            <div class="table-wrapper">
+              <table class="table table-sm table-hover table-striped palco-table">
+                <thead class="table-dark">
+                  <th>
+                    Cuenta de Cargo
+                  </th>
+                  <th>
+                    Descripcion
+                  </th>
+                  <th>
+                    Seleccionar
+                  </th>
+                </thead>
+                <tbody class="palco-tbody">
+                  <?php
+                  $sqlcar = "SELECT * from `cuentacatalogo` WHERE LEFT(cuenta,4) BETWEEN 6100 AND 6900";
+                  $resultcar = mysqli_query($conn, $sqlcar);
+                  while ($rowcargo = mysqli_fetch_array($resultcar)) {
+                    echo '
                                 <tr>
                                     <td class="cuencartd">' . $rowcargo["cuenta"] . '</td>
                                     <td class="cuencardesctd">' . $rowcargo["descripcion"] . '</td>
-                                    <td><button type="button" class="btn btn-outline-dark cuencarbutton">Agregar</button></td> 
+                                    <td><button type="button" class="btn btn-outline-dark emicheqButton">Agregar</button></td> 
                                 </tr>
                                 ';
-                                                }
-                                                echo '
+                  }
+                  echo '
                             
                             '
-                                                ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="row text-center">
-                                    <label for="" class="form-label label-txt">Datos Bancos</label>
-                    <div class="col-6 mt-2">
-                        <label class="form-label">Clave:</label>
-                        <input type="text" class="form-control" name="fuenteing" readonly>
-                    </div>
-                    <div class="col-6 mt-2">
-                        <label class="form-label">Cuenta:</label>
-                        <input type="text" class="form-control" name="poliza" readonly>
-                    </div>
-                    <div class="col-6 mt-2">
-                        <label class="form-label">Banco:</label>
-                        <input type="text" class="form-control" name="fuenteing" readonly>
-                    </div>
-                    <div class="col-6 mt-2">
-                        <label class="form-label">Saldo:</label>
-                        <input type="text" class="form-control" name="poliza" readonly>
-                    </div>
-                </div>
-                                    </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Actualizar</button>
+                  ?>
+                </tbody>
+              </table>
+            </div>
+            <!-- <div class="row text-center"> -->    
+              <label for="" class="form-label label-txt fw-bold fs-5">Datos Bancarios</label>
+              <div class="col-6 mt-2">
+                <label class="form-label">Clave:</label>
+                <input type="text" class="form-control" name="clavebanco" id="claveInput">
+              </div>
+              <div class="col-6 mt-2">
+                <label class="form-label">Cuenta:</label>
+                <input type="text" class="form-control" name="cuentabanco" id="cuentaInput" readonly>
+              </div>
+              <div class="col-6 mt-2">
+                <label class="form-label">Banco:</label>
+                <input type="text" class="form-control" name="nombrebanco" id="bancoInput" readonly>
+              </div>
+              <div class="col-6 mt-2">
+                <label class="form-label">Saldo:</label>
+                <input type="text" class="form-control" name="saldobanco" id="saldoInput" readonly>
+              </div>
+              <div class="col-6 mt-2">
+                <label for="" class="form-label">No. Cheque:</label>
+                <input type="text" class="form-control" name="nocheque" id="nochequeInput">
+              </div>
+              <div class="col-6 mt-2">
+                <label for="" class="form-label">Expedido A:</label>
+                <input type="text" class="form-control" name="expedidoa" id="proveedorInput" readonly>
+              </div>
+            <!-- </div> -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Actualizar</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </body>
-<script src="../js/capContrarecibos.js"></script>
+<script src="../js/emisioncheques.js"></script>
+
 </html>

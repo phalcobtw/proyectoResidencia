@@ -12,6 +12,17 @@ $(".progbutton").click(function() {
     document.getElementById("descprog").value = $descrprog;
     /* alert($claveprog); */
 });
+var foliotxt = document.getElementById("foliotxt");
+foliotxt.addEventListener("change",function(){
+    var numero = foliotxt.value
+    let isnum = /^\d+$/.test(val);
+    if (isnum) {
+        
+    } else {
+        alert("Solo utilice datos numericos en folio");
+        foliotxt.focus();
+    }
+})
 
 $(".cuentasbutton").click(function() {
     var $rowcuenta = $(this).closest("tr");    // Find the row

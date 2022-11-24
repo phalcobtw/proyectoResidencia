@@ -116,7 +116,26 @@ $(".activoButton").click(function () {
 $(".isrButton").click(function () {
     var $rowisr = $(this).closest("tr");    // Find the row
     var $claveisr = $rowisr.find(".isrtd").text(); // Find the text
-    var $descisr = $rowisr.find(".descisrtd").text();    
+    var $descisr = $rowisr.find(".descisrtd").text();   
+    var $tiporetisr = $rowisr.find(".tiporettd").text();
+    var isrTxt = document.getElementById("isrResta");
+    var isrARestar = 0;
+    if ($tiporetisr === "HON") {
+        isrARestar = (resultadoResta/110)*10;
+        resultadoResta = resultadoResta - (isrARestar);
+        importeFinal.value = resultadoResta.toFixed(4);
+        console.log('ISR: ' + isrARestar);
+        console.log('Resultado: '+resultadoResta);
+        isrTxt.value = isrARestar.toFixed(4);
+    }
+    else if ($tiporetisr === "RESP" || $tiporetisr === "RESH") {
+        isrARestar = (resultadoResta/101.25)*1.25;
+        resultadoResta = resultadoResta - (isrARestar);
+        importeFinal.value = resultadoResta.toFixed(4);
+        console.log('ISR: ' + isrARestar);
+        console.log('Resultado: '+resultadoResta);
+        isrTxt.value = isrARestar.toFixed(4);
+    }
     document.getElementById("claveisr").value = $claveisr;
     document.getElementById("descisr").value = $descisr;
 });
@@ -129,21 +148,20 @@ $(".ivaButton").click(function () {
     var importe = document.getElementById("importeTxt");
     var ivaTxt = document.getElementById("ivaResta");
     var ivaARestar = 0;
-    if ($tiporet === "EMP") {
-        /* ivaARestar = ((parseInt(importe.value))*0.16); */
+    if ($tiporet === "EMP" || $tiporet === "RESP") {
         ivaARestar = (importe.value/116)*16;
-        /* console.log(ivaARestar); */
         resultadoResta = resultadoResta - (ivaARestar);
-        /* console.log(resultadoResta); */
-        importeFinal.value = resultadoResta;
-        ivaTxt.value = ivaARestar;
+        importeFinal.value = resultadoResta.toFixed(4);
+        console.log('IVA: ' + ivaARestar);
+        console.log('Resultado: '+resultadoResta);
+        ivaTxt.value = ivaARestar.toFixed(4);
     }
-    else if ($tiporet === "HON") {
+    else if ($tiporet === "HON" || $tiporet === "RESH") {
         /* ivaARestar = ((parseInt(importe.value))*0.16); */
         ivaARestar = (importe.value/110.6667)*10.6667;
-        console.log(ivaARestar.toFixed(4));
+        /* console.log(ivaARestar.toFixed(4)); */
         resultadoResta = resultadoResta - (ivaARestar);
-        console.log(resultadoResta.toFixed(4));
+        /* console.log(resultadoResta.toFixed(4)); */
         importeFinal.value = resultadoResta.toFixed(4);
         ivaTxt.value = ivaARestar.toFixed(4);
     }
@@ -202,11 +220,16 @@ $(".limpiarIva").click(function (){
     document.getElementById("ivaResta").value = "";
     resultadoResta = importe.value;
     ivaARestar = 0;
+    importeFinal.value = "";
 });
 
 $(".limpiarIsr").click(function (){
     document.getElementById("claveisr").value = "";
     document.getElementById("descisr").value = "";
+    document.getElementById("isrResta").value = "";
+    resultadoResta = importe.value;
+    isrARestar = 0;
+    importeFinal.value = "";
 });
 
 $(".limpiarActivo").click(function (){

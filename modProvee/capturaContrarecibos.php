@@ -789,6 +789,18 @@ if (isset($_POST['submit'])) {
                                     <input type="text" class="form-control" id="descisr" name="descisrN" style="color:red;" readonly>
                                 </div>
                             </div>
+                            <div class="row text-center">
+                                <div class="col-4 mt-2">
+
+                                </div>
+                                <div class="col-4 mt-2">
+                                    <label for="" class="form-label">CANTIDAD A RESTAR:</label>
+                                    <input type="text" class="form-control" id="isrResta" style="color: red;">
+                                </div>
+                                <div class="col-4 mt-2">
+                                    
+                                </div>
+                            </div>
                             <div class="accordion mt-2" id="accordionExample">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingSeven">
@@ -808,6 +820,9 @@ if (isset($_POST['submit'])) {
                                                             Descripcion
                                                         </th>
                                                         <th>
+                                                            Tipo Ret.
+                                                        </th>
+                                                        <th>
                                                             Seleccionar
                                                         </th>
                                                     </thead>
@@ -820,6 +835,7 @@ if (isset($_POST['submit'])) {
                                 <tr>
                                     <td class="isrtd">' . $rowisr["cuenta"] . '</td>
                                     <td class="descisrtd">' . $rowisr["descripcion"] . '</td>
+                                    <td class="tiporettd">' . $rowisr["tiporet"] . '</td>
                                     <td><button type="button" class="btn btn-outline-dark isrButton">Agregar</button></td> 
                                 </tr>
                                 ';
@@ -831,6 +847,7 @@ if (isset($_POST['submit'])) {
                                                     </tbody>
                                                 </table>
                                             </div>
+                                            <span class="text-muted fw-light">Clickea el boton para restaurar valores</span><br>
                                             <button type="button" class="btn btn-danger limpiarIsr">Limpiar Seleccionado</button>
                                         </div>
                                     </div>

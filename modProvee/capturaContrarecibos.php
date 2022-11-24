@@ -182,7 +182,7 @@ if (isset($_POST['submit'])) {
                 <div class="row">
                     <div class="col-10 mt-2">
                         <label class="form-label">Folio:</label>
-                        <input type="text" class="form-control" name="folio">
+                        <input type="text" class="form-control" name="folio" id="foliotxt">
                     </div>
                     <div class="col-2 mt-2">
                         <label class="form-label">Fecha:</label>
@@ -279,7 +279,7 @@ if (isset($_POST['submit'])) {
                         <input type="text" name="importe" class="form-control" id="importeTxt">
                     </div>
                     <div class="col-4 mt-2">
-                        <label for="" class="form-label">Vencimiento:</label>
+                        <label for="" class="form-label">Vencimiento: <span class="text-muted fw-light">YYYY/MM/DD</span></label>
                         <input type="text" class="form-control" name="vencimiento">
                     </div>
                 </div>
@@ -712,6 +712,18 @@ if (isset($_POST['submit'])) {
                                     <input type="text" class="form-control" id="desciva" name="descivaN" style="color:red;" readonly>
                                 </div>
                             </div>
+                            <div class="row text-center">
+                                <div class="col-4 mt-2">
+
+                                </div>
+                                <div class="col-4 mt-2">
+                                    <label for="" class="form-label">CANTIDAD A RESTAR:</label>
+                                    <input type="text" class="form-control" id="ivaResta" style="color: red;">
+                                </div>
+                                <div class="col-4 mt-2">
+                                    
+                                </div>
+                            </div>
                             <div class="accordion mt-2" id="accordionExample">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingSix">
@@ -731,6 +743,9 @@ if (isset($_POST['submit'])) {
                                                             Descripcion
                                                         </th>
                                                         <th>
+                                                            Tipo Ret.
+                                                        </th>
+                                                        <th>
                                                             Seleccionar
                                                         </th>
                                                     </thead>
@@ -743,6 +758,7 @@ if (isset($_POST['submit'])) {
                                 <tr>
                                     <td class="ivatd">' . $rowiva["cuenta"] . '</td>
                                     <td class="descivatd">' . $rowiva["descripcion"] . '</td>
+                                    <td class="tiporettd">' . $rowiva["tiporet"] . '</td>
                                     <td><button type="button" class="btn btn-outline-dark ivaButton">Agregar</button></td> 
                                 </tr>
                                 ';
@@ -754,6 +770,7 @@ if (isset($_POST['submit'])) {
                                                     </tbody>
                                                 </table>
                                             </div>
+                                            <span class="text-muted fw-light">Clickea el boton para restaurar valores</span><br>
                                             <button type="button" class="btn btn-danger limpiarIva">Limpiar Seleccionado</button>
                                         </div>
                                     </div>

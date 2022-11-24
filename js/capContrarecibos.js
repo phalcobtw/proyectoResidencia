@@ -13,16 +13,16 @@ $(".progbutton").click(function() {
     /* alert($claveprog); */
 });
 var foliotxt = document.getElementById("foliotxt");
-foliotxt.addEventListener("change",function(){
+foliotxt.addEventListener("focusout",function(){
     var numero = foliotxt.value
     let isnum = /^\d+$/.test(numero);
-    if (isnum) {
-        
-    } else {
+    if (!isnum) {
         alert("Solo utilice datos numericos en folio");
-        foliotxt.focus();
+        setTimeout(function (){
+            foliotxt.focus();
+        }, 1);
     }
-})
+});
 
 $(".cuentasbutton").click(function() {
     var $rowcuenta = $(this).closest("tr");    // Find the row

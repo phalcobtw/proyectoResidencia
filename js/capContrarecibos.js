@@ -15,7 +15,7 @@ $(".progbutton").click(function() {
 var foliotxt = document.getElementById("foliotxt");
 foliotxt.addEventListener("change",function(){
     var numero = foliotxt.value
-    let isnum = /^\d+$/.test(val);
+    let isnum = /^\d+$/.test(numero);
     if (isnum) {
         
     } else {
@@ -56,10 +56,12 @@ else{
 });});
 
 var importe = document.getElementById("importeTxt");
+var resultadoResta = importe.value;
 importe.addEventListener("change", function () {
     var valorImporte = importe.value;
     var importeFinal = document.getElementById("importeFinal");
-    importeFinal.value = valorImporte;    
+    importeFinal.value = valorImporte;  
+    resultadoResta = importe.value;
 });
 
 $(".gastoButton").click(function(){
@@ -122,7 +124,29 @@ $(".isrButton").click(function () {
 $(".ivaButton").click(function () {
     var $rowiva = $(this).closest("tr");    // Find the row
     var $claveiva = $rowiva.find(".ivatd").text(); // Find the text
-    var $desciva = $rowiva.find(".descivatd").text();    
+    var $desciva = $rowiva.find(".descivatd").text();   
+    var $tiporet = $rowiva.find(".tiporettd").text();
+    var importe = document.getElementById("importeTxt");
+    var ivaTxt = document.getElementById("ivaResta");
+    var ivaARestar = 0;
+    if ($tiporet === "EMP") {
+        /* ivaARestar = ((parseInt(importe.value))*0.16); */
+        ivaARestar = (importe.value/116)*16;
+        /* console.log(ivaARestar); */
+        resultadoResta = resultadoResta - (ivaARestar);
+        /* console.log(resultadoResta); */
+        importeFinal.value = resultadoResta;
+        ivaTxt.value = ivaARestar;
+    }
+    else if ($tiporet === "HON") {
+        /* ivaARestar = ((parseInt(importe.value))*0.16); */
+        ivaARestar = (importe.value/110.6667)*10.6667;
+        console.log(ivaARestar.toFixed(4));
+        resultadoResta = resultadoResta - (ivaARestar);
+        console.log(resultadoResta.toFixed(4));
+        importeFinal.value = resultadoResta.toFixed(4);
+        ivaTxt.value = ivaARestar.toFixed(4);
+    }
     document.getElementById("claveiva").value = $claveiva;
     document.getElementById("desciva").value = $desciva;
 });
@@ -175,6 +199,9 @@ $(".limpiarGasto").click(function (){
 $(".limpiarIva").click(function (){
     document.getElementById("claveiva").value = "";
     document.getElementById("desciva").value = "";
+    document.getElementById("ivaResta").value = "";
+    resultadoResta = importe.value;
+    ivaARestar = 0;
 });
 
 $(".limpiarIsr").click(function (){

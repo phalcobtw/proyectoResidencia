@@ -56,12 +56,18 @@ else{
 });});
 
 var importe = document.getElementById("importeTxt");
-var resultadoResta = importe.value;
+var importeFinal = document.getElementById("importeFinal");
+var spanImporte = document.getElementById("spanImporte");
+var resultadoResta;
+var savedRes;
 importe.addEventListener("change", function () {
     var valorImporte = importe.value;
-    var importeFinal = document.getElementById("importeFinal");
-    importeFinal.value = valorImporte;  
-    resultadoResta = importe.value;
+    var calculoIva = parseFloat(valorImporte)*0.16;
+    spanImporte.textContent = ' IVA: $'+calculoIva.toFixed(2);
+    importeFinal.value = (parseFloat(valorImporte) + parseFloat(calculoIva));
+    resultadoResta = parseFloat(importeFinal.value).toFixed(4);
+    savedRes = parseFloat(importeFinal.value).toFixed(4);
+    /* console.log(resultadoResta); */
 });
 
 $(".gastoButton").click(function(){
@@ -121,17 +127,17 @@ $(".isrButton").click(function () {
     var isrTxt = document.getElementById("isrResta");
     var isrARestar = 0;
     if ($tiporetisr === "HON") {
-        isrARestar = (resultadoResta/110)*10;
+        isrARestar = (savedRes/110)*10;
         resultadoResta = resultadoResta - (isrARestar);
-        importeFinal.value = resultadoResta.toFixed(4);
+        importeFinal.value = parseFloat(resultadoResta).toFixed(4);
         console.log('ISR: ' + isrARestar);
         console.log('Resultado: '+resultadoResta);
         isrTxt.value = isrARestar.toFixed(4);
     }
     else if ($tiporetisr === "RESP" || $tiporetisr === "RESH") {
-        isrARestar = (resultadoResta/101.25)*1.25;
+        isrARestar = (savedRes/101.25)*1.25;
         resultadoResta = resultadoResta - (isrARestar);
-        importeFinal.value = resultadoResta.toFixed(4);
+        importeFinal.value = parseFloat(resultadoResta).toFixed(4);
         console.log('ISR: ' + isrARestar);
         console.log('Resultado: '+resultadoResta);
         isrTxt.value = isrARestar.toFixed(4);
@@ -149,20 +155,17 @@ $(".ivaButton").click(function () {
     var ivaTxt = document.getElementById("ivaResta");
     var ivaARestar = 0;
     if ($tiporet === "EMP" || $tiporet === "RESP") {
-        ivaARestar = (importe.value/116)*16;
+        ivaARestar = (savedRes/116)*16;
         resultadoResta = resultadoResta - (ivaARestar);
-        importeFinal.value = resultadoResta.toFixed(4);
+        importeFinal.value = parseFloat(resultadoResta).toFixed(4);
         console.log('IVA: ' + ivaARestar);
         console.log('Resultado: '+resultadoResta);
         ivaTxt.value = ivaARestar.toFixed(4);
     }
     else if ($tiporet === "HON" || $tiporet === "RESH") {
-        /* ivaARestar = ((parseInt(importe.value))*0.16); */
-        ivaARestar = (importe.value/110.6667)*10.6667;
-        /* console.log(ivaARestar.toFixed(4)); */
+        ivaARestar = (savedRes/110.6667)*10.6667;
         resultadoResta = resultadoResta - (ivaARestar);
-        /* console.log(resultadoResta.toFixed(4)); */
-        importeFinal.value = resultadoResta.toFixed(4);
+        importeFinal.value = parseFloat(resultadoResta).toFixed(4);
         ivaTxt.value = ivaARestar.toFixed(4);
     }
     document.getElementById("claveiva").value = $claveiva;
@@ -218,7 +221,7 @@ $(".limpiarIva").click(function (){
     document.getElementById("claveiva").value = "";
     document.getElementById("desciva").value = "";
     document.getElementById("ivaResta").value = "";
-    resultadoResta = importe.value;
+    resultadoResta = savedRes;
     ivaARestar = 0;
     importeFinal.value = "";
 });
@@ -227,7 +230,7 @@ $(".limpiarIsr").click(function (){
     document.getElementById("claveisr").value = "";
     document.getElementById("descisr").value = "";
     document.getElementById("isrResta").value = "";
-    resultadoResta = importe.value;
+    resultadoResta = savedRes;
     isrARestar = 0;
     importeFinal.value = "";
 });

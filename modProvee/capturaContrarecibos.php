@@ -270,12 +270,12 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4 mt-2">
+                    <div class="col-3 mt-2">
                         <label class="form-label">Factura:</label>
                         <input type="text" class="form-control" name="factura">
                     </div>
-                    <div class="col-4 mt-2">
-                        <label class="form-label">Importe:</label>
+                    <div class="col-5 mt-2">
+                        <label class="form-label">Importe Subtotal:</label><span id="spanImporte" class="text-muted fw-light"></span>
                         <input type="text" name="importe" class="form-control" id="importeTxt">
                     </div>
                     <div class="col-4 mt-2">
@@ -378,268 +378,268 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div id="next">
                     <!-- <div class="row text-center"> -->
-                        <div class="col mt-2">
-                            <div class="row text-center">
-                                <div class="col-4 mt-2">
-                                    <label for="" class="form-label label-txt">CUENTA DE CARGO: </label>
-                                </div>
-                                <div class="col-4 mt-2">
-                                    <input type="text" class="form-control" id="cuencar" name="cuencarn" style="color:red;" readonly>
-                                </div>
-                                <div class="col-4 mt-2">
-                                    <input type="text" class="form-control" id="cuencardesc" name="cuencardescn" style="color:red;" readonly>
-                                </div>
-                                <div class="col-4 mt-2">
-                                    <label for="" class="form-label label-txt">CUENTA DE ABONO: </label>
-                                </div>
-                                <div class="col-4 mt-2">
-                                    <input type="text" class="form-control" id="cuenabo" name="cuenabon" style="color:red;" readonly>
-                                </div>
-                                <div class="col-4 mt-2">
-                                    <input type="text" class="form-control" id="cuenabodesc" name="cuenabodescn" style="color:red;" readonly>
-                                </div>
+                    <div class="col mt-2">
+                        <div class="row text-center">
+                            <div class="col-4 mt-2">
+                                <label for="" class="form-label label-txt">CUENTA DE CARGO: </label>
+                            </div>
+                            <div class="col-4 mt-2">
+                                <input type="text" class="form-control" id="cuencar" name="cuencarn" style="color:red;" readonly>
+                            </div>
+                            <div class="col-4 mt-2">
+                                <input type="text" class="form-control" id="cuencardesc" name="cuencardescn" style="color:red;" readonly>
+                            </div>
+                            <div class="col-4 mt-2">
+                                <label for="" class="form-label label-txt">CUENTA DE ABONO: </label>
+                            </div>
+                            <div class="col-4 mt-2">
+                                <input type="text" class="form-control" id="cuenabo" name="cuenabon" style="color:red;" readonly>
+                            </div>
+                            <div class="col-4 mt-2">
+                                <input type="text" class="form-control" id="cuenabodesc" name="cuenabodescn" style="color:red;" readonly>
+                            </div>
 
-                                <div class="row text-center">
-                                    <div class="col mt-4">
-                                        <label for="" class="form-label label-txt mt-2">PROGRAMA:</label>
-                                    </div>
+                            <div class="row text-center">
+                                <div class="col mt-4">
+                                    <label for="" class="form-label label-txt mt-2">PROGRAMA:</label>
                                 </div>
-                                <div class="col-6 mt-2">
-                                    <input type="text" class="form-control" id="claveprog" name="claveprogn" style="color:red;" readonly>
-                                </div>
-                                <div class="col-6 mt-2">
-                                    <input type="text" class="form-control" id="descprog" name="descprogn" style="color:red;" readonly>
-                                </div>
-                                <br>
-                                <div class="accordion mt-2" id="accordionExample">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingOne">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                                <strong>Mostrar/Ocultar Tabla:</strong>
-                                            </button>
-                                        </h2>
-                                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <div class="table-wrapper">
-                                                    <table class="table table-sm table-hover table-striped palco-table">
-                                                        <thead class="table-dark">
-                                                            <th>
-                                                                Clave
-                                                            </th>
-                                                            <th>
-                                                                Descripcion
-                                                            </th>
-                                                            <th>
-                                                                Seleccionar
-                                                            </th>
-                                                        </thead>
-                                                        <tbody class="palco-tbody">
-                                                            <?php
-                                                            $sqlprog = "SELECT * from `programacatalogo`";
-                                                            $resultprog = mysqli_query($conn, $sqlprog);
-                                                            while ($rowprog = mysqli_fetch_array($resultprog)) {
-                                                                echo '
+                            </div>
+                            <div class="col-6 mt-2">
+                                <input type="text" class="form-control" id="claveprog" name="claveprogn" style="color:red;" readonly>
+                            </div>
+                            <div class="col-6 mt-2">
+                                <input type="text" class="form-control" id="descprog" name="descprogn" style="color:red;" readonly>
+                            </div>
+                            <br>
+                            <div class="accordion mt-2" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                            <strong>Mostrar/Ocultar Tabla:</strong>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="table-wrapper">
+                                                <table class="table table-sm table-hover table-striped palco-table">
+                                                    <thead class="table-dark">
+                                                        <th>
+                                                            Clave
+                                                        </th>
+                                                        <th>
+                                                            Descripcion
+                                                        </th>
+                                                        <th>
+                                                            Seleccionar
+                                                        </th>
+                                                    </thead>
+                                                    <tbody class="palco-tbody">
+                                                        <?php
+                                                        $sqlprog = "SELECT * from `programacatalogo`";
+                                                        $resultprog = mysqli_query($conn, $sqlprog);
+                                                        while ($rowprog = mysqli_fetch_array($resultprog)) {
+                                                            echo '
                                 <tr>
                                     <td class="progtd">' . $rowprog["programa"] . '</td>
                                     <td class="progdesctd">' . $rowprog["descripcion"] . '</td>
                                     <td><button type="button" class="btn btn-outline-dark progbutton">Agregar</button></td> 
                                 </tr>
                                 ';
-                                                            }
-                                                            echo '
+                                                        }
+                                                        echo '
                             
                             '
-                                                            ?>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <button type="button" class="btn btn-danger limpiarPrograma">Limpiar Seleccionado</button>
+                                                        ?>
+                                                    </tbody>
+                                                </table>
                                             </div>
+                                            <button type="button" class="btn btn-danger limpiarPrograma">Limpiar Seleccionado</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row text-center">
-                            <div class="col mt-2">
-                                <label for="" class="form-label label-txt">ACTIVIDAD:</label>
-                                <div class="row text-center">
-                                    <div class="col-6 mt-2">
-                                        <input type="text" class="form-control" id="claveact" name="claveactn" style="color:red;" readonly>
-                                    </div>
-                                    <div class="col-6 mt-2">
-                                        <input type="text" class="form-control" id="descact" name="descactn" style="color:red;" readonly>
-                                    </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col mt-2">
+                            <label for="" class="form-label label-txt">ACTIVIDAD:</label>
+                            <div class="row text-center">
+                                <div class="col-6 mt-2">
+                                    <input type="text" class="form-control" id="claveact" name="claveactn" style="color:red;" readonly>
                                 </div>
-                                <div class="accordion mt-2" id="accordionExample">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingTwo">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                <strong>Mostrar/Ocultar Tabla:</strong>
-                                            </button>
-                                        </h2>
-                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <div class="table-wrapper">
-                                                    <table class="table table-sm table-hover table-striped palco-table">
-                                                        <thead class="table-dark">
-                                                            <th>
-                                                                Clave
-                                                            </th>
-                                                            <th>
-                                                                Descripcion
-                                                            </th>
-                                                            <th>
-                                                                Seleccionar
-                                                            </th>
-                                                        </thead>
-                                                        <tbody class="palco-tbody">
-                                                            <?php
-                                                            $sqlact = "SELECT * from `actividadcatalogo`";
-                                                            $resultact = mysqli_query($conn, $sqlact);
-                                                            while ($rowact = mysqli_fetch_array($resultact)) {
-                                                                echo '
+                                <div class="col-6 mt-2">
+                                    <input type="text" class="form-control" id="descact" name="descactn" style="color:red;" readonly>
+                                </div>
+                            </div>
+                            <div class="accordion mt-2" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            <strong>Mostrar/Ocultar Tabla:</strong>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="table-wrapper">
+                                                <table class="table table-sm table-hover table-striped palco-table">
+                                                    <thead class="table-dark">
+                                                        <th>
+                                                            Clave
+                                                        </th>
+                                                        <th>
+                                                            Descripcion
+                                                        </th>
+                                                        <th>
+                                                            Seleccionar
+                                                        </th>
+                                                    </thead>
+                                                    <tbody class="palco-tbody">
+                                                        <?php
+                                                        $sqlact = "SELECT * from `actividadcatalogo`";
+                                                        $resultact = mysqli_query($conn, $sqlact);
+                                                        while ($rowact = mysqli_fetch_array($resultact)) {
+                                                            echo '
                                 <tr>
                                     <td class="acttd">' . $rowact["actividad"] . '</td>
                                     <td class="descacttd">' . $rowact["descripcion"] . '</td>
                                     <td><button type="button" class="btn btn-outline-dark actbutton">Agregar</button></td> 
                                 </tr>
                                 ';
-                                                            }
-                                                            echo '
+                                                        }
+                                                        echo '
                             
                             '
-                                                            ?>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <button type="button" class="btn btn-danger limpiarActividad">Limpiar Seleccionado</button>
+                                                        ?>
+                                                    </tbody>
+                                                </table>
                                             </div>
+                                            <button type="button" class="btn btn-danger limpiarActividad">Limpiar Seleccionado</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row text-center">
-                            <div class="col mt-2">
-                                <label for="" class="form-label">PARTIDA:</label>
-                                <div class="row text-center">
-                                    <div class="col-6 mt-2">
-                                        <input type="text" class="form-control" id="clavepart" name="clavepartn" style="color:red;" readonly>
-                                    </div>
-                                    <div class="col-6 mt-2">
-                                        <input type="text" class="form-control" id="descpart" name="descpartn" style="color:red;" readonly>
-                                    </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col mt-2">
+                            <label for="" class="form-label">PARTIDA:</label>
+                            <div class="row text-center">
+                                <div class="col-6 mt-2">
+                                    <input type="text" class="form-control" id="clavepart" name="clavepartn" style="color:red;" readonly>
                                 </div>
-                                <div class="accordion mt-2" id="accordionExample">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingThree">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                <strong>Mostrar/Ocultar Tabla:</strong>
-                                            </button>
-                                        </h2>
-                                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <div class="table-wrapper">
-                                                    <table class="table table-sm table-hover table-striped palco-table">
-                                                        <thead class="table-dark">
-                                                            <th>
-                                                                Clave
-                                                            </th>
-                                                            <th>
-                                                                Descripcion
-                                                            </th>
-                                                            <th>
-                                                                Seleccionar
-                                                            </th>
-                                                        </thead>
-                                                        <tbody class="palco-tbody">
-                                                            <?php
-                                                            $sqlpar = "SELECT * from `partidacatalogo`";
-                                                            $resultpar = mysqli_query($conn, $sqlpar);
-                                                            while ($rowpar = mysqli_fetch_array($resultpar)) {
-                                                                echo '
+                                <div class="col-6 mt-2">
+                                    <input type="text" class="form-control" id="descpart" name="descpartn" style="color:red;" readonly>
+                                </div>
+                            </div>
+                            <div class="accordion mt-2" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            <strong>Mostrar/Ocultar Tabla:</strong>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="table-wrapper">
+                                                <table class="table table-sm table-hover table-striped palco-table">
+                                                    <thead class="table-dark">
+                                                        <th>
+                                                            Clave
+                                                        </th>
+                                                        <th>
+                                                            Descripcion
+                                                        </th>
+                                                        <th>
+                                                            Seleccionar
+                                                        </th>
+                                                    </thead>
+                                                    <tbody class="palco-tbody">
+                                                        <?php
+                                                        $sqlpar = "SELECT * from `partidacatalogo`";
+                                                        $resultpar = mysqli_query($conn, $sqlpar);
+                                                        while ($rowpar = mysqli_fetch_array($resultpar)) {
+                                                            echo '
                                 <tr>
                                     <td class="parttd">' . $rowpar["partida"] . '</td>
                                     <td class="descparttd">' . $rowpar["descripcion"] . '</td>
                                     <td><button type="button" class="btn btn-outline-dark partbutton">Agregar</button></td> 
                                 </tr>
                                 ';
-                                                            }
-                                                            echo '
+                                                        }
+                                                        echo '
                             
                             '
-                                                            ?>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <button type="button" class="btn btn-danger limpiarPartida">Limpiar Seleccionado</button>
+                                                        ?>
+                                                    </tbody>
+                                                </table>
                                             </div>
+                                            <button type="button" class="btn btn-danger limpiarPartida">Limpiar Seleccionado</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row text-center">
-                            <div class="col mt-2">
-                                <label for="" class="form-label">DEPARTAMENTO:</label>
-                                <div class="row text-center">
-                                    <div class="col-6 mt-2">
-                                        <input type="text" class="form-control" id="clavedep" name="clavedepn" style="color:red;" readonly>
-                                    </div>
-                                    <div class="col-6 mt-2">
-                                        <input type="text" class="form-control" id="descdep" name="descdepn" style="color:red;" readonly>
-                                    </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col mt-2">
+                            <label for="" class="form-label">DEPARTAMENTO:</label>
+                            <div class="row text-center">
+                                <div class="col-6 mt-2">
+                                    <input type="text" class="form-control" id="clavedep" name="clavedepn" style="color:red;" readonly>
                                 </div>
-                                <div class="accordion mt-2" id="accordionExample">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingFour">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                                <strong>Mostrar/Ocultar Tabla:</strong>
-                                            </button>
-                                        </h2>
-                                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <div class="table-wrapper">
-                                                    <table class="table table-sm table-hover table-striped palco-table">
-                                                        <thead class="table-dark">
-                                                            <th>
-                                                                Clave
-                                                            </th>
-                                                            <th>
-                                                                Descripcion
-                                                            </th>
-                                                            <th>
-                                                                Seleccionar
-                                                            </th>
-                                                        </thead>
-                                                        <tbody class="palco-tbody">
-                                                            <?php
-                                                            $sqldep = "SELECT * from `departamentocatalogo`";
-                                                            $resultdep = mysqli_query($conn, $sqldep);
-                                                            while ($rowdep = mysqli_fetch_array($resultdep)) {
-                                                                echo '
+                                <div class="col-6 mt-2">
+                                    <input type="text" class="form-control" id="descdep" name="descdepn" style="color:red;" readonly>
+                                </div>
+                            </div>
+                            <div class="accordion mt-2" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFour">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                            <strong>Mostrar/Ocultar Tabla:</strong>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="table-wrapper">
+                                                <table class="table table-sm table-hover table-striped palco-table">
+                                                    <thead class="table-dark">
+                                                        <th>
+                                                            Clave
+                                                        </th>
+                                                        <th>
+                                                            Descripcion
+                                                        </th>
+                                                        <th>
+                                                            Seleccionar
+                                                        </th>
+                                                    </thead>
+                                                    <tbody class="palco-tbody">
+                                                        <?php
+                                                        $sqldep = "SELECT * from `departamentocatalogo`";
+                                                        $resultdep = mysqli_query($conn, $sqldep);
+                                                        while ($rowdep = mysqli_fetch_array($resultdep)) {
+                                                            echo '
                                     <tr>
                                         <td class="deptd">' . $rowdep["departamento"] . '</td>
                                         <td class="descdeptd">' . $rowdep["descripcion"] . '</td>
                                         <td><button type="button" class="btn btn-outline-dark depbutton">Agregar</button></td> 
                                     </tr>
                                     ';
-                                                            }
-                                                            echo '
+                                                        }
+                                                        echo '
                                 
                                 '
-                                                            ?>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <button type="button" class="btn btn-danger limpiarDepartamento">Limpiar Seleccionado</button>
+                                                        ?>
+                                                    </tbody>
+                                                </table>
                                             </div>
+                                            <button type="button" class="btn btn-danger limpiarDepartamento">Limpiar Seleccionado</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     <!-- </div> -->
                     <div class="row text-center">
                         <div class="col mt-2">
@@ -721,7 +721,7 @@ if (isset($_POST['submit'])) {
                                     <input type="text" class="form-control" id="ivaResta" style="color: red;">
                                 </div>
                                 <div class="col-4 mt-2">
-                                    
+
                                 </div>
                             </div>
                             <div class="accordion mt-2" id="accordionExample">
@@ -798,7 +798,7 @@ if (isset($_POST['submit'])) {
                                     <input type="text" class="form-control" id="isrResta" style="color: red;">
                                 </div>
                                 <div class="col-4 mt-2">
-                                    
+
                                 </div>
                             </div>
                             <div class="accordion mt-2" id="accordionExample">
@@ -918,7 +918,7 @@ if (isset($_POST['submit'])) {
                     <div class="row">
                         <div class="col mt-2">
                             <div class="label-form">
-                                Importe:
+                                Importe Total:
                             </div>
                             <input type="text" class="form-control" id="importeFinal" name="importeFinalN">
                         </div>

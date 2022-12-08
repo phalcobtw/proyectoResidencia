@@ -127,7 +127,7 @@ $(".isrButton").click(function () {
     var isrTxt = document.getElementById("isrResta");
     var isrARestar = 0;
     if ($tiporetisr === "HON") {
-        isrARestar = (savedRes/110)*10;
+        isrARestar = importe.value*0.10;
         resultadoResta = resultadoResta - (isrARestar);
         importeFinal.value = parseFloat(resultadoResta).toFixed(4);
         console.log('ISR: ' + isrARestar);
@@ -135,7 +135,7 @@ $(".isrButton").click(function () {
         isrTxt.value = isrARestar.toFixed(4);
     }
     else if ($tiporetisr === "RESP" || $tiporetisr === "RESH") {
-        isrARestar = (savedRes/101.25)*1.25;
+        isrARestar = importe.value*0.0125;
         resultadoResta = resultadoResta - (isrARestar);
         importeFinal.value = parseFloat(resultadoResta).toFixed(4);
         console.log('ISR: ' + isrARestar);
@@ -155,7 +155,7 @@ $(".ivaButton").click(function () {
     var ivaTxt = document.getElementById("ivaResta");
     var ivaARestar = 0;
     if ($tiporet === "EMP" || $tiporet === "RESP") {
-        ivaARestar = (savedRes/116)*16;
+        ivaARestar = importe.value*0.16;
         resultadoResta = resultadoResta - (ivaARestar);
         importeFinal.value = parseFloat(resultadoResta).toFixed(4);
         console.log('IVA: ' + ivaARestar);
@@ -163,7 +163,7 @@ $(".ivaButton").click(function () {
         ivaTxt.value = ivaARestar.toFixed(4);
     }
     else if ($tiporet === "HON" || $tiporet === "RESH") {
-        ivaARestar = (savedRes/110.6667)*10.6667;
+        ivaARestar = importe.value*0.106667;
         resultadoResta = resultadoResta - (ivaARestar);
         importeFinal.value = parseFloat(resultadoResta).toFixed(4);
         ivaTxt.value = ivaARestar.toFixed(4);

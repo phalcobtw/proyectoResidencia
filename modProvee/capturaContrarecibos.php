@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
 
     $sqlins = "INSERT INTO `cheques`(`id`, `folio`, `fecha`, `claveproveedor`, `descprovee`, `fuenteingresos`, `estadopoliza`, `factura`, `importe`, `vencimiento`, 
     `descripcioncheque`, `cuentacargo`, `cuentaabono`, `claveprog`, `descprog`, `claveact`, `descact`, `clavepart`, `descpart`, `clavedep`, `descdep`, 
-    `clavegasto`, `descgasto`, `claveiva`, `desciva`, `claveisr`, `descisr`, `claveactivo`, `descactivo`) VALUES ('[value-1]',
+    `clavegasto`, `descgasto`, `claveiva`, `desciva`, `claveisr`, `descisr`, `claveactivo`, `descactivo`) VALUES (NULL,
     '$foliorec','$fecharec','$claveprovee','$descprovee','$fuenteing','$estpoliza','$factura','$importe','$vencimiento','$descripcioncheque','$cuentacargo','$cuentaabono','$claveprog','$descprog',
     '$claveact','$descact','$clavepart','$descpart','$clavedep','$descdep','$clavegasto','$descgasto','$claveiva','$desciva','$claveisr','$descisr','$claveactivo','$descactivo')";
     $result = mysqli_query($conn, $sqlins);
